@@ -1,0 +1,16 @@
+{
+  "name": "kakahikari.github.io",
+  "version": "0.0.0",
+  "description": "kakahikari's blog",
+  "main": "index.js",
+  "repository": "https://github.com/kakahikari/kakahikari.github.io.git",
+  "author": "kakahikari <kakahikari@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vuepress dev src",
+    "build": "vuepress build src"
+  },
+  "devDependencies": {
+    "vuepress": "^1.7.1"
+  }
+}
