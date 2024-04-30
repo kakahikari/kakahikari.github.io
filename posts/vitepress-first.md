@@ -1,11 +1,10 @@
 ---
-date: 2021-06-30
-title: 一直想找一个系统架构和设计都足够干净的系统
+date: 2024-04-30
+title: Hello World
 category: 主题
 tags:
 - vitepress
-- markdown
-description: vitepress的markdown插件支持的语法，一直想找一个干净的系统架构和设计都足够干净都，一直没满意的，不满意就自己设计，一直想找一个干净的系统架构和设计都足够干净都，一直没满意的，不满意就自己设计
+description: 這是一篇預設的文章
 ---
 # 一直想找一个系统架构和设计都足够干净的系统
 ## 前提
