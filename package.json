@@ -16,5 +16,6 @@
     "globby": "^14.0.1",
     "gray-matter": "^4.0.3",
     "fs-extra": "^11.2.0"
-  }
+  },
+  "packageManager": "pnpm@7.28.0"
 }
