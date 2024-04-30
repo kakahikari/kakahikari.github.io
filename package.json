@@ -1,0 +1,20 @@
+{
+  "name": "kakahikari.github.io",
+  "version": "0.0.0",
+  "description": "kakahikari's blog",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vitepress dev --host 0.0.0.0",
+    "build": "vitepress build",
+    "preview": "vitepress preview"
+  },
+  "author": "kakahikari <kakahikari@gmail.com>",
+  "type": "module",
+  "license": "ISC",
+  "devDependencies": {
+    "vitepress": "^1.0.2",
+    "globby": "^14.0.1",
+    "gray-matter": "^4.0.3",
+    "fs-extra": "^11.2.0"
+  }
+}
