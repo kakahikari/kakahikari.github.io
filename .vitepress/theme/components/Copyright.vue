@@ -1,15 +1,17 @@
 <template>
-    <div class="site-footer">
-        <div>
-            Copyright © {{ currentYear }}&nbsp;
-            <img src="../assets/logo.webp" alt="logo" class="logo" />
-            <a class="link" :href="website">{{ webTitle }}</a>
-        </div>
-        <div>
-            Powered by&nbsp;
-            <a class="link" target="_blank" href="//vitepress.vuejs.org/">VitePress - {{ vitepressVersion }}</a>
-        </div>
+  <div class="site-footer">
+    <div>
+      Copyright © {{ currentYear }}&nbsp;
+      <img src="../assets/logo.webp" alt="logo" class="logo" />
+      <a class="link" :href="website">{{ webTitle }}</a>
     </div>
+    <div>
+      Powered by&nbsp;
+      <a class="link" target="_blank" href="//vitepress.vuejs.org/"
+        >VitePress - {{ vitepressVersion }}</a
+      >
+    </div>
+  </div>
 </template>
 <script lang="ts" setup>
 import { useData } from 'vitepress'
@@ -24,27 +26,27 @@ const currentYear = new Date().getFullYear()
 
 <style scoped>
 .site-footer {
-    color: #888;
-    text-align: center;
-    font-size: 0.75rem;
-    width: 100%;
-    padding: 15px 0;
-    overflow: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  color: #888;
+  text-align: center;
+  font-size: 0.75rem;
+  width: 100%;
+  padding: 15px 0;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .site-footer div {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 .link {
-    color: var(--vp-c-text-1);
-    font-weight: 700;
+  color: var(--vp-c-text-1);
+  font-weight: 700;
 }
 .logo {
-    width: 24px;
-    height: 24px;
-    margin-right: 4px;
+  width: 24px;
+  height: 24px;
+  margin-right: 4px;
 }
 </style>

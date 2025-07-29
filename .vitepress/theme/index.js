@@ -10,14 +10,14 @@ import Comment from './components/Comment.vue'
 import './custom.css'
 
 export default {
-    ...DefaultTheme,
-    Layout: NewLayout,
-    enhanceApp({ app }) {
-        // register global compoment
-        app.component('Tags', Tags)
-        app.component('Category', Category)
-        app.component('Archives', Archives)
-        app.component('Page', Page)
-        app.component('Comment', Comment)
-    }
+  ...DefaultTheme,
+  Layout: NewLayout,
+  enhanceApp({ app }) {
+    // register global compoment
+    app.component('Tags', Tags)
+    app.component('Category', Category)
+    app.component('Archives', Archives)
+    app.component('Page', Page)
+    app.component('Comment', Comment)
+  },
 }

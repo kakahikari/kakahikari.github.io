@@ -3,10 +3,11 @@ date: 2024-05-02
 title: 解決pnpm error ERR_INVALID_THIS
 category: 除錯
 tags:
-- pnpm
-- node.js
+  - pnpm
+  - node.js
 description: 將 Node.js 版本從 18 升級到 20 後，嘗試使用 pnpm 安裝套件時遇到 "ERR_INVALID_THIS" 錯誤。暫時回退到 Node 18 可正常安裝。這個問題可能與 pnpm 版本有關，升級到 v8.3.1 或更新版本可能有機會解決。文中提供了錯誤訊息的程式碼示例以及目前的因應措施。
 ---
+
 # 解決pnpm error ERR_INVALID_THIS
 
 ## 問題敘述
