@@ -4,12 +4,14 @@ specifiers:
   fs-extra: ^11.2.0
   globby: ^14.0.2
   gray-matter: ^4.0.3
+  prettier: ^3.6.2
   vitepress: ^1.3.4
 
 devDependencies:
   fs-extra: 11.2.0
   globby: 14.0.2
   gray-matter: 4.0.3
+  prettier: 3.6.2
   vitepress: 1.3.4
 
 packages:
@@ -1269,6 +1271,12 @@ packages:
 
   /preact/10.24.0:
     resolution: {integrity: sha512-aK8Cf+jkfyuZ0ZZRG9FbYqwmEiGQ4y/PUO4SuTWoyWL244nZZh7bd5h2APd4rSNDYTBNghg1L+5iJN3Skxtbsw==}
+    dev: true
+
+  /prettier/3.6.2:
+    resolution: {integrity: sha512-I7AIg5boAr5R0FFtJ6rCfD+LFsWHp81dolrFD8S79U9tb8Az2nGrJncnMSnys+bpQJfRUzqs9hnA81OAA3hCuQ==}
+    engines: {node: '>=14'}
+    hasBin: true
     dev: true
 
   /property-information/6.5.0:
