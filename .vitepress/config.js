@@ -41,10 +41,14 @@ export default defineConfig({
     vite: {
         //build: { minify: false }
         server: { port: 5000 }
-    }
+    },
     /*
       optimizeDeps: {
           keepNames: true
       }
       */
+
+    sitemap: {
+        hostname: 'https://kakahikari.github.io/'
+    }
 })
