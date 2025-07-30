@@ -15,7 +15,6 @@ export default defineConfig({
     posts: await getPosts(pageSize),
     //copyright link
     website: 'https://kakahikari.github.io',
-    // 评论的仓库地址
     comment: {
       repo: 'kakahikari/kakahikari.github.io',
       themes: 'github-light',
@@ -34,7 +33,7 @@ export default defineConfig({
     },
     //outline:[2,3],
     outlineTitle: '文章摘要',
-    socialLinks: [{ icon: 'github', link: 'https://kakahikari.github.io' }],
+    socialLinks: [{ icon: 'github', link: 'https://github.com/kakahikari' }],
   },
   srcExclude: ['README.md'], // exclude the README.md , needn't to compiler
 
