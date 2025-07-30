@@ -1,8 +1,11 @@
 import { defineConfig } from 'vitepress'
 import { getPosts } from './theme/serverUtils'
 
-//每页的文章数量
+// 每頁的文章數量
 const pageSize = 10
+
+// Google Analytics ID from environment variable
+const googleAnalyticsId = process.env.GOOGLE_ANALYTICS_ID || ''
 
 export default defineConfig({
   title: "kakahikari's blog",
@@ -50,4 +53,23 @@ export default defineConfig({
   sitemap: {
     hostname: 'https://kakahikari.github.io/',
   },
+  head: [
+    [
+      'script',
+      {
+        async: true,
+        src: `https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`,
+      },
+    ],
+    [
+      'script',
+      {},
+      `
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '${googleAnalyticsId}');
+      `,
+    ],
+  ],
 })
