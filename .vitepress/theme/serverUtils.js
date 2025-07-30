@@ -4,12 +4,12 @@ import fs from 'fs-extra'
 import { resolve } from 'path'
 
 async function getPosts(pageSize) {
-  let paths = await globby(['posts/**.md'])
+  const paths = await globby(['posts/**.md'])
 
   //生成分页页面markdown
   await generatePaginationPages(paths.length, pageSize)
 
-  let posts = await Promise.all(
+  const posts = await Promise.all(
     paths.map(async item => {
       const content = await fs.readFile(item, 'utf-8')
       const { data } = matter(content)
@@ -26,7 +26,7 @@ async function getPosts(pageSize) {
 
 async function generatePaginationPages(total, pageSize) {
   //  pagesNum
-  let pagesNum =
+  const pagesNum =
     total % pageSize === 0 ? total / pageSize : parseInt(total / pageSize) + 1
   const paths = resolve('./')
   if (total > 0) {

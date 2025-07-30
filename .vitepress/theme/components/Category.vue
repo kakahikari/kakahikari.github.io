@@ -1,12 +1,12 @@
 <template>
-  <div v-for="(posts, key) in data">
+  <div v-for="(posts, key) in data" :key="key">
     <div class="category">
       {{ key }}
     </div>
     <a
-      :href="withBase(article.regularPath)"
       v-for="(article, index) in posts"
       :key="index"
+      :href="withBase(article.regularPath)"
       class="posts"
     >
       <div class="post-container">

@@ -1,12 +1,12 @@
 <template>
-  <div v-for="yearList in data">
+  <div v-for="(yearList, yearIndex) in data" :key="yearIndex">
     <div class="year">
       {{ yearList[0].frontMatter.date.split('-')[0] }}
     </div>
     <a
-      :href="withBase(article.regularPath)"
       v-for="(article, index) in yearList"
       :key="index"
+      :href="withBase(article.regularPath)"
       class="posts"
     >
       <div class="post-container">

@@ -10,7 +10,7 @@ type Post = {
 }
 
 export function initTags(post: Post[]) {
-  const data: any = {}
+  const data: Record<string, Post[]> = {}
   for (let index = 0; index < post.length; index++) {
     const element = post[index]
     const tags = element.frontMatter.tags
@@ -29,7 +29,7 @@ export function initTags(post: Post[]) {
 }
 
 export function initCategory(post: Post[]) {
-  const data: any = {}
+  const data: Record<string, Post[]> = {}
   for (let index = 0; index < post.length; index++) {
     const element = post[index]
     const category = element.frontMatter.category
@@ -46,7 +46,7 @@ export function initCategory(post: Post[]) {
 }
 
 export function useYearSort(post: Post[]) {
-  const data = []
+  const data: Post[][] = []
   let year = '0'
   let num = -1
   for (let index = 0; index < post.length; index++) {
@@ -57,7 +57,7 @@ export function useYearSort(post: Post[]) {
         data[num].push(element)
       } else {
         num++
-        data[num] = [] as any
+        data[num] = []
         data[num].push(element)
         year = y
       }

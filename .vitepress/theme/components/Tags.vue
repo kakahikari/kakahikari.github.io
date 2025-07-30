@@ -1,14 +1,14 @@
 <template>
   <div class="tags">
-    <span @click="toggleTag(key)" v-for="(item, key) in data" class="tag">
+    <span v-for="(item, key) in data" :key="key" class="tag" @click="toggleTag(key)">
       {{ key }} <strong>{{ data[key].length }}</strong>
     </span>
   </div>
   <div class="tag-header">{{ selectTag }}</div>
   <a
-    :href="withBase(article.regularPath)"
     v-for="(article, index) in data[selectTag]"
     :key="index"
+    :href="withBase(article.regularPath)"
     class="posts"
   >
     <div class="post-container">
@@ -22,13 +22,13 @@
 import { computed, ref } from 'vue'
 import { useData, withBase } from 'vitepress'
 import { initTags } from '../functions'
-let url = location.href.split('?')[1]
-let params = new URLSearchParams(url)
+const url = location.href.split('?')[1]
+const params = new URLSearchParams(url)
 const { theme } = useData()
 const data = computed(() => initTags(theme.value.posts))
-let selectTag = ref(params.get('tag') ? params.get('tag') : '')
-const toggleTag = (tag: string) => {
-  selectTag.value = tag
+const selectTag = ref(params.get('tag') ? params.get('tag') : '')
+const toggleTag = (tag: string | number) => {
+  selectTag.value = String(tag)
 }
 </script>
 
