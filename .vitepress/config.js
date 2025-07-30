@@ -18,11 +18,6 @@ export default defineConfig({
     posts: await getPosts(pageSize),
     //copyright link
     website: 'https://kakahikari.github.io',
-    comment: {
-      repo: 'kakahikari/kakahikari.github.io',
-      themes: 'github-light',
-      issueTerm: 'pathname',
-    },
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Category', link: '/pages/category' },

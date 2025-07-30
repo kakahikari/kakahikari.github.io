@@ -14,6 +14,9 @@
         >
       </div>
     </template>
+    <template #doc-bottom>
+      <Comment />
+    </template>
   </Layout>
   <Copyright />
 </template>

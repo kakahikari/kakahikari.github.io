@@ -1,39 +1,57 @@
-<script lang="ts" setup>
-import { onMounted, ref, watch, nextTick } from 'vue'
-import { useData } from 'vitepress'
-const utterancesRef = ref()
-const { theme, isDark } = useData()
-onMounted(() => {
-  nextTick(() => {
-    let { repo, issueTerm = 'pathname' } = theme.value.comment
-    if (repo) {
-      let utterances = document.createElement('script')
-      utterances.async = true
-      utterances.setAttribute('src', 'https://utteranc.es/client.js')
-      utterances.setAttribute('repo', repo)
-      utterances.setAttribute('issue-term', issueTerm)
-      utterances.setAttribute(
-        'theme',
-        isDark.value ? 'github-dark' : 'github-light',
-      )
-      utterances.setAttribute('crossorigin', 'anonymous')
-      utterancesRef.value.appendChild(utterances)
-    }
-    //hack method to change utterances theme when change site theme
-    watch(isDark, (newVal, oldVal) => {
-      if (newVal !== oldVal) location.replace(location.href)
-    })
-  })
+<template>
+  <div id="giscus-container"></div>
+</template>
+<script setup>
+import giscusTalk from 'vitepress-plugin-comment-with-giscus'
+import { useData, useRoute } from 'vitepress'
+import { computed, watch } from 'vue'
+
+const { frontmatter, isDark } = useData()
+const route = useRoute()
+
+const giscusTheme = computed(() => {
+  return isDark.value ? 'dark' : 'light'
+})
+
+// TODO: repo等資訊 應該要由config傳入
+const giscusConfig = {
+  repo: 'kakahikari/kakahikari.github.io',
+  repoId: 'R_kgDOIfJpug',
+  category: 'Announcements',
+  categoryId: 'DIC_kwDOIfJpus4Ctk3i',
+  mapping: 'pathname',
+  lang: 'en',
+  strict: '0',
+  reactionsEnabled: '1',
+  emitMetadata: '1',
+  theme: giscusTheme.value,
+  loading: 'lazy',
+  crossorigin: 'anonymous',
+  async: true,
+}
+
+giscusTalk(
+  giscusConfig,
+  {
+    frontmatter,
+    route,
+  },
+  true,
+)
+
+watch(giscusTheme, newTheme => {
+  const iframe = document.querySelector('#giscus-container iframe')
+  if (iframe?.contentWindow) {
+    iframe.contentWindow.postMessage(
+      {
+        giscus: {
+          setConfig: {
+            theme: newTheme,
+          },
+        },
+      },
+      'https://giscus.app',
+    )
+  }
 })
 </script>
-
-<template>
-  <div ref="utterancesRef"></div>
-</template>
-
-<style>
-/*global  style*/
-.utterances {
-  max-width: inherit !important;
-}
-</style>
