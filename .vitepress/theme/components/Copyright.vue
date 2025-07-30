@@ -7,9 +7,9 @@
     </div>
     <div>
       Powered by&nbsp;
-      <a class="link" target="_blank" href="//vitepress.vuejs.org/"
-        >VitePress - {{ vitepressVersion }}</a
-      >
+      <a class="link" target="_blank" href="//vitepress.vuejs.org/">
+        VitePress - {{ vitepressVersion }}
+      </a>
     </div>
   </div>
 </template>
@@ -26,15 +26,15 @@ const currentYear = new Date().getFullYear()
 
 <style scoped>
 .site-footer {
-  color: #888;
-  text-align: center;
-  font-size: 0.75rem;
-  width: 100%;
-  padding: 15px 0;
-  overflow: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  padding: 15px 0;
+  overflow: auto;
+  color: #888;
+  font-size: 0.75rem;
+  text-align: center;
 }
 .site-footer div {
   display: flex;

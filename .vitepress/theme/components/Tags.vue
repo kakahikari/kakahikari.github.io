@@ -34,29 +34,29 @@ const toggleTag = (tag: string) => {
 
 <style scoped>
 .tags {
-  margin-top: 14px;
   display: flex;
   flex-wrap: wrap;
+  margin-top: 14px;
 }
 .tag {
   display: inline-block;
-  padding: 4px 16px;
   margin: 6px 8px;
+  padding: 4px 16px;
+  border-radius: 2px;
+  background-color: var(--vp-c-bg-alt);
+  color: var(--vp-c-text-1);
   font-size: 0.875rem;
   line-height: 25px;
-  background-color: var(--vp-c-bg-alt);
-  transition: 0.4s;
-  border-radius: 2px;
-  color: var(--vp-c-text-1);
   cursor: pointer;
+  transition: 0.4s;
 }
 .tag strong {
   color: var(--vp-c-brand);
 }
 .tag-header {
-  font-size: 1.5rem;
-  font-weight: 500;
   margin: 1rem 0;
+  font-weight: 500;
+  font-size: 1.5rem;
   text-align: left;
 }
 

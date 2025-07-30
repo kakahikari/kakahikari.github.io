@@ -3,8 +3,8 @@
     <div class="post-header">
       <div class="post-title">
         <a :href="withBase(article.regularPath)">
-          {{ article.frontMatter.title }}</a
-        >
+          {{ article.frontMatter.title }}
+        </a>
       </div>
     </div>
     <p class="describe" v-html="article.frontMatter.description"></p>
@@ -12,9 +12,9 @@
       {{ article.frontMatter.date }}
       <span v-for="item in article.frontMatter.tags"
         ><a :href="withBase(`/pages/tags.html?tag=${item}`)">
-          {{ item }}</a
-        ></span
-      >
+          {{ item }}
+        </a>
+      </span>
     </div>
   </div>
 
@@ -25,8 +25,8 @@
       v-for="i in pagesNum"
       :key="i"
       :href="withBase(i === 1 ? '/index.html' : `/page_${i}.html`)"
-      >{{ i }}</a
-    >
+      >{{ i }}
+    </a>
   </div>
 </template>
 
@@ -41,8 +41,8 @@ const props = defineProps({
 
 <style scoped>
 .post-list {
-  border-bottom: 1px dashed var(--vp-c-divider-light);
   padding: 14px 0 14px 0;
+  border-bottom: 1px dashed var(--vp-c-divider-light);
 }
 .post-header {
   display: flex;
@@ -50,47 +50,47 @@ const props = defineProps({
   justify-content: space-between;
 }
 .post-title {
-  font-size: 1.125rem;
-  font-weight: 500;
   margin: 0.1rem 0;
+  font-weight: 500;
+  font-size: 1.125rem;
 }
 
 .describe {
-  font-size: 0.9375rem;
   display: -webkit-box;
+  font-size: 0.9375rem;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
+  margin: 10px 0;
   overflow: hidden;
   color: var(--vp-c-text-2);
-  margin: 10px 0;
   line-height: 1.5rem;
 }
 .pagination {
-  margin-top: 16px;
   display: flex;
   justify-content: center;
+  margin-top: 16px;
 }
 .link {
   display: inline-block;
   width: 24px;
-  text-align: center;
   border: 1px var(--vp-c-divider-light) solid;
   border-right: none;
   font-weight: 400;
+  text-align: center;
 }
 .link.active {
+  border: 1px solid var(--vp-c-text-1) !important;
   background: var(--vp-c-text-1);
   color: var(--vp-c-neutral-inverse);
-  border: 1px solid var(--vp-c-text-1) !important;
 }
 .link:first-child {
-  border-bottom-left-radius: 2px;
   border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
 }
 .link:last-child {
-  border-bottom-right-radius: 2px;
-  border-top-right-radius: 2px;
   border-right: 1px var(--vp-c-divider-light) solid;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
 }
 
 @media screen and (max-width: 768px) {
@@ -103,21 +103,21 @@ const props = defineProps({
     justify-content: space-between;
   }
   .post-title {
-    font-size: 1.0625rem;
-    font-weight: 400;
     display: -webkit-box;
+    font-weight: 400;
+    font-size: 1.0625rem;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
-    overflow: hidden;
     width: 17rem;
+    overflow: hidden;
   }
   .describe {
-    font-size: 0.9375rem;
     display: -webkit-box;
+    font-size: 0.9375rem;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
-    overflow: hidden;
     margin: 0.5rem 0 1rem;
+    overflow: hidden;
   }
 }
 </style>

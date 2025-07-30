@@ -32,37 +32,37 @@
 }
 .title {
   color: var(--vp-c-text-1);
-  font-size: 1.5rem !important;
-  letter-spacing: 1px;
   font-weight: 600 !important;
-  text-transform: uppercase;
+  font-size: 1.5rem !important;
   font-family: var(--date-font-family);
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
 .content a[rel~='noreferrer']:link,
 a[rel~='noreferrer']:visited {
+  border-bottom: 1px solid var(--vp-c-brand);
   color: var(--vp-c-brand);
   font-weight: 500 !important;
-  border-bottom: 1px solid var(--vp-c-brand);
 }
 .content a[rel~='noreferrer']:hover {
   color: #888;
 }
 h1 {
-  font-size: 1.5rem !important;
-  font-weight: 500 !important;
   padding-top: 14px;
+  font-weight: 500 !important;
+  font-size: 1.5rem !important;
 }
 h2 {
-  font-size: 1.125rem !important;
-  font-weight: 500 !important;
-  border-bottom: 1px solid var(--vp-c-divider-light);
-  border-top: none !important;
   margin: inherit !important;
+  border-top: none !important;
+  border-bottom: 1px solid var(--vp-c-divider-light);
+  font-weight: 500 !important;
+  font-size: 1.125rem !important;
 }
 h3 {
-  font-size: 1rem !important;
   font-weight: 500 !important;
+  font-size: 1rem !important;
 }
 /* for aside start */
 .aside {
@@ -76,9 +76,9 @@ h3 {
   max-width: 60rem !important;
 }
 .VPContent .container {
-  max-width: 60rem !important;
   display: block !important;
   position: relative;
+  max-width: 60rem !important;
 }
 /* content maxWidth*/
 .VPDoc.has-aside .content-container {
@@ -134,10 +134,10 @@ h3 {
     margin-right: 4px;
   }
   .post-container {
+    width: 16.5em;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    width: 16.5em;
   }
 }
 
@@ -146,25 +146,25 @@ h3 {
 
 /*tags and archives page style*/
 .posts {
-  padding: 4px 0 4px 25px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  padding: 4px 0 4px 25px;
 }
 .post-dot {
   display: inline-block;
-  margin-right: 10px;
-  margin-bottom: 3px;
   width: 4px;
   height: 4px;
+  margin-right: 10px;
+  margin-bottom: 3px;
   border-radius: 50%;
   background-color: var(--li-dot-color);
 }
 
 .post-container {
   color: var(--vp-c-text-2);
-  font-size: 0.9375rem;
   font-weight: 400;
+  font-size: 0.9375rem;
 }
 .post-container:hover {
   color: var(--vp-c-brand);
@@ -179,10 +179,10 @@ h3 {
 }
 .post-info span {
   display: inline-block;
-  padding: 0 8px;
-  background-color: var(--vp-c-bg-alt);
   margin-right: 10px;
-  transition: 0.4s;
+  padding: 0 8px;
   border-radius: 2px;
+  background-color: var(--vp-c-bg-alt);
   color: var(--vp-c-text-1);
+  transition: 0.4s;
 }
