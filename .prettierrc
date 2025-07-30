@@ -8,5 +8,7 @@
   "printWidth": 80,
   "endOfLine": "lf",
   "bracketSpacing": true,
-  "arrowParens": "avoid"
+  "arrowParens": "avoid",
+  "plugins": ["prettier-plugin-css-order"],
+  "cssDeclarationSorterOrder": "smacss"
 }
