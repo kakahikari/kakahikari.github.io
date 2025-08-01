@@ -10,10 +10,10 @@ import Page from './components/Page.vue'
 import Tags from './components/Tags.vue'
 
 export default {
-  ...DefaultTheme,
+  extends: DefaultTheme,
   Layout: NewLayout,
   enhanceApp({ app }) {
-    // register global compoment
+    // register global component
     app.component('Tags', Tags)
     app.component('Category', Category)
     app.component('Archives', Archives)

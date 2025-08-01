@@ -1,11 +1,7 @@
 <template>
   <Layout>
     <template #doc-before>
-      <div
-        v-if="!$frontmatter.page"
-        style="padding-top: 20px"
-        class="post-info"
-      >
+      <div v-if="!$frontmatter.page" class="post-info">
         {{ $frontmatter.date?.substring(0, 10) }} &nbsp;&nbsp;
         <span v-for="item in $frontmatter.tags" :key="item">
           <a :href="withBase(`/pages/tags.html?tag=${item}`)">

@@ -68,23 +68,27 @@ defineProps<{
   color: var(--vp-c-text-2);
   line-height: 1.5rem;
 }
+
 .pagination {
   display: flex;
   justify-content: center;
   margin-top: 16px;
 }
+
 .link {
   display: inline-block;
   width: 24px;
+  margin: 0 4px;
   border: 1px var(--vp-c-divider-light) solid;
   border-right: none;
   font-weight: 400;
   text-align: center;
+  text-decoration: none;
 }
 .link.active {
   border: 1px solid var(--vp-c-text-1) !important;
   background: var(--vp-c-text-1);
-  color: var(--vp-c-neutral-inverse);
+  color: var(--vp-c-neutral-inverse) !important;
 }
 .link:first-child {
   border-top-left-radius: 2px;

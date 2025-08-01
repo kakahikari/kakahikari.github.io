@@ -32,7 +32,7 @@ export default defineConfig({
       provider: 'local',
     },
     //outline:[2,3],
-    outlineTitle: '文章摘要',
+    outlineTitle: '導航',
     socialLinks: [{ icon: 'github', link: 'https://github.com/kakahikari' }],
   },
   srcExclude: ['README.md'], // exclude the README.md , needn't to compiler
