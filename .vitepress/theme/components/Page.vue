@@ -1,16 +1,16 @@
 <template>
-  <div v-for="(article, index) in posts" :key="index" class="post-list">
+  <div v-for="(post, index) in posts" :key="index" class="post-list">
     <div class="post-header">
       <div class="post-title">
-        <a :href="withBase(article.regularPath)">
-          {{ article.frontMatter.title }}
+        <a :href="withBase(post.regularPath)">
+          {{ post.frontMatter.title }}
         </a>
       </div>
     </div>
-    <p class="describe">{{ article.frontMatter.description }}</p>
+    <p class="describe">{{ post.frontMatter.description }}</p>
     <div class="post-info">
-      {{ article.frontMatter.date }}
-      <span v-for="item in article.frontMatter.tags" :key="item">
+      {{ post.frontMatter.date }}
+      <span v-for="item in post.frontMatter.tags" :key="item">
         <a :href="withBase(`/pages/tags.html?tag=${item}`)">
           {{ item }}
         </a>
@@ -32,11 +32,13 @@
 
 <script lang="ts" setup>
 import { withBase } from 'vitepress'
-defineProps({
-  posts: Array,
-  pageCurrent: Number,
-  pagesNum: Number,
-})
+import type { Post } from '../types'
+
+defineProps<{
+  posts: Post[]
+  pageCurrent: number
+  pagesNum: number
+}>()
 </script>
 
 <style scoped>

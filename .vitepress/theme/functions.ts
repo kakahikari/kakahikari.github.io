@@ -1,13 +1,4 @@
-type Post = {
-  frontMatter: {
-    date: string
-    title: string
-    category: string
-    tags: string[]
-    description: string
-  }
-  regularPath: string
-}
+import type { Post } from './types'
 
 export function initTags(post: Post[]) {
   const data: Record<string, Post[]> = {}
