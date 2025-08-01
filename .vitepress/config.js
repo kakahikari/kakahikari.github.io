@@ -1,5 +1,6 @@
 import { defineConfig } from 'vitepress'
 import { getPosts } from './theme/serverUtils'
+import { execSync } from 'child_process'
 
 // 每頁的文章數量
 const pageSize = 10
@@ -47,6 +48,46 @@ export default defineConfig({
 
   sitemap: {
     hostname: 'https://kakahikari.github.io/',
+    transformItems: items => {
+      return items.map(item => {
+        // 從 URL 中提取相對路徑
+        const path = item.url.replace('https://kakahikari.github.io/', '')
+
+        let lastmod
+
+        // posts 文章使用 git 提交時間
+        if (path.startsWith('posts/')) {
+          const filePath = path.replace('.html', '.md')
+          try {
+            const timestamp = execSync(
+              `git log -1 --format=%ct -- "${filePath}"`,
+              {
+                encoding: 'utf8',
+                cwd: process.cwd(),
+              },
+            ).trim()
+            if (timestamp) {
+              lastmod = new Date(parseInt(timestamp) * 1000)
+                .toISOString()
+                .split('T')[0]
+            } else {
+              // 如果沒有 git 歷史，使用當前時間
+              lastmod = new Date().toISOString().split('T')[0]
+            }
+          } catch {
+            lastmod = new Date().toISOString().split('T')[0]
+          }
+        } else {
+          // 其他頁面都使用建置時的當前時間
+          lastmod = new Date().toISOString().split('T')[0]
+        }
+
+        return {
+          ...item,
+          lastmod,
+        }
+      })
+    },
   },
   head: [
     [
