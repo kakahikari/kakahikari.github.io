@@ -1,3 +1,4 @@
+/* TODO: custom樣式 應預設覆蓋原有樣式 */
 :root {
   --vp-c-brand: #2563eb !important;
   --vp-c-brand-light: var(--vp-c-brand);
@@ -49,16 +50,22 @@ a[rel~='noreferrer']:visited {
   color: #888;
 }
 h1 {
-  padding-top: 14px;
+  margin-top: 14px !important;
   font-weight: 500 !important;
   font-size: 1.5rem !important;
 }
+
 h2 {
   margin: inherit !important;
+  margin-top: 14px !important;
+  padding-top: 0 !important;
   border-top: none !important;
   border-bottom: 1px solid var(--vp-c-divider-light);
   font-weight: 500 !important;
   font-size: 1.125rem !important;
+}
+h2 .header-anchor {
+  top: 0px !important;
 }
 h3 {
   font-weight: 500 !important;
