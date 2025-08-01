@@ -32,6 +32,7 @@
 
 <script lang="ts" setup>
 import { withBase } from 'vitepress'
+
 import type { Post } from '../types'
 
 defineProps<{

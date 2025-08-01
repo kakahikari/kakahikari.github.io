@@ -2,8 +2,8 @@
   <div id="giscus-container"></div>
 </template>
 <script setup>
-import giscusTalk from 'vitepress-plugin-comment-with-giscus'
 import { useData, useRoute } from 'vitepress'
+import giscusTalk from 'vitepress-plugin-comment-with-giscus'
 import { computed, watch } from 'vue'
 
 const { frontmatter, isDark } = useData()

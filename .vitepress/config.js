@@ -1,6 +1,7 @@
-import { defineConfig } from 'vitepress'
-import { getPosts } from './theme/serverUtils'
 import { execSync } from 'child_process'
+import { defineConfig } from 'vitepress'
+
+import { getPosts } from './theme/serverUtils'
 
 // 每頁的文章數量
 const pageSize = 10

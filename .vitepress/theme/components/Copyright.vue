@@ -15,6 +15,7 @@
 </template>
 <script lang="ts" setup>
 import { useData } from 'vitepress'
+
 import packageJson from '../../../package.json'
 
 const { site, theme } = useData()

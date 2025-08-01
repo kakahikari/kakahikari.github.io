@@ -19,6 +19,8 @@
     "@eslint/js": "^9.32.0",
     "eslint": "^9.32.0",
     "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
     "eslint-plugin-vue": "^10.3.0",
     "fs-extra": "^11.2.0",
     "globby": "^14.0.2",

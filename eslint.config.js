@@ -1,7 +1,9 @@
 import js from '@eslint/js'
-import tseslint from 'typescript-eslint'
-import pluginVue from 'eslint-plugin-vue'
 import prettierConfig from 'eslint-config-prettier'
+import pluginImport from 'eslint-plugin-import'
+import pluginSimpleImportSort from 'eslint-plugin-simple-import-sort'
+import pluginVue from 'eslint-plugin-vue'
+import tseslint from 'typescript-eslint'
 
 export default tseslint.config(
   {
@@ -31,6 +33,10 @@ export default tseslint.config(
   },
   {
     files: ['**/*.{js,mjs,cjs,ts,vue}'],
+    plugins: {
+      import: pluginImport,
+      'simple-import-sort': pluginSimpleImportSort,
+    },
     languageOptions: {
       globals: {
         // Node.js 環境
@@ -77,6 +83,28 @@ export default tseslint.config(
       'prefer-const': 'error',
       'no-var': 'error',
       'no-unused-vars': 'off', // 由 TypeScript 版本處理
+
+      // Import 相關規則
+      'import/order': 'off', // 關閉 import/order，使用 simple-import-sort
+      'import/first': 'error',
+      'import/newline-after-import': 'error',
+      'import/no-duplicates': 'error',
+      'import/no-unresolved': [
+        'error',
+        {
+          ignore: [
+            'vitepress/theme',
+            'typescript-eslint',
+            '^@theme/',
+            '../functions',
+          ],
+        },
+      ],
+      'import/no-unused-modules': 'warn',
+
+      // Simple Import Sort 規則
+      'simple-import-sort/imports': 'error',
+      'simple-import-sort/exports': 'error',
 
       // 代碼品質
       eqeqeq: ['error', 'always'],

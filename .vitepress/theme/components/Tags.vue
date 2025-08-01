@@ -24,10 +24,12 @@
   </a>
 </template>
 <script lang="ts" setup>
-import { computed, ref } from 'vue'
 import { useData, withBase } from 'vitepress'
+import { computed, ref } from 'vue'
+
 import { initTags } from '../functions'
 import type { Post } from '../types'
+
 const url = location.href.split('?')[1]
 const params = new URLSearchParams(url)
 const { theme } = useData()
