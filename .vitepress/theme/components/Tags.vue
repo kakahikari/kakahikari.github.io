@@ -1,21 +1,26 @@
 <template>
   <div class="tags">
-    <span v-for="(item, key) in data" :key="key" class="tag" @click="toggleTag(key)">
+    <span
+      v-for="(_item, key) in data"
+      :key="key"
+      class="tag"
+      @click="toggleTag(key)"
+    >
       {{ key }} <strong>{{ data[key].length }}</strong>
     </span>
   </div>
   <div class="tag-header">{{ selectTag }}</div>
   <a
-    v-for="(article, index) in data[selectTag]"
+    v-for="(post, index) in (selectTag && data[selectTag]) || []"
     :key="index"
-    :href="withBase(article.regularPath)"
+    :href="withBase(post.regularPath)"
     class="posts"
   >
     <div class="post-container">
       <div class="post-dot"></div>
-      {{ article.frontMatter.title }}
+      {{ post.frontMatter.title }}
     </div>
-    <div class="date">{{ article.frontMatter.date }}</div>
+    <div class="date">{{ post.frontMatter.date }}</div>
   </a>
 </template>
 <script lang="ts" setup>
@@ -26,7 +31,7 @@ const url = location.href.split('?')[1]
 const params = new URLSearchParams(url)
 const { theme } = useData()
 const data = computed(() => initTags(theme.value.posts))
-const selectTag = ref(params.get('tag') ? params.get('tag') : '')
+const selectTag = ref(params.get('tag') || '')
 const toggleTag = (tag: string | number) => {
   selectTag.value = String(tag)
 }
