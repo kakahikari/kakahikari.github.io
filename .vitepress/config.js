@@ -10,7 +10,7 @@ const pageSize = 10
 const googleAnalyticsId = process.env.GOOGLE_ANALYTICS_ID || ''
 
 export default defineConfig({
-  title: "kakahikari's blog",
+  title: '光物語',
   base: '/',
   outDir: 'dist',
   cacheDir: './node_modules/vitepress_cache',
