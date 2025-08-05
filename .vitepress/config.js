@@ -10,7 +10,7 @@ const pageSize = 10
 const googleAnalyticsId = process.env.GOOGLE_ANALYTICS_ID || ''
 
 export default defineConfig({
-  title: '光物語',
+  title: '光Lab.',
   base: '/',
   outDir: 'dist',
   cacheDir: './node_modules/vitepress_cache',
