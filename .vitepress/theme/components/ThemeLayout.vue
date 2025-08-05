@@ -3,11 +3,13 @@
     <template #doc-before>
       <div v-if="!$frontmatter.page" class="post-info">
         {{ $frontmatter.date?.substring(0, 10) }} &nbsp;&nbsp;
-        <span v-for="item in $frontmatter.tags" :key="item">
-          <a :href="withBase(`/pages/tags.html?tag=${item}`)">
-            {{ item }}
-          </a>
-        </span>
+        <PostTag
+          v-for="item in $frontmatter.tags"
+          :key="item"
+          :href="withBase(`/pages/tags.html?tag=${item}`)"
+        >
+          {{ item }}
+        </PostTag>
       </div>
     </template>
     <template #doc-bottom>

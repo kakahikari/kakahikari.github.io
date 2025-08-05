@@ -1,13 +1,13 @@
 <template>
   <div class="tags">
-    <span
+    <PostTag
       v-for="(_item, key) in data"
       :key="key"
-      class="tag"
-      @click="toggleTag(key)"
+      :class="{ active: selectTag === key }"
+      :on-click="() => toggleTag(key)"
     >
-      {{ key }} <strong>{{ data[key].length }}</strong>
-    </span>
+      {{ key }}<strong>{{ data[key].length }}</strong>
+    </PostTag>
   </div>
   <div class="tag-header">{{ selectTag }}</div>
   <a
@@ -23,6 +23,7 @@
     <div class="date">{{ post.frontMatter.date }}</div>
   </a>
 </template>
+
 <script lang="ts" setup>
 import { useData, withBase } from 'vitepress'
 import { computed, ref } from 'vue'
@@ -46,21 +47,34 @@ const toggleTag = (tag: string | number) => {
   flex-wrap: wrap;
   margin-top: 14px;
 }
-.tag {
-  display: inline-block;
-  margin: 6px 8px;
-  padding: 4px 16px;
-  border-radius: 2px;
-  background-color: var(--vp-c-bg-alt);
-  color: var(--vp-c-text-1);
-  font-size: 0.875rem;
-  line-height: 25px;
-  cursor: pointer;
-  transition: 0.4s;
+
+.tags :deep(.post-tag strong) {
+  margin-left: 4px;
+  padding: 1px 4px;
+  border-radius: 6px;
+  background-color: rgba(0, 0, 0, 0.1);
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 1;
 }
-.tag strong {
-  color: var(--vp-c-brand);
+
+.tags :deep(.post-tag.active) {
+  border-color: var(--vp-c-brand-1);
+  background-color: var(--vp-c-brand-1);
+  color: white;
 }
+
+.tags :deep(.post-tag.active strong) {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.tags :deep(.post-tag.active:hover) {
+  background-color: var(--vp-c-brand-1);
+  color: white;
+  filter: brightness(1.1);
+}
+
 .tag-header {
   margin: 1rem 0;
   font-weight: 500;

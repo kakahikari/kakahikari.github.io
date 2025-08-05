@@ -10,11 +10,13 @@
     <p class="describe">{{ post.frontMatter.description }}</p>
     <div class="post-info">
       {{ post.frontMatter.date }}
-      <span v-for="item in post.frontMatter.tags" :key="item">
-        <a :href="withBase(`/pages/tags.html?tag=${item}`)">
-          {{ item }}
-        </a>
-      </span>
+      <PostTag
+        v-for="item in post.frontMatter.tags"
+        :key="item"
+        :href="withBase(`/pages/tags.html?tag=${item}`)"
+      >
+        {{ item }}
+      </PostTag>
     </div>
   </div>
 

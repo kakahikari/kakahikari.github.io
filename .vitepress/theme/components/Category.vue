@@ -25,7 +25,9 @@ import { initCategory } from '../functions'
 import type { Post } from '../types'
 
 const { theme } = useData()
-const data = computed<Record<string, Post[]>>(() => initCategory(theme.value.posts))
+const data = computed<Record<string, Post[]>>(() =>
+  initCategory(theme.value.posts),
+)
 </script>
 
 <style scoped>
