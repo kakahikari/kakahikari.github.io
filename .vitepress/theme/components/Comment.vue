@@ -4,7 +4,7 @@
 <script setup>
 import { useData, useRoute } from 'vitepress'
 import giscusTalk from 'vitepress-plugin-comment-with-giscus'
-import { computed, watch } from 'vue'
+import { computed, onMounted, onUnmounted, watch } from 'vue'
 
 const { frontmatter, isDark } = useData()
 const route = useRoute()
@@ -38,6 +38,28 @@ giscusTalk(
   },
   true,
 )
+
+onUnmounted(() => {
+  const container = document.getElementById('giscus-container')
+  if (container) {
+    container.innerHTML = ''
+  }
+
+  const giscusIframes = document.querySelectorAll('iframe[src*="giscus"]')
+  giscusIframes.forEach(iframe => iframe.remove())
+
+  const scripts = document.querySelectorAll('script[src*="giscus"]')
+  scripts.forEach(script => script.remove())
+
+  const giscusElements = document.querySelectorAll(
+    '[class*="giscus"], [id*="giscus"]',
+  )
+  giscusElements.forEach(element => {
+    if (element.id !== 'giscus-container') {
+      element.remove()
+    }
+  })
+})
 
 watch(giscusTheme, newTheme => {
   const iframe = document.querySelector('#giscus-container iframe')

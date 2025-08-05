@@ -13,16 +13,27 @@
       </div>
     </template>
     <template #doc-bottom>
-      <Comment />
+      <Comment v-if="shouldShowComment" />
     </template>
   </Layout>
   <Copyright />
 </template>
 <script setup>
-import { withBase } from 'vitepress'
+import { useRoute, withBase } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
+import { computed } from 'vue'
 
 import Copyright from './Copyright.vue'
 
 const { Layout } = DefaultTheme
+const route = useRoute()
+
+const shouldShowComment = computed(() => {
+  const isPaginationPage =
+    route.path === '/' ||
+    route.path === '/index.html' ||
+    route.path.includes('/page_')
+
+  return !isPaginationPage
+})
 </script>
