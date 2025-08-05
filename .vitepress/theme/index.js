@@ -6,6 +6,7 @@ import Archives from './components/Archives.vue'
 import Category from './components/Category.vue'
 import Comment from './components/Comment.vue'
 import Page from './components/Page.vue'
+import PostDate from './components/PostDate.vue'
 import PostTag from './components/PostTag.vue'
 import Tags from './components/Tags.vue'
 import ThemeLayout from './components/ThemeLayout.vue'
@@ -19,6 +20,7 @@ export default {
     app.component('Category', Category)
     app.component('Archives', Archives)
     app.component('Page', Page)
+    app.component('PostDate', PostDate)
     app.component('PostTag', PostTag)
     app.component('Comment', Comment)
   },

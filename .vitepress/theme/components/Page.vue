@@ -9,7 +9,7 @@
     </div>
     <p class="describe">{{ post.frontMatter.description }}</p>
     <div class="post-info">
-      {{ post.frontMatter.date }}
+      <PostDate :date="post.frontMatter.date" />
       <PostTag
         v-for="item in post.frontMatter.tags"
         :key="item"

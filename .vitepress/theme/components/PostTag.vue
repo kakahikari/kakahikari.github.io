@@ -27,7 +27,6 @@ const handleClick = (event: any) => {
 .post-tag {
   display: inline-flex;
   align-items: center;
-  margin-right: 8px;
   padding: 2px 8px;
   border: 1px solid var(--tag-border);
   border-radius: 9999px;

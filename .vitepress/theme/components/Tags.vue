@@ -46,6 +46,7 @@ const toggleTag = (tag: string | number) => {
   display: flex;
   flex-wrap: wrap;
   margin-top: 14px;
+  gap: var(--inline-gap);
 }
 
 .tags :deep(.post-tag strong) {

@@ -12,6 +12,9 @@
   --date-color: var(--vp-c-text-2);
   --date-font-family: Georgia, sans-serif;
 
+  /* spacing */
+  --inline-gap: 8px;
+
   /* tag colors */
   --tag-bg: #e5e7eb;
   --tag-text: #374151;
@@ -196,14 +199,9 @@
 }
 
 .post-info {
-  font-size: 12px;
-}
-.post-info span {
-  display: inline-block;
-  margin-right: 10px;
-  padding: 0 8px;
-  border-radius: 2px;
-  background-color: var(--vp-c-bg-alt);
-  color: var(--vp-c-text-1);
-  transition: 0.4s;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 8px;
+  gap: var(--inline-gap);
 }

@@ -2,7 +2,7 @@
   <Layout>
     <template #doc-before>
       <div v-if="!$frontmatter.page" class="post-info">
-        {{ $frontmatter.date?.substring(0, 10) }} &nbsp;&nbsp;
+        <PostDate :date="$frontmatter.date" />
         <PostTag
           v-for="item in $frontmatter.tags"
           :key="item"
