@@ -21,6 +21,7 @@
   </div>
 
   <Pagination
+    v-if="pagesNum > 1"
     :page-current="pageCurrent"
     :pages-num="pagesNum"
     :get-page-url="getPageUrl"
