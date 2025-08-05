@@ -15,6 +15,15 @@
   /* spacing */
   --inline-gap: 8px;
 
+  /* pagination colors */
+  --pagination-bg: var(--vp-c-bg);
+  --pagination-text: var(--vp-c-text-2);
+  --pagination-border: var(--vp-c-divider-light);
+  --pagination-active-bg: #000000;
+  --pagination-active-text: #ffffff;
+  --pagination-hover-bg: #000000;
+  --pagination-hover-text: #ffffff;
+
   /* tag colors */
   --tag-bg: #e5e7eb;
   --tag-text: #374151;
@@ -25,6 +34,12 @@
 }
 .dark {
   --vp-c-brand-1: #646cff;
+
+  /* pagination colors - dark mode */
+  --pagination-active-bg: #ffffff;
+  --pagination-active-text: #000000;
+  --pagination-hover-bg: #ffffff;
+  --pagination-hover-text: #000000;
 
   /* tag colors - dark mode */
   --tag-bg: #374151;

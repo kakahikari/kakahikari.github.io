@@ -6,7 +6,7 @@ import { resolve } from 'path'
 async function getPosts(pageSize) {
   const paths = await globby(['posts/**.md'])
 
-  //生成分页页面markdown
+  // 生成分頁頁面markdown
   await generatePaginationPages(paths.length, pageSize)
 
   const posts = await Promise.all(
@@ -25,7 +25,6 @@ async function getPosts(pageSize) {
 }
 
 async function generatePaginationPages(total, pageSize) {
-  //  pagesNum
   const pagesNum =
     total % pageSize === 0 ? total / pageSize : parseInt(total / pageSize) + 1
   const paths = resolve('./')
