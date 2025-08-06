@@ -18,15 +18,17 @@ export default defineConfig({
   ignoreDeadLinks: true,
   themeConfig: {
     posts: await getPosts(pageSize),
-    //copyright link
-    website: 'https://kakahikari.github.io',
+    //copyright url
+    siteUrl: 'https://kakahikari.github.io',
+    //copyright logo
+    // footerLogo: 'logo.webp',
+    // https://vitepress.dev/zh/reference/default-theme-nav
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Category', link: '/pages/category' },
       { text: 'Archives', link: '/pages/archives' },
       { text: 'Tags', link: '/pages/tags' },
       { text: 'About', link: '/pages/about' },
-      // { text: 'Airene', link: 'http://airene.net' }  -- External link test
     ],
     search: {
       provider: 'local',

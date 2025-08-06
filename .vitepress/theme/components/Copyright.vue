@@ -2,8 +2,14 @@
   <div class="site-footer">
     <div>
       Copyright © {{ currentYear }}&nbsp;
-      <img src="../assets/logo.webp" alt="logo" class="logo" />
-      <a class="link" :href="website">{{ webTitle }}</a>
+      <img
+        v-if="theme.footerLogo"
+        :src="theme.footerLogo"
+        alt="logo"
+        class="logo"
+      />
+      <img v-else src="../assets/logo.webp" alt="logo" class="logo" />
+      <a class="link" :href="theme.siteUrl">{{ site.title }}</a>
     </div>
     <div>
       Powered by&nbsp;
@@ -19,8 +25,6 @@ import { useData } from 'vitepress'
 import packageJson from '../../../package.json'
 
 const { site, theme } = useData()
-const website = theme.value.website
-const webTitle = site.value.title
 const vitepressVersion = packageJson.devDependencies.vitepress.replace('^', '')
 const currentYear = new Date().getFullYear()
 </script>
