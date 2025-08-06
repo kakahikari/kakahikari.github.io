@@ -64,7 +64,7 @@
 }
 
 .VPDoc .vp-doc p {
-  margin: 8px 0;
+  margin: 16px 0;
 }
 
 .VPDoc .vp-doc p.describe {
@@ -79,19 +79,17 @@
 }
 
 .VPDoc h1 {
-  margin-top: 14px !important;
+  margin-top: 24px;
   font-weight: 500 !important;
-  font-size: 1.5rem !important;
+  font-size: 2rem !important;
 }
 
 .VPDoc h2 {
-  margin: inherit !important;
-  margin-top: 14px !important;
+  margin-top: 24px;
   padding-top: 0 !important;
   border-top: none !important;
-  border-bottom: 1px solid var(--vp-c-divider-light) !important;
   font-weight: 500 !important;
-  font-size: 1.125rem !important;
+  font-size: 1.5rem !important;
 }
 
 .VPDoc h2 .header-anchor {
@@ -100,7 +98,7 @@
 
 .VPDoc h3 {
   font-weight: 500 !important;
-  font-size: 1rem !important;
+  font-size: 1.25rem !important;
 }
 /* for aside start */
 .aside {
