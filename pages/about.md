@@ -2,6 +2,7 @@
 page: true
 title: About
 description: About Me
+lastUpdated: false
 aside: false
 comment: false
 ---
