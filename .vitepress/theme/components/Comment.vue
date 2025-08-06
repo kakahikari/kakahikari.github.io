@@ -1,10 +1,11 @@
 <template>
   <div id="giscus-container"></div>
 </template>
-<script setup>
+
+<script lang="ts" setup>
 import { useData, useRoute } from 'vitepress'
 import giscusTalk from 'vitepress-plugin-comment-with-giscus'
-import { computed, onMounted, onUnmounted, watch } from 'vue'
+import { computed, onUnmounted, watch } from 'vue'
 
 const { frontmatter, isDark } = useData()
 const route = useRoute()

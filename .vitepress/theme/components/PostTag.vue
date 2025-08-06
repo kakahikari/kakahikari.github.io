@@ -15,7 +15,7 @@ const props = withDefaults(defineProps<Props>(), {
   onClick: undefined,
 })
 
-const handleClick = (event: any) => {
+const handleClick = (event: Event) => {
   if (props.onClick) {
     event.preventDefault()
     props.onClick()

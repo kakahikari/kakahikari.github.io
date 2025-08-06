@@ -47,6 +47,7 @@ export default tseslint.config(
         location: 'readonly',
         URLSearchParams: 'readonly',
         console: 'readonly',
+        Event: 'readonly',
       },
     },
     rules: {
@@ -113,5 +114,6 @@ export default tseslint.config(
       'no-implied-eval': 'error',
     },
   },
-  prettierConfig, // 必須放在最後以覆蓋格式相關的規則
+  // 必須放在最後以覆蓋格式相關的規則
+  prettierConfig,
 )

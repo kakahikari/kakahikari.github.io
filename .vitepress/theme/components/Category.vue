@@ -17,6 +17,7 @@
     </a>
   </div>
 </template>
+
 <script lang="ts" setup>
 import { useData, withBase } from 'vitepress'
 import { computed } from 'vue'

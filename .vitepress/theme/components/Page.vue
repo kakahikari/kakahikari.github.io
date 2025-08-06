@@ -63,8 +63,8 @@ const getPageUrl = (pageNum: number): string => {
 .describe {
   display: -webkit-box;
   font-size: 0.9375rem;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
+  box-orient: vertical;
+  line-clamp: 3;
   margin: 10px 0;
   overflow: hidden;
   color: var(--vp-c-text-2);
@@ -84,16 +84,16 @@ const getPageUrl = (pageNum: number): string => {
     display: -webkit-box;
     font-weight: 400;
     font-size: 1.0625rem;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
+    box-orient: vertical;
+    line-clamp: 2;
     width: 17rem;
     overflow: hidden;
   }
   .describe {
     display: -webkit-box;
     font-size: 0.9375rem;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
+    box-orient: vertical;
+    line-clamp: 3;
     margin: 0.5rem 0 1rem;
     overflow: hidden;
   }

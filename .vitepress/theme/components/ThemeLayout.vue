@@ -1,10 +1,10 @@
 <template>
   <Layout>
     <template #doc-before>
-      <div v-if="!$frontmatter.page" class="post-info">
-        <PostDate :date="$frontmatter.date" />
+      <div v-if="!frontmatter.page" class="post-info">
+        <PostDate :date="frontmatter.date" />
         <PostTag
-          v-for="item in $frontmatter.tags"
+          v-for="item in frontmatter.tags"
           :key="item"
           :href="withBase(`/pages/tags.html?tag=${item}`)"
         >
@@ -18,14 +18,16 @@
   </Layout>
   <Copyright />
 </template>
-<script setup>
-import { useRoute, withBase } from 'vitepress'
+
+<script lang="ts" setup>
+import { useData, useRoute, withBase } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import { computed } from 'vue'
 
 import Copyright from './Copyright.vue'
 
 const { Layout } = DefaultTheme
+const { frontmatter } = useData()
 const route = useRoute()
 
 const shouldShowComment = computed(() => {

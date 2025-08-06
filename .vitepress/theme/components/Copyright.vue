@@ -19,6 +19,7 @@
     </div>
   </div>
 </template>
+
 <script lang="ts" setup>
 import { useData } from 'vitepress'
 
