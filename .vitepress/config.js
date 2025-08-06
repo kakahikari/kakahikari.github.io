@@ -45,6 +45,21 @@ export default defineConfig({
     ],
   ],
 
+  transformPageData(pageData) {
+    if (!pageData.frontmatter.meta) return
+
+    const head = []
+    pageData.frontmatter.meta.forEach(item => {
+      if (item.property && item.content) {
+        head.push(['meta', { property: item.property, content: item.content }])
+      } else if (item.name && item.content) {
+        head.push(['meta', { name: item.name, content: item.content }])
+      }
+    })
+
+    pageData.frontmatter.head = (pageData.frontmatter.head || []).concat(head)
+  },
+
   themeConfig: {
     posts: await getPosts(pageSize),
     //copyright url
