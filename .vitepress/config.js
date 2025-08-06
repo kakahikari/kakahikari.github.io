@@ -46,25 +46,41 @@ export default defineConfig({
   ],
 
   transformPageData(pageData) {
-    if (!pageData.frontmatter.meta) return
-
     const head = []
-    pageData.frontmatter.meta.forEach(item => {
-      if (item.property && item.content) {
-        head.push(['meta', { property: item.property, content: item.content }])
-      } else if (item.name && item.content) {
-        head.push(['meta', { name: item.name, content: item.content }])
-      }
-    })
+    // TODO: 應該作為參數
+    const defaultOGImage = 'https://kakahikari.github.io/logo.png'
 
-    pageData.frontmatter.head = (pageData.frontmatter.head || []).concat(head)
+    if (pageData.frontmatter.meta) {
+      pageData.frontmatter.meta.forEach(item => {
+        if (item.property && item.content) {
+          head.push([
+            'meta',
+            { property: item.property, content: item.content },
+          ])
+        } else if (item.name && item.content) {
+          head.push(['meta', { name: item.name, content: item.content }])
+        }
+      })
+    } else {
+      head.push([
+        'meta',
+        {
+          property: 'og:image',
+          content: defaultOGImage,
+        },
+      ])
+    }
+
+    if (head.length > 0) {
+      pageData.frontmatter.head = (pageData.frontmatter.head || []).concat(head)
+    }
   },
 
   themeConfig: {
     posts: await getPosts(pageSize),
-    //copyright url
+    // copyright url
     siteUrl: 'https://kakahikari.github.io',
-    //copyright logo
+    // copyright logo
     // footerLogo: 'logo.webp',
     // https://vitepress.dev/zh/reference/default-theme-nav
     nav: [
