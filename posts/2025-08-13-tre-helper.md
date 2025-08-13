@@ -20,7 +20,7 @@ meta:
 
 想起以前在FF擺攤的時候，要找特定攤位還必須要翻場刊，要是有個搜尋工具就好了！
 
-於是就做了這個出來 [2025 TRE 攤位搜尋](https://kakahikari.github.io/2025-tre-helper/) ，[github repo](https://github.com/kakahikari/2025-tre-helper)
+於是就做了這個出來 [2025 TRE 攤位搜尋](https://kakahikari.github.io/2025-tre-helper/) ([Github Repo](https://github.com/kakahikari/2025-tre-helper))
 
 做的時候也想了一下，要是我是入場的觀眾，我還需要什麼呢？想到可以加入舞台時刻表，就簡單地把它放進去。
 
