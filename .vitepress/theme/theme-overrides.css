@@ -70,6 +70,11 @@
 .VPDoc .vp-doc p.describe {
   margin: 12px 0;
 }
+
+.VPDoc .vp-doc p em {
+  font-style: normal;
+  font-weight: bold;
+}
 .title {
   color: var(--vp-c-text-1);
   font-weight: 600 !important;
