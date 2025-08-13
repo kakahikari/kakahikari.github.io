@@ -83,6 +83,7 @@ const toggleTag = (tag: string | number) => {
   text-align: left;
 }
 
+/* TODO: 媒體查詢無法使用變數的替代方案 */
 @media screen and (max-width: 768px) {
   .tag-header {
     font-size: 1.5rem;

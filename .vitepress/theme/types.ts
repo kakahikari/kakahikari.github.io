@@ -5,6 +5,10 @@ export type Post = {
     category: string
     tags: string[]
     description: string
+    meta?: Array<{
+      property: string
+      content: string
+    }>
   }
   regularPath: string
 }
