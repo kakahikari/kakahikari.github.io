@@ -13,13 +13,19 @@ export default defineConfig({
   base: '/',
   outDir: 'dist',
   cacheDir: './node_modules/vitepress_cache',
-  description: "kakahikari's blog",
+  description:
+    '我是kakahikari，我會在這裡紀錄工作上的筆記、生活上的分享、買過的東西',
   // https://vitepress.dev/zh/reference/default-theme-config#lastupdated
   lastUpdated: true,
   ignoreDeadLinks: true,
   srcExclude: ['README.md'],
   vite: {
     server: { port: 5000 },
+  },
+  markdown: {
+    image: {
+      lazyLoading: true,
+    },
   },
   sitemap: {
     hostname: 'https://kakahikari.github.io/',

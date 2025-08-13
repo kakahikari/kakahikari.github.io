@@ -9,6 +9,8 @@ comment: false
 
 # About Me
 
+![avatars](https://avatars.githubusercontent.com/u/15136480)
+
 `CODE_NAME: kakahikari`
 
 <hr>
