@@ -11,6 +11,7 @@ import PostDate from './components/PostDate.vue'
 import PostTag from './components/PostTag.vue'
 import Tags from './components/Tags.vue'
 import ThemeLayout from './components/ThemeLayout.vue'
+import YouTube from './components/YouTube.vue'
 
 export default {
   extends: DefaultTheme,
@@ -25,5 +26,6 @@ export default {
     app.component('PostDate', PostDate)
     app.component('PostTag', PostTag)
     app.component('Comment', Comment)
+    app.component('YouTube', YouTube)
   },
 }
