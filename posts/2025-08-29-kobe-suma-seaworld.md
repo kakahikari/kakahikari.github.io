@@ -2,7 +2,7 @@
 date: 2025-08-29
 title: 2025 神戶 須磨海洋世界 海豚表演
 category: 生活
-description:
+description: 2025年神戶須磨海洋世界遊記，觀賞精彩海豚表演的影片紀錄。
 meta:
   - property: og:image
     content: https://kakahikari.github.io/2025-08-29-kobe-suma-seaworld/cover.jpg
