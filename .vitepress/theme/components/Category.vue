@@ -1,6 +1,6 @@
 <template>
-  <div v-for="(posts, key) in data" :key="key">
-    <div class="category">
+  <div v-for="(posts, key) in data" :key="key" class="category">
+    <div class="category-title">
       {{ key }}
     </div>
     <a
@@ -33,9 +33,11 @@ const data = computed<Record<string, Post[]>>(() =>
 
 <style scoped>
 .category {
-  padding: 14px 0 8px 0;
-  font-weight: 500;
+  margin-bottom: 8px;
+}
+.category-title {
+  padding: 14px 0;
+  font-weight: 600;
   font-size: 1.25rem;
-  font-family: var(--date-font-family);
 }
 </style>

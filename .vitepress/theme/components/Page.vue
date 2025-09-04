@@ -104,6 +104,15 @@ const getOgImage = (post: Post): string | undefined => {
   font-size: 1.125rem;
 }
 
+.post-title a {
+  color: var(--post-title-color);
+  text-decoration: none;
+}
+
+.post-title a:hover {
+  color: color-mix(in srgb, var(--post-title-color), var(--vp-c-brand-1));
+}
+
 .post-cover-desktop {
   flex-shrink: 0;
   width: 240px;
