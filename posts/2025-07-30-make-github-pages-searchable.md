@@ -33,7 +33,7 @@ description: 教你如何讓 GitHub Pages 被 Google 搜尋到，從 sitemap、m
 
 - 至少要有`description`
 - `og:title`, `og:image`, `og:description` 等 OG:Tag
-- 用 [META 分享偵錯工具](https://developers.facebook.com/tools/debug/) 確認分享的效果，若沒有更新可能是被快取住了，需要手動抓取最新
+- 用[META 分享偵錯工具](https://developers.facebook.com/tools/debug/)確認分享的效果，若沒有更新可能是被快取住了，需要手動抓取最新
 
 3. 建立 `robots.txt`
 
@@ -45,6 +45,6 @@ Allow: /
 Sitemap: https://yourdomain.github.io/sitemap.xml
 ```
 
-以上都做完後，記得把你的網站登錄在 [Google Search Console](https://search.google.com/search-console/)
+以上都做完後，記得把你的網站登錄在[Google Search Console](https://search.google.com/search-console/)
 
 Google Search Console 會需要驗證網站的所有權，驗證完成後就可以輸入網站內的網址，檢查這些網址有沒有被索引囉

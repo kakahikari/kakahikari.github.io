@@ -16,11 +16,11 @@ meta:
 
 # 2025 TRE 攤位搜尋小工具
 
-因為工作的關係，有接觸到TRE現場狀況，目前活動官方網站 [JKFace](https://jkface.net/) 只有提供部分攤位資訊，並沒有個攤位總覽圖。
+因為工作的關係，有接觸到TRE現場狀況，目前活動官方網站[JKFace](https://jkface.net/)只有提供部分攤位資訊，並沒有個攤位總覽圖。
 
 想起以前在FF擺攤的時候，要找特定攤位還必須要翻場刊，要是有個搜尋工具就好了！
 
-於是就做了這個出來 [2025 TRE 攤位搜尋](https://kakahikari.github.io/2025-tre-helper/) ([Github Repo](https://github.com/kakahikari/2025-tre-helper))
+於是就做了這個出來:[2025 TRE 攤位搜尋](https://kakahikari.github.io/2025-tre-helper/)([Github Repo](https://github.com/kakahikari/2025-tre-helper))
 
 做的時候也想了一下，要是我是入場的觀眾，我還需要什麼呢？想到可以加入舞台時刻表，就簡單地把它放進去。
 
@@ -28,7 +28,7 @@ meta:
 
 ## 資料來源
 
-來自於 [活動官方網站](https://jkface.net/events/179#information) 活動詳細內的平面圖，原本有嘗試將整張高解析圖丟進GPT擷取成資料直接用，但辨識的結果非常糟糕，錯字連篇。原本字體是常見的無襯線字，並沒有什麼花俏的樣式，讓我有點意外，只好手打資料輸入 😨
+來自於[活動官方網站](https://jkface.net/events/179#information) 活動詳細內的平面圖，原本有嘗試將整張高解析圖丟進GPT擷取成資料直接用，但辨識的結果非常糟糕，錯字連篇。原本字體是常見的無襯線字，並沒有什麼花俏的樣式，讓我有點意外，只好手打資料輸入 😨
 
 ## Vibe Coding
 
@@ -46,7 +46,7 @@ meta:
 
 ## 社群推廣成果
 
-在line的一個TRE社群以及 [ptt/japanavgirls版](https://www.ptt.cc/bbs/japanavgirls/M.1753864070.A.C34.html) 做了宣傳
+在line的一個TRE社群以及[ptt/japanavgirls版](https://www.ptt.cc/bbs/japanavgirls/M.1753864070.A.C34.html)做了宣傳
 
 ![GA](/2025-08-13-tre-helper/ga.jpg)
 

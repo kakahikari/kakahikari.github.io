@@ -40,7 +40,7 @@ meta:
 
 此行除了虎鯨表演以外（我因為顧小孩無緣欣賞 所以也沒錄到影片🫠），還有另一個重點：
 
-能觀賞虎鯨的自助餐廳 [BLUE OCEAN](https://www.kobesuma-seaworld.jp/zh-tw/facilities/restaurant/)
+能觀賞虎鯨的自助餐廳[BLUE OCEAN](https://www.kobesuma-seaworld.jp/zh-tw/facilities/restaurant/)
 
 ![虎鯨與食物](/2025-08-29-kobe-suma-seaworld/img05.jpg)
 

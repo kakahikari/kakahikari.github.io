@@ -70,6 +70,6 @@ meta:
 
 我是一個網頁工程師，自認具備一定的手作與開發能力。
 
-手機裡要被各種產品APP淹沒的我，選擇了 [Home Assistant](https://www.home-assistant.io/) 當作我的居家管理師！
+手機裡要被各種產品APP淹沒的我，選擇了[Home Assistant](https://www.home-assistant.io/)當作我的居家管理師！
 
 接下來我會一步一步把家裡的設備接入，不定期的分享我的心得，以及介紹怎麼做。
