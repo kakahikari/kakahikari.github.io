@@ -36,6 +36,7 @@ const props = defineProps<{
   justify-content: center;
   width: 32px;
   height: 32px;
+  margin: 0px !important;
   border: 1px solid var(--pagination-border);
   border-radius: 50%;
   background: var(--pagination-bg);

@@ -105,6 +105,7 @@ const getOgImage = (post: Post): string | undefined => {
 }
 
 .post-title a {
+  margin: 0;
   color: var(--post-title-color);
   text-decoration: none;
 }
