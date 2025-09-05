@@ -29,7 +29,20 @@ const { theme } = useData()
 const data = computed<Record<string, Post[]>>(() => initTags(theme.value.posts))
 const selectTag = ref(params.get('tag') || '')
 const toggleTag = (tag: string | number) => {
-  selectTag.value = String(tag)
+  const tagStr = String(tag)
+  const newTag = selectTag.value === tagStr ? '' : tagStr
+  selectTag.value = newTag
+
+  const currentUrl = new URLSearchParams(location.search)
+  if (newTag) {
+    currentUrl.set('tag', newTag)
+  } else {
+    currentUrl.delete('tag')
+  }
+  const newUrl =
+    location.pathname +
+    (currentUrl.toString() ? '?' + currentUrl.toString() : '')
+  window.history.pushState({}, '', newUrl)
 }
 </script>
 
