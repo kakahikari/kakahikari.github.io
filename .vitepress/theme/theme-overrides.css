@@ -119,6 +119,7 @@
 }
 .VPDoc {
   padding-top: 10px !important;
+  padding-bottom: 10px !important;
 }
 .container {
   max-width: 60rem !important;
@@ -133,17 +134,7 @@
   max-width: 60rem !important;
 }
 
-/* TODO: 媒體查詢無法使用變數的替代方案 */
-@media (min-width: 768px) {
-  .VPDoc {
-    padding-top: 10px !important;
-  }
-}
 @media (min-width: 960px) {
-  .VPDoc {
-    padding-top: 10px !important;
-  }
-
   .VPDoc:not(.has-sidebar) .content {
     max-width: inherit !important;
   }
@@ -170,24 +161,8 @@
 /*mobile*/
 /* TODO: 媒體查詢無法使用變數的替代方案 */
 @media screen and (max-width: 768px) {
-  .VPDoc {
-    padding-top: 10px !important;
-    padding-bottom: 20px !important;
-  }
   .VPDoc h1 {
     font-size: 1.25rem !important;
-  }
-  .posts {
-    padding-left: calc(var(--inline-gap) / 4) !important;
-  }
-  .post-dot {
-    margin-right: 4px;
-  }
-  .post-container {
-    width: 16.5em;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
   }
 }
 
@@ -195,38 +170,6 @@
 /* theme reset end */
 
 /*tags and archives page style*/
-/* TODO: 改為標題會換行的方案 */
-.posts {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: calc(var(--inline-gap) / 2) 0 calc(var(--inline-gap) / 2)
-    calc(var(--inline-gap) * 3);
-  text-decoration: none !important;
-}
-.post-dot {
-  display: inline-block;
-  width: 4px;
-  height: 4px;
-  margin-right: 10px;
-  margin-bottom: 3px;
-  border-radius: 50%;
-  background-color: var(--dot-color);
-}
-
-.post-container {
-  color: var(--post-title-color);
-  font-weight: 400;
-  font-size: 0.9375rem;
-}
-.post-container:hover {
-  color: var(--vp-c-brand-1);
-}
-.date {
-  color: var(--date-color);
-  font-family: var(--date-font-family);
-}
-
 .post-info {
   display: flex;
   flex-wrap: wrap;

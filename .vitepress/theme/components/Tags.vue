@@ -12,23 +12,12 @@
   <template v-if="selectTag">
     <hr />
     <div class="tag-title">{{ selectTag }}</div>
-    <a
-      v-for="(post, index) in (selectTag && data[selectTag]) || []"
-      :key="index"
-      :href="withBase(post.regularPath)"
-      class="posts"
-    >
-      <div class="post-container">
-        <div class="post-dot"></div>
-        {{ post.frontMatter.title }}
-      </div>
-      <div class="date">{{ post.frontMatter.date }}</div>
-    </a>
+    <PostList :posts="(selectTag && data[selectTag]) || []" />
   </template>
 </template>
 
 <script lang="ts" setup>
-import { useData, withBase } from 'vitepress'
+import { useData } from 'vitepress'
 import { computed, ref } from 'vue'
 
 import { initTags } from '../functions'
@@ -70,16 +59,5 @@ const toggleTag = (tag: string | number) => {
   margin: 1rem 0 0.5rem;
   font-weight: 800;
   font-size: 1.5rem;
-}
-
-.date {
-  white-space: nowrap;
-}
-
-/* TODO: 媒體查詢無法使用變數的替代方案 */
-@media screen and (max-width: 768px) {
-  .date {
-    font-size: 0.75rem;
-  }
 }
 </style>

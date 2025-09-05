@@ -3,23 +3,12 @@
     <div class="category-title">
       {{ key }}
     </div>
-    <a
-      v-for="(post, index) in posts"
-      :key="index"
-      :href="withBase(post.regularPath)"
-      class="posts"
-    >
-      <div class="post-container">
-        <div class="post-dot"></div>
-        {{ post.frontMatter.title }}
-      </div>
-      <div class="date">{{ post.frontMatter.date.slice(5) }}</div>
-    </a>
+    <PostList :posts="posts" />
   </div>
 </template>
 
 <script lang="ts" setup>
-import { useData, withBase } from 'vitepress'
+import { useData } from 'vitepress'
 import { computed } from 'vue'
 
 import { initCategory } from '../functions'
