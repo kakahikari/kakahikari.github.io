@@ -63,12 +63,6 @@
   min-height: calc(100vh - 78px) !important;
 }
 
-/* .VPDoc h2 a {
-  color: var(--vp-c-text-1);
-  font-weight: 500;
-  text-decoration: none;
-} */
-
 .VPDoc .vp-doc a {
   margin: 0 4px;
 }
@@ -184,7 +178,7 @@
     font-size: 1.25rem !important;
   }
   .posts {
-    padding: 4px;
+    padding-left: calc(var(--inline-gap) / 4) !important;
   }
   .post-dot {
     margin-right: 4px;
@@ -201,11 +195,13 @@
 /* theme reset end */
 
 /*tags and archives page style*/
+/* TODO: 改為標題會換行的方案 */
 .posts {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 4px 0 4px 25px;
+  padding: calc(var(--inline-gap) / 2) 0 calc(var(--inline-gap) / 2)
+    calc(var(--inline-gap) * 3);
   text-decoration: none !important;
 }
 .post-dot {

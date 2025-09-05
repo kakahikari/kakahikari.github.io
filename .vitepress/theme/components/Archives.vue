@@ -1,6 +1,10 @@
 <template>
-  <div v-for="(yearList, yearIndex) in data" :key="yearIndex" class="archives">
-    <div class="year">
+  <div
+    v-for="(yearList, yearIndex) in data"
+    :key="yearIndex"
+    class="archives-group"
+  >
+    <div class="archives-title">
       {{ yearList[0].frontMatter.date.split('-')[0] }}
     </div>
     <a
@@ -30,13 +34,13 @@ const data = computed<Post[][]>(() => useYearSort(theme.value.posts))
 </script>
 
 <style scoped>
-.archives {
-  margin-bottom: 8px;
+.archives-group {
+  margin-bottom: var(--block-margin);
 }
-.year {
-  padding: 14px 0;
-  font-weight: 600;
-  font-size: 1.25rem;
+.archives-title {
+  margin: 1rem 0 0.5rem;
+  font-weight: 800;
+  font-size: 1.5rem;
   font-family: var(--date-font-family);
 }
 </style>

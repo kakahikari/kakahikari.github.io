@@ -1,5 +1,5 @@
 <template>
-  <div v-for="(posts, key) in data" :key="key" class="category">
+  <div v-for="(posts, key) in data" :key="key" class="category-group">
     <div class="category-title">
       {{ key }}
     </div>
@@ -32,12 +32,12 @@ const data = computed<Record<string, Post[]>>(() =>
 </script>
 
 <style scoped>
-.category {
-  margin-bottom: 8px;
+.category-group {
+  margin-bottom: var(--block-margin);
 }
 .category-title {
-  padding: 14px 0;
-  font-weight: 600;
-  font-size: 1.25rem;
+  margin: 1rem 0 0.5rem;
+  font-weight: 800;
+  font-size: 1.5rem;
 }
 </style>

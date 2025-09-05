@@ -9,20 +9,22 @@
       {{ key }}<strong class="badge">{{ data[key].length }}</strong>
     </PostTag>
   </div>
-  <hr v-if="selectTag" />
-  <div class="tag-header">{{ selectTag }}</div>
-  <a
-    v-for="(post, index) in (selectTag && data[selectTag]) || []"
-    :key="index"
-    :href="withBase(post.regularPath)"
-    class="posts"
-  >
-    <div class="post-container">
-      <div class="post-dot"></div>
-      {{ post.frontMatter.title }}
-    </div>
-    <div class="date">{{ post.frontMatter.date }}</div>
-  </a>
+  <template v-if="selectTag">
+    <hr />
+    <div class="tag-title">{{ selectTag }}</div>
+    <a
+      v-for="(post, index) in (selectTag && data[selectTag]) || []"
+      :key="index"
+      :href="withBase(post.regularPath)"
+      class="posts"
+    >
+      <div class="post-container">
+        <div class="post-dot"></div>
+        {{ post.frontMatter.title }}
+      </div>
+      <div class="date">{{ post.frontMatter.date }}</div>
+    </a>
+  </template>
 </template>
 
 <script lang="ts" setup>
@@ -64,18 +66,18 @@ const toggleTag = (tag: string | number) => {
   border-color: var(--vp-c-brand-1);
 }
 
-.tag-header {
-  margin: 1rem 0;
-  font-weight: 500;
+.tag-title {
+  margin: 1rem 0 0.5rem;
+  font-weight: 800;
   font-size: 1.5rem;
-  text-align: left;
+}
+
+.date {
+  white-space: nowrap;
 }
 
 /* TODO: 媒體查詢無法使用變數的替代方案 */
 @media screen and (max-width: 768px) {
-  .tag-header {
-    font-size: 1.5rem;
-  }
   .date {
     font-size: 0.75rem;
   }
