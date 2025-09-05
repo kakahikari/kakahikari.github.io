@@ -6,9 +6,10 @@
       :class="{ active: selectTag === key }"
       :on-click="() => toggleTag(key)"
     >
-      {{ key }}<strong>{{ data[key].length }}</strong>
+      {{ key }}<strong class="badge">{{ data[key].length }}</strong>
     </PostTag>
   </div>
+  <hr v-if="selectTag" />
   <div class="tag-header">{{ selectTag }}</div>
   <a
     v-for="(post, index) in (selectTag && data[selectTag]) || []"
@@ -45,35 +46,22 @@ const toggleTag = (tag: string | number) => {
 .tags {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 14px;
+  margin: var(--block-margin) 0;
   gap: var(--inline-gap);
 }
 
-.tags :deep(.post-tag strong) {
-  margin-left: 4px;
-  padding: 1px 4px;
+.tags :deep(.post-tag .badge) {
+  margin-left: calc(var(--inline-gap) / 2);
+  padding: 0 4px;
   border-radius: 6px;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: var(--tag-badge-bg);
+  color: var(--tag-text);
   font-weight: 600;
   font-size: 10px;
-  line-height: 1;
 }
 
 .tags :deep(.post-tag.active) {
   border-color: var(--vp-c-brand-1);
-  background-color: var(--vp-c-brand-1);
-  color: white;
-}
-
-.tags :deep(.post-tag.active strong) {
-  background-color: rgba(255, 255, 255, 0.2);
-  color: white;
-}
-
-.tags :deep(.post-tag.active:hover) {
-  background-color: var(--vp-c-brand-1);
-  color: white;
-  filter: brightness(1.1);
 }
 
 .tag-header {
