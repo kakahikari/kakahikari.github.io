@@ -9,7 +9,7 @@
 
   /* theme color */
   --post-title-color: black;
-  --dot-color: var(--vp-c-brand-1);
+  --dot-color: var(--vp-c-text-2);
   --date-color: var(--vp-c-text-2);
   --date-font-family: Georgia, sans-serif;
 
@@ -23,10 +23,10 @@
   --pagination-bg: var(--vp-c-bg);
   --pagination-text: var(--vp-c-text-2);
   --pagination-border: var(--vp-c-divider-light);
-  --pagination-active-bg: #000000;
+  --pagination-active-bg: var(--vp-c-brand-1);
   --pagination-active-text: #ffffff;
-  --pagination-hover-bg: #000000;
-  --pagination-hover-text: #ffffff;
+  --pagination-hover-bg: var(--vp-c-brand-soft);
+  --pagination-hover-text: var(--vp-c-brand-1);
 
   /* tag colors */
   --tag-bg: #e5e7eb;
@@ -45,10 +45,10 @@
   --post-title-color: white;
 
   /* pagination colors - dark mode */
-  --pagination-active-bg: #ffffff;
+  --pagination-active-bg: var(--vp-c-brand-1);
   --pagination-active-text: #000000;
-  --pagination-hover-bg: #ffffff;
-  --pagination-hover-text: #000000;
+  --pagination-hover-bg: var(--vp-c-brand-soft);
+  --pagination-hover-text: var(--vp-c-brand-1);
 
   /* tag colors - dark mode */
   --tag-bg: #374151;

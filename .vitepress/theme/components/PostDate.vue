@@ -30,8 +30,6 @@ const formatDate = computed(() => {
   padding: 0;
   gap: calc(var(--inline-gap) / 2);
   border-radius: 4px;
-  background-color: var(--post-date-bg);
-  color: var(--post-date-color);
   font-weight: 500;
   font-size: 0.75rem;
 }
@@ -40,15 +38,5 @@ const formatDate = computed(() => {
   flex-shrink: 0;
   width: 14px;
   height: 14px;
-}
-
-:root {
-  --post-date-bg: #f1f5f9;
-  --post-date-color: #475569;
-}
-
-.dark {
-  --post-date-bg: #334155;
-  --post-date-color: #cbd5e1;
 }
 </style>
