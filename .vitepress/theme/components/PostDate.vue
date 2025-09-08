@@ -27,6 +27,7 @@ const formatDate = computed(() => {
 .post-date {
   display: inline-flex;
   align-items: center;
+  padding: 0;
   gap: calc(var(--inline-gap) / 2);
   border-radius: 4px;
   background-color: var(--post-date-bg);

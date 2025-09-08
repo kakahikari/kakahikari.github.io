@@ -1,5 +1,5 @@
 <template>
-  <a :href="href" class="post-tag" @click="handleClick">
+  <a :href="href" class="post-category" @click="handleClick">
     <slot />
   </a>
 </template>
@@ -24,16 +24,16 @@ const handleClick = (event: Event) => {
 </script>
 
 <style scoped>
-.post-tag {
+.post-category {
   display: inline-flex;
   align-items: center;
   margin: 0 !important;
   padding: var(--tag-padding-y) var(--tag-padding-x);
-  border: 1px solid var(--tag-border);
-  border-radius: 9999px;
-  background-color: var(--tag-bg);
-  color: var(--tag-text);
-  font-weight: 500;
+  border: 1px solid var(--vp-c-brand-1);
+  border-radius: 4px;
+  background-color: var(--vp-c-brand-soft);
+  color: var(--vp-c-brand-1);
+  font-weight: 600;
   font-size: 12px;
   line-height: 1.25;
   text-decoration: none;
@@ -41,9 +41,8 @@ const handleClick = (event: Event) => {
   transition: all 0.15s ease-in-out;
 }
 
-.post-tag:hover {
-  background-color: var(--tag-bg-hover);
-  box-shadow: var(--tag-shadow);
-  color: var(--tag-text-hover);
+.post-category:hover {
+  background-color: var(--vp-c-brand-1);
+  color: var(--vp-c-white);
 }
 </style>

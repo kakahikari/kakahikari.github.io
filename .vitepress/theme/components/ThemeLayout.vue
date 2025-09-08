@@ -3,6 +3,14 @@
     <template #doc-before>
       <div v-if="!frontmatter.page" class="post-info">
         <PostDate :date="frontmatter.date" />
+        <PostCategory
+          v-if="frontmatter.category"
+          :href="
+            withBase(`/pages/category.html?category=${frontmatter.category}`)
+          "
+        >
+          {{ frontmatter.category }}
+        </PostCategory>
         <PostTag
           v-for="item in frontmatter.tags"
           :key="item"

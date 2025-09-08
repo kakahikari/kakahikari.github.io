@@ -1,6 +1,7 @@
 :root {
   --vp-c-brand-1: #e7a637ff !important;
   --vp-c-brand-2: color-mix(in srgb, var(--vp-c-brand-1), white) !important;
+  --vp-c-brand-soft: rgba(231, 166, 55, 0.1) !important;
 
   --vp-font-family-base:
     'PingFang TC', 'PingFang SC', 'Microsoft JhengHei', 'Microsoft Yahei',
@@ -15,6 +16,8 @@
   /* spacing */
   --inline-gap: 8px;
   --block-margin: 16px;
+  --tag-padding-y: 3px;
+  --tag-padding-x: 8px;
 
   /* pagination colors */
   --pagination-bg: var(--vp-c-bg);
@@ -36,6 +39,7 @@
 }
 .dark {
   --vp-c-brand-1: #e3d89aff !important;
+  --vp-c-brand-soft: rgba(227, 216, 154, 0.15) !important;
 
   /* theme color - dark mode */
   --post-title-color: white;
@@ -176,4 +180,5 @@
   align-items: center;
   margin-bottom: 8px;
   gap: var(--inline-gap);
+  line-height: 1;
 }

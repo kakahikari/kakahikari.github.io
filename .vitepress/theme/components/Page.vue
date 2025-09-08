@@ -21,6 +21,16 @@
         <p class="describe">{{ post.frontMatter.description }}</p>
         <div class="post-info">
           <PostDate :date="post.frontMatter.date" />
+          <PostCategory
+            v-if="post.frontMatter.category"
+            :href="
+              withBase(
+                `/pages/category.html?category=${post.frontMatter.category}`,
+              )
+            "
+          >
+            {{ post.frontMatter.category }}
+          </PostCategory>
           <PostTag
             v-for="item in post.frontMatter.tags"
             :key="item"
