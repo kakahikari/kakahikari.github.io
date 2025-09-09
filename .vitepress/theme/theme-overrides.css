@@ -68,11 +68,11 @@
 }
 
 .VPDoc .vp-doc a {
-  margin: 0 4px;
+  margin: 0 calc(var(--inline-gap) / 2);
 }
 
 .VPDoc .vp-doc p {
-  margin: 16px 0;
+  margin: var(--block-margin) 0;
 }
 
 .VPDoc .vp-doc p.describe {
@@ -92,21 +92,27 @@
 }
 
 .VPDoc h1 {
-  margin-top: 24px;
+  margin-top: calc(var(--block-margin) * 2) !important;
   font-weight: 500 !important;
   font-size: 2rem !important;
 }
 
 .VPDoc h2 {
-  margin-top: 24px;
+  margin-top: calc(var(--block-margin) * 2) !important;
+  margin-bottom: 0 !important;
   padding-top: 0 !important;
   border-top: none !important;
   font-weight: 500 !important;
   font-size: 1.5rem !important;
 }
 
+.VPDoc h3 {
+  margin-top: calc(var(--block-margin) * 2) !important;
+}
+
 .VPDoc h1 .header-anchor,
-.VPDoc h2 .header-anchor {
+.VPDoc h2 .header-anchor,
+.VPDoc h3 .header-anchor {
   top: 0px !important;
   margin-right: 0px !important;
   margin-left: -0.87em !important;
@@ -116,6 +122,8 @@
   font-weight: 500 !important;
   font-size: 1.25rem !important;
 }
+
+/* TODO: aside 待重新檢視 */
 /* for aside start */
 .aside {
   position: fixed !important;
@@ -133,7 +141,7 @@
   position: relative;
   max-width: 60rem !important;
 }
-/* content maxWidth*/
+/* content maxWidth */
 .VPDoc.has-aside .content-container {
   max-width: 60rem !important;
 }
@@ -149,7 +157,8 @@
     padding: 0 !important;
   }
 }
-/* when width less 1440 hide the aside 小于1440就到下一挡*/
+
+/* when width less 1440 hide the aside */
 @media (min-width: 1280px) {
   .VPDoc .aside {
     display: none !important;
@@ -162,7 +171,7 @@
   }
 }
 
-/*mobile*/
+/* mobile */
 /* TODO: 媒體查詢無法使用變數的替代方案 */
 @media screen and (max-width: 768px) {
   .VPDoc h1 {
