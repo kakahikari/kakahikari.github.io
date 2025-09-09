@@ -10,7 +10,7 @@ meta:
     content: https://kakahikari.github.io/2025-09-08-wiz-smart-lights/cover.jpg
 ---
 
-# 最簡單的智慧家電 - 智慧燈泡
+# 最簡單的智慧家電 - 把飛利浦WiZ智慧燈泡串進Home Assistant吧
 
 看完了[Home Assistant 串起智慧家庭](./2025-08-06-home-assistant.md)的介紹，或許你已經對各種智慧家庭的場景有了概念。不過，真正要開始動手時，卻還是不知道該從哪裡著手。
 
@@ -77,7 +77,7 @@ meta:
 
 ### Step 3. 接入Home Assistant
 
-::: tip
+::: info
 到這步以後，我先預設你已經在家裡安裝了Home Assistant，但在我的教學裡還沒有寫到如何部署Home Assistant，敬請期待！
 
 先做好前面的步驟，後續再接入也是可以的。
