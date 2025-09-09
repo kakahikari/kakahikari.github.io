@@ -26,17 +26,24 @@ const handleClick = (event: Event) => {
 <style scoped>
 .post-category {
   display: inline-flex;
+  position: relative;
   align-items: center;
   margin: 0 !important;
   padding: var(--tag-padding-y) var(--tag-padding-x);
-  border: 1px solid var(--vp-c-brand-1);
-  border-radius: 4px;
+  padding-right: calc(var(--tag-padding-x) * 2);
   background-color: var(--vp-c-brand-soft);
   color: var(--vp-c-brand-1);
   font-weight: 600;
   font-size: 12px;
   line-height: 1.25;
   text-decoration: none;
+  clip-path: polygon(
+    0 0,
+    calc(100% - 10px) 0,
+    100% 50%,
+    calc(100% - 10px) 100%,
+    0 100%
+  );
   cursor: pointer;
   transition: all 0.15s ease-in-out;
 }
