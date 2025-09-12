@@ -1,6 +1,6 @@
 ---
 date: 2025-07-30
-title: 如何讓 GitHub Pages 被 Google 搜尋到
+title: 如何讓GitHub Pages被Google搜尋到
 category: 技術
 tags:
   - 網站架設
@@ -9,19 +9,19 @@ tags:
 description: 教你如何讓 GitHub Pages 被 Google 搜尋到，從 sitemap、meta 標籤到 robots.txt 的設定，搭配 Google Search Console 提高網站能見度與 SEO 成效。
 ---
 
-# 如何讓 GitHub Pages 被 Google 搜尋到
+# 如何讓GitHub Pages被Google搜尋到
 
 ## 問題敘述
 
-用 GitHub Pages架了網站，放了很久，他是不會主動加入 Google 的索引的，所以不會被搜尋到
+用GitHub Pages架了網站，放了很久，他是不會主動加入Google的索引的，所以不會被搜尋到
 
-為什麼 GitHub Pages 不容易被搜尋？
+為什麼GitHub Pages不容易被搜尋？
 
-1. 預設無 sitemap
+1. 預設無sitemap
 
-2. 沒有 meta 標籤
+2. 沒有meta標籤
 
-3. 可能 robots.txt 被限制
+3. 可能`robots.txt`被限制
 
 那麼要如何讓你的靜態網頁出現在搜尋結果呢？
 
@@ -29,13 +29,13 @@ description: 教你如何讓 GitHub Pages 被 Google 搜尋到，從 sitemap、m
 
 1. 建立 [sitemap](https://www.xml-sitemaps.com/)
 
-2. 建立 meta 標籤
+2. 建立meta標籤
 
 - 至少要有`description`
 - `og:title`, `og:image`, `og:description` 等 OG:Tag
 - 用[META 分享偵錯工具](https://developers.facebook.com/tools/debug/)確認分享的效果，若沒有更新可能是被快取住了，需要手動抓取最新
 
-3. 建立 `robots.txt`
+3. 建立`robots.txt`
 
 範例:
 

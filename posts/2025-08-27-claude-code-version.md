@@ -13,7 +13,7 @@ tags:
 
 原本claude code有設定statusline功能，一次重開之後，發現statusline不見了
 
-使用指令 `claude --version` ，發現退回了一個很早期的版本
+使用指令`claude --version`，發現退回了一個很早期的版本
 
 執行 `claude update` 則出現以下錯誤
 
