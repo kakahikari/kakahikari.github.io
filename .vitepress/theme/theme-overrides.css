@@ -67,8 +67,8 @@
   min-height: calc(100vh - 78px) !important;
 }
 
-.VPDoc .vp-doc a {
-  margin: 0 calc(var(--inline-gap) / 2);
+.VPDoc .content-container {
+  text-autospace: normal;
 }
 
 .VPDoc .vp-doc p {
@@ -83,6 +83,11 @@
   font-style: normal;
   font-weight: bold;
 }
+
+.VPDoc .vp-doc p a {
+  margin: 0 calc(var(--inline-gap) / 2);
+}
+
 .title {
   color: var(--vp-c-text-1);
   font-weight: 600 !important;
