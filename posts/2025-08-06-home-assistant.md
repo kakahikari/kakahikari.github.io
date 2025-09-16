@@ -10,8 +10,6 @@ meta:
     content: https://kakahikari.github.io/2025-08-06-home-assistant/cover.jpg
 ---
 
-# Home Assistant串起智慧家庭
-
 隨著科技的進步，智慧家庭這個名詞越來越常出現在我們的生活中。
 
 不少人已經開始用手機操控燈光、掃地機器人，甚至窗簾也能自動開關。

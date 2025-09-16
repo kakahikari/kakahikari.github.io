@@ -1,6 +1,7 @@
 <template>
   <Layout>
     <template #doc-before>
+      <h1 class="post-title">{{ frontmatter.title }}</h1>
       <div v-if="!frontmatter.page" class="post-info">
         <PostDate :date="frontmatter.date" />
         <PostCategory
@@ -47,3 +48,10 @@ const shouldShowComment = computed(() => {
   return !isPaginationPage
 })
 </script>
+
+<style scoped>
+.post-title {
+  margin: var(--block-margin) 0 0 !important;
+  line-height: normal;
+}
+</style>

@@ -9,8 +9,6 @@ tags:
 description: 教你如何讓 GitHub Pages 被 Google 搜尋到，從 sitemap、meta 標籤到 robots.txt 的設定，搭配 Google Search Console 提高網站能見度與 SEO 成效。
 ---
 
-# 如何讓GitHub Pages被Google搜尋到
-
 ## 問題敘述
 
 用GitHub Pages架了網站，放了很久，他是不會主動加入Google的索引的，所以不會被搜尋到

@@ -7,8 +7,6 @@ tags:
   - claude code
 ---
 
-# 解決claude code版本卡在舊版
-
 ## 問題敘述
 
 原本claude code有設定statusline功能，一次重開之後，發現statusline不見了

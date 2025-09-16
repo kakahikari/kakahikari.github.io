@@ -8,8 +8,6 @@ tags:
   - VitePress
 ---
 
-# 在VitePress的md格式文章內 插入Vue組件
-
 ## 問題敘述
 
 使用VitePress一陣子了，想放的東西只靠官方提供的[Markdown Extensions](https://vitepress.dev/guide/markdown)難免遇到限制

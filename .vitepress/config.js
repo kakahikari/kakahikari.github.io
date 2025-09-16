@@ -101,7 +101,7 @@ export default defineConfig({
       provider: 'local',
     },
     // https://vitepress.dev/zh/reference/default-theme-config#outline
-    outline: [2, 3],
+    outline: [1, 3],
     lastUpdated: {
       formatOptions: {
         dateStyle: 'short',

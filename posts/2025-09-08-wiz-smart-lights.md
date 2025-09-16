@@ -10,7 +10,7 @@ meta:
     content: https://kakahikari.github.io/2025-09-08-wiz-smart-lights/cover.jpg
 ---
 
-# 最簡單的智慧家電 - 把飛利浦WiZ智慧燈泡串進Home Assistant吧
+![Cover](/2025-09-08-wiz-smart-lights/cover.jpg)
 
 看完了[Home Assistant 串起智慧家庭](./2025-08-06-home-assistant.md)的介紹，或許你已經對各種智慧家庭的場景有了概念。不過，真正要開始動手時，卻還是不知道該從哪裡著手。
 
@@ -32,8 +32,6 @@ meta:
 ## 目標
 
 這篇文章的目標，是幫助你先讓燈泡連上WiZ App，用WiZ App 控制燈泡，再接入Home Assistant，最後搭配iOS的小工具，做到就算沒打開APP 也能用手機快速控制開關。
-
-![Cover](/2025-09-08-wiz-smart-lights/cover.jpg)
 
 # 開始
 

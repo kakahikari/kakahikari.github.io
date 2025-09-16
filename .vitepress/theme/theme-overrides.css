@@ -183,6 +183,12 @@
   .VPDoc h1 {
     font-size: 1.25rem !important;
   }
+  .VPDoc h2 {
+    font-size: 1.125rem !important;
+  }
+  .VPDoc h3 {
+    font-size: 1rem !important;
+  }
 }
 
 /* for aside end */

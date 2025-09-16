@@ -8,8 +8,6 @@ meta:
     content: https://kakahikari.github.io/2025-08-29-kobe-suma-seaworld/cover.jpg
 ---
 
-# 2025 神戶 須磨海洋世界遊記 &海豚表演
-
 ![Cover](/2025-08-29-kobe-suma-seaworld/cover.jpg)
 
 本次出遊日本，去了神戶的須磨海洋世界，看了海豚、虎鯨表演
