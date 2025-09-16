@@ -165,7 +165,7 @@ const getOgImage = (post: Post): string | undefined => {
 /* TODO: 媒體查詢無法使用變數的替代方案 */
 @media screen and (max-width: 768px) {
   .post {
-    margin: calc(var(--block-margin)) 0;
+    margin: var(--block-margin) 0;
   }
 
   .post-content {
