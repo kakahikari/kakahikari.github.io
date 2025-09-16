@@ -1,5 +1,6 @@
 <template>
   <a :href="href" class="post-tag" @click="handleClick">
+    <span class="tag-hash">#</span>
     <slot />
   </a>
 </template>
@@ -45,5 +46,10 @@ const handleClick = (event: Event) => {
   background-color: var(--tag-bg-hover);
   box-shadow: var(--tag-shadow);
   color: var(--tag-text-hover);
+}
+
+.tag-hash {
+  margin-right: 2px;
+  opacity: 0.6;
 }
 </style>
