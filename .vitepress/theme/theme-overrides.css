@@ -85,7 +85,13 @@
 }
 
 .VPDoc .vp-doc p a {
-  margin: 0 calc(var(--inline-gap) / 2);
+  border-bottom: 1px solid var(--vp-c-brand-1);
+  color: var(--vp-c-text-1);
+  text-decoration: none;
+}
+
+.VPDoc .vp-doc p a:hover {
+  color: var(--vp-c-brand-1);
 }
 
 .title {
