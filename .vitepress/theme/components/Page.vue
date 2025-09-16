@@ -1,15 +1,47 @@
 <template>
-  <div v-for="(post, index) in posts" :key="index" class="post-list">
-    <div class="post-content">
-      <div class="post-text">
-        <div class="post-header">
-          <div class="post-title">
+  <template v-for="(post, index) in posts" :key="index">
+    <div class="post">
+      <div class="post-content">
+        <div class="post-text">
+          <div class="post-header">
+            <div class="post-title">
+              <a :href="withBase(post.regularPath)">
+                {{ post.frontMatter.title }}
+              </a>
+            </div>
+          </div>
+          <div v-if="getOgImage(post)" class="post-cover-mobile">
             <a :href="withBase(post.regularPath)">
-              {{ post.frontMatter.title }}
+              <img
+                :src="getOgImage(post)"
+                :alt="post.frontMatter.title"
+                loading="lazy"
+              />
             </a>
           </div>
+          <div class="post-info">
+            <PostDate :date="post.frontMatter.date" />
+            <PostCategory
+              v-if="post.frontMatter.category"
+              :href="
+                withBase(
+                  `/pages/category.html?category=${post.frontMatter.category}`,
+                )
+              "
+            >
+              {{ post.frontMatter.category }}
+            </PostCategory>
+            <PostTag
+              v-for="item in post.frontMatter.tags"
+              :key="item"
+              :href="withBase(`/pages/tags.html?tag=${item}`)"
+            >
+              {{ item }}
+            </PostTag>
+          </div>
+          <p class="post-describe">{{ post.frontMatter.description }}</p>
         </div>
-        <div v-if="getOgImage(post)" class="post-cover-mobile">
+        <div v-if="getOgImage(post)" class="post-cover-desktop">
           <a :href="withBase(post.regularPath)">
             <img
               :src="getOgImage(post)"
@@ -18,40 +50,10 @@
             />
           </a>
         </div>
-        <p class="describe">{{ post.frontMatter.description }}</p>
-        <div class="post-info">
-          <PostDate :date="post.frontMatter.date" />
-          <PostCategory
-            v-if="post.frontMatter.category"
-            :href="
-              withBase(
-                `/pages/category.html?category=${post.frontMatter.category}`,
-              )
-            "
-          >
-            {{ post.frontMatter.category }}
-          </PostCategory>
-          <PostTag
-            v-for="item in post.frontMatter.tags"
-            :key="item"
-            :href="withBase(`/pages/tags.html?tag=${item}`)"
-          >
-            {{ item }}
-          </PostTag>
-        </div>
-      </div>
-      <div v-if="getOgImage(post)" class="post-cover-desktop">
-        <a :href="withBase(post.regularPath)">
-          <img
-            :src="getOgImage(post)"
-            :alt="post.frontMatter.title"
-            loading="lazy"
-          />
-        </a>
       </div>
     </div>
-  </div>
-
+    <hr v-if="index !== posts.length - 1" />
+  </template>
   <Pagination
     v-if="pagesNum > 1"
     :page-current="pageCurrent"
@@ -87,9 +89,8 @@ const getOgImage = (post: Post): string | undefined => {
 </script>
 
 <style scoped>
-.post-list {
-  padding: 14px 0 14px 0;
-  border-bottom: 1px dashed var(--vp-c-divider-light);
+.post {
+  margin: calc(var(--block-margin) * 1.5) 0;
 }
 
 .post-content {
@@ -109,7 +110,7 @@ const getOgImage = (post: Post): string | undefined => {
 }
 
 .post-title {
-  margin: 0.1rem 0;
+  width: 100%;
   font-weight: 500;
   font-size: 1.125rem;
 }
@@ -150,12 +151,12 @@ const getOgImage = (post: Post): string | undefined => {
   object-fit: cover;
 }
 
-.describe {
+.post-describe {
   display: -webkit-box;
   font-size: 0.9375rem;
   box-orient: vertical;
   line-clamp: 3;
-  margin: 10px 0;
+  margin: calc(var(--block-margin) / 2) 0 !important;
   overflow: hidden;
   color: var(--vp-c-text-2);
   line-height: 1.5rem;
@@ -163,6 +164,10 @@ const getOgImage = (post: Post): string | undefined => {
 
 /* TODO: 媒體查詢無法使用變數的替代方案 */
 @media screen and (max-width: 768px) {
+  .post {
+    margin: calc(var(--block-margin)) 0;
+  }
+
   .post-content {
     flex-direction: column;
     gap: 0;
@@ -180,10 +185,6 @@ const getOgImage = (post: Post): string | undefined => {
     height: 150px;
   }
 
-  .post-list {
-    padding: 14px 0 14px 0;
-  }
-
   .post-header {
     display: flex;
     align-items: center;
@@ -193,19 +194,15 @@ const getOgImage = (post: Post): string | undefined => {
   .post-title {
     display: -webkit-box;
     font-weight: 400;
-    font-size: 1.0625rem;
     box-orient: vertical;
     line-clamp: 2;
-    width: 17rem;
     overflow: hidden;
   }
 
-  .describe {
+  .post-describe {
     display: -webkit-box;
-    font-size: 0.9375rem;
     box-orient: vertical;
     line-clamp: 3;
-    margin: 0.5rem 0 1rem;
     overflow: hidden;
   }
 }

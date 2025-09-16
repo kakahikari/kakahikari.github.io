@@ -75,10 +75,6 @@
   margin: var(--block-margin) 0;
 }
 
-.VPDoc .vp-doc p.describe {
-  margin: 12px 0;
-}
-
 .VPDoc .vp-doc p em {
   font-style: normal;
   font-weight: bold;
@@ -103,14 +99,13 @@
 }
 
 .VPDoc h1 {
-  margin-top: calc(var(--block-margin) * 2) !important;
+  margin: var(--block-margin) 0 calc(var(--block-margin) * 2) !important;
   font-weight: 500 !important;
   font-size: 2rem !important;
 }
 
 .VPDoc h2 {
-  margin-top: calc(var(--block-margin) * 2) !important;
-  margin-bottom: 0 !important;
+  margin: calc(var(--block-margin) * 2) 0 !important;
   padding-top: 0 !important;
   border-top: none !important;
   font-weight: 500 !important;
@@ -118,7 +113,7 @@
 }
 
 .VPDoc h3 {
-  margin-top: calc(var(--block-margin) * 2) !important;
+  margin: calc(var(--block-margin) * 2) 0 !important;
 }
 
 .VPDoc h1 .header-anchor,
@@ -198,7 +193,7 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  margin-bottom: 8px;
+  margin: calc(var(--block-margin) / 2) 0;
   gap: var(--inline-gap);
   line-height: 1;
 }
