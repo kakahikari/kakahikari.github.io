@@ -2,6 +2,7 @@
   --vp-c-brand-1: #e7a637ff !important;
   --vp-c-brand-2: color-mix(in srgb, var(--vp-c-brand-1), white) !important;
   --vp-c-brand-soft: rgba(231, 166, 55, 0.1) !important;
+  --vp-custom-block-tip-bg: #646cff29 !important;
 
   --vp-font-family-base:
     'PingFang TC', 'PingFang SC', 'Microsoft JhengHei', 'Microsoft Yahei',
@@ -73,6 +74,7 @@
 
 .VPDoc .vp-doc p {
   margin: var(--block-margin) 0;
+  color: var(--vp-c-text-2);
 }
 
 .VPDoc .vp-doc p em {
@@ -82,12 +84,24 @@
 
 .VPDoc .vp-doc p a {
   border-bottom: 1px solid var(--vp-c-brand-1);
-  color: var(--vp-c-text-1);
+  color: var(--vp-c-text-2);
   text-decoration: none;
 }
 
 .VPDoc .vp-doc p a:hover {
   color: var(--vp-c-brand-1);
+}
+
+.VPDoc .vp-doc ol,
+.VPDoc .vp-doc ul {
+  color: var(--vp-c-text-2);
+}
+
+.custom-block.info p,
+.custom-block.tip p,
+.custom-block.warning p,
+.custom-block.danger p {
+  color: var(--vp-custom-block-info-text);
 }
 
 .title {
