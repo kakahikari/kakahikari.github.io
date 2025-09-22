@@ -37,7 +37,10 @@ meta:
 
 以官網上的`WiZ LED可調色溫嵌燈7W 9cm`為例
 
-![WiZ LED可調色溫嵌燈7W 9cm](/2025-09-08-wiz-smart-lights/img01.jpg)
+<ModalImage
+  src="/2025-09-08-wiz-smart-lights/img01.jpg"
+  caption="WiZ LED可調色溫嵌燈7W 9cm"
+/>
 
 ## 配對
 
@@ -51,19 +54,35 @@ meta:
 
 ### Step 2. 將智慧燈泡通電、配對
 
-![WiZ App 出現找到設備](/2025-09-08-wiz-smart-lights/img02.jpg)
 手機開著App，並且將智慧燈泡通電，這時App應該要自動出現「找到設備 點擊此處開始配對您的設備」的提示。
 
-![WiZ App 選擇設備](/2025-09-08-wiz-smart-lights/img03.jpg)
-點擊後會要你選擇要配對哪個設備，建議一個一個配對上，並且可以做編號在紙膠帶上，貼在燈泡上用來識別。
+<ModalImage
+  src="/2025-09-08-wiz-smart-lights/img02.jpg"
+  caption="WiZ App 出現找到設備"
+/>
 
-![WiZ App 選擇房間](/2025-09-08-wiz-smart-lights/img04.jpg)
-接著選擇前面提到的房間，WiZ的App可以一次對整個房間的燈泡開關或調整亮度之類。
+點擊後會要你選擇要配對哪個設備，建議一個一個配對上，並且可以做編號在紙膠帶上，貼在燈泡上用來識別
+
+<ModalImage
+  src="/2025-09-08-wiz-smart-lights/img03.jpg"
+  caption="WiZ App 選擇設備"
+/>
+
+接著選擇前面提到的房間，WiZ的App可以一次對整個房間的燈泡開關或調整亮度之類
+
+<ModalImage
+  src="/2025-09-08-wiz-smart-lights/img04.jpg"
+  caption="WiZ App 選擇房間"
+/>
 
 剛剛如果沒建立房間的話，也可以在這步驟建立。
 
-![WiZ App 輸入WiFi名稱和密碼](/2025-09-08-wiz-smart-lights/img05.jpg)
-接著App會將你手機連上的WiFi內容給自動帶入，他會將這資訊透過藍牙傳給智慧燈泡，這樣智慧燈泡就算是真正連網了。
+接著App會將你手機連上的WiFi內容給自動帶入，他會將這資訊透過藍牙傳給智慧燈泡，這樣智慧燈泡就算是真正連網了
+
+<ModalImage
+  src="/2025-09-08-wiz-smart-lights/img05.jpg"
+  caption="WiZ App 輸入WiFi名稱和密碼"
+/>
 
 但要注意如果你的WiFi有支援雙頻道（例如`2.4GHz`+`5GHz`），你要輸入的資訊是`2.4GHz`的名稱跟密碼，輸入到`5GHz`的是無法連上的。
 
@@ -89,7 +108,11 @@ meta:
 
 終於把WiZ App、Home Assistant都設定完了，這時候再一次把設備插入燈座，你就不用上上下下爬來爬去。
 
-![WiZ App 操作智慧燈泡](/2025-09-08-wiz-smart-lights/img06.jpg)
+<ModalImage
+  src="/2025-09-08-wiz-smart-lights/img06.jpg"
+  caption="WiZ App 操作智慧燈泡"
+/>
+
 將每個燈配對完成後，先嘗試用WiZ App去操作開關、亮度吧。
 
 因為前面的步驟有設定了房間，也可以點擊房間來一次操作整個房間的燈。
@@ -102,26 +125,54 @@ meta:
 
 Home Assistant也是有房間的，但我先介紹比較容易懂的群組化：
 
-![HA設定選單](/2025-09-08-wiz-smart-lights/img07.jpg)
-進入Home Assistant，到設定裡找到`裝置與服務`。
+進入Home Assistant，到設定裡找到`裝置與服務`
 
-![HA新增輔助工具](/2025-09-08-wiz-smart-lights/img08.jpg)
+<ModalImage
+  src="/2025-09-08-wiz-smart-lights/img07.jpg"
+  caption="HA設定選單"
+/>
+
 找到`新增輔助工具`。
 
-![HA群組](/2025-09-08-wiz-smart-lights/img09.png)
+<ModalImage
+  src="/2025-09-08-wiz-smart-lights/img08.jpg"
+  caption="HA新增輔助工具"
+/>
+
 會跳出彈窗，選項實在太多了，搜尋`群組`。
 
-![HA燈光群組](/2025-09-08-wiz-smart-lights/img10.png)
+<ModalImage
+  src="/2025-09-08-wiz-smart-lights/img09.jpg"
+  caption="HA群組"
+/>
+
 新增群組中，找到`燈光群組`。
 
-![HA群組設定1](/2025-09-08-wiz-smart-lights/img11.png)
+<ModalImage
+  src="/2025-09-08-wiz-smart-lights/img10.png"
+  caption="HA燈光群組"
+/>
+
 群組會詢問要加入哪些實體，我這個例子是在`客廳燈`群組，加了兩個智慧燈泡：`客廳燈1`、`客廳燈2`。
 
-![HA群組設定2](/2025-09-08-wiz-smart-lights/img12.png)
+<ModalImage
+  src="/2025-09-08-wiz-smart-lights/img11.png"
+  caption="HA群組設定1"
+/>
+
 新增群組可以額外設定標籤、前面提到的房間等等，若不熟悉可以先跳過。
 
-![HA群組設定3](/2025-09-08-wiz-smart-lights/img13.png)
+<ModalImage
+  src="/2025-09-08-wiz-smart-lights/img12.png"
+  caption="HA群組設定2"
+/>
+
 最後確認沒問題，就設定完成了。
+
+<ModalImage
+  src="/2025-09-08-wiz-smart-lights/img13.png"
+  caption="HA群組設定3"
+/>
 
 做到這邊已經可以透過群組，在Home Assistant內一次調整群組開關、亮度等等，達到跟WiZ App差不多的功能。
 
@@ -131,22 +182,42 @@ Home Assistant也是有房間的，但我先介紹比較容易懂的群組化：
 
 ### Step 6. 在iOS Home Assistant設定小工具
 
-![HA設定選單2](/2025-09-08-wiz-smart-lights/img14.jpg)
 打開iOS HA的App，到設定裡找到`小工具`。
 
-![HA新增小工具](/2025-09-08-wiz-smart-lights/img15.jpg)
+<ModalImage
+  src="/2025-09-08-wiz-smart-lights/img14.jpg"
+  caption="HA設定選單2"
+/>
+
 選擇`新增小工具`。
 
-![HA新增小工具2](/2025-09-08-wiz-smart-lights/img16.jpg)
+<ModalImage
+  src="/2025-09-08-wiz-smart-lights/img15.jpg"
+  caption="HA新增小工具"
+/>
+
 接著會跳出選擇實體，這時候選擇前面建立的`群組`，其他設定可先不動。
 
-![HA新增小工具3](/2025-09-08-wiz-smart-lights/img17.jpg)
+<ModalImage
+  src="/2025-09-08-wiz-smart-lights/img16.jpg"
+  caption="HA新增小工具2"
+/>
+
 因為我創了多個群組，一個小工具內也可以放多個群組，上面就是小工具的預覽畫面了，可以拖拉項目去自動排版。
+
+<ModalImage
+  src="/2025-09-08-wiz-smart-lights/img17.jpg"
+  caption="HA新增小工具3"
+/>
 
 ### Step 7. 在iOS新增小工具
 
-![iOS新增小工具](/2025-09-08-wiz-smart-lights/img18.jpg)
 小工具建立成功後，在桌面新增小工具，選擇Home Assistant，就會出現`自訂小工具`的選項了，這樣就可以不進入App直接開關燈了！
+
+<ModalImage
+  src="/2025-09-08-wiz-smart-lights/img18.jpg"
+  caption="iOS新增小工具"
+/>
 
 同樣邏輯，iOS控制中心的按鈕、apple watch、car play也可以設定開關唷。
 
