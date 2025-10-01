@@ -55,4 +55,7 @@ const shouldShowComment = computed(() => {
 .post-title {
   margin-bottom: 0 !important;
 }
+.post-info {
+  margin-bottom: calc(var(--block-margin) * 2) !important;
+}
 </style>
