@@ -1,7 +1,9 @@
 <template>
   <Layout>
     <template #doc-before>
-      <h1 class="post-title">{{ frontmatter.title }}</h1>
+      <h1 :class="{ 'post-title': !frontmatter.page }">
+        {{ frontmatter.title }}
+      </h1>
       <div v-if="!frontmatter.page" class="post-info">
         <PostDate :date="frontmatter.date" />
         <PostCategory
@@ -51,7 +53,6 @@ const shouldShowComment = computed(() => {
 
 <style scoped>
 .post-title {
-  margin: var(--block-margin) 0 0 !important;
-  line-height: normal;
+  margin-bottom: 0 !important;
 }
 </style>
