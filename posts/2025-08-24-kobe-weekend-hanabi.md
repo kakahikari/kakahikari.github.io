@@ -5,7 +5,7 @@ category: 生活
 description: 本次出遊日本，行程剛好遇上了盂蘭盆節的祭典，並且在旁邊的神戶港口還有施放「週末煙火」。佔了個好位置記錄下來 😎
 meta:
   - property: og:image
-    content: https://kakahikari.github.io/2025-08-24-kobe-weekend-hanabi/cover.jpg
+    content: https://kakahikari.me/2025-08-24-kobe-weekend-hanabi/cover.jpg
 ---
 
 ![Cover](/2025-08-24-kobe-weekend-hanabi/cover.jpg)

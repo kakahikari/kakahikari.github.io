@@ -7,7 +7,7 @@ tags:
 description: 智慧家庭不知道從哪裡開始？先試試智慧燈泡！安裝簡單、效果明顯，能馬上感受到智慧家電的便利，還能輕鬆擴充到 Home Assistant 與手機快捷控制。
 meta:
   - property: og:image
-    content: https://kakahikari.github.io/2025-09-08-wiz-smart-lights/cover.jpg
+    content: https://kakahikari.me/2025-09-08-wiz-smart-lights/cover.jpg
 ---
 
 ![Cover](/2025-09-08-wiz-smart-lights/cover.jpg)

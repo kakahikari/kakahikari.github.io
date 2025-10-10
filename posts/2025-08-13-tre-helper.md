@@ -11,14 +11,14 @@ description: 使用 Claude Code 開發的 2025 TRE
   輔助程式設計的實際應用。
 meta:
   - property: og:image
-    content: https://kakahikari.github.io/2025-08-13-tre-helper/cover.jpg
+    content: https://kakahikari.me/2025-08-13-tre-helper/cover.jpg
 ---
 
 因為工作的關係，有接觸到TRE現場狀況，目前活動官方網站[JKFace](https://jkface.net/)只有提供部分攤位資訊，並沒有個攤位總覽圖。
 
 想起以前在FF擺攤的時候，要找特定攤位還必須要翻場刊，要是有個搜尋工具就好了！
 
-於是就做了這個出來:[2025 TRE 攤位搜尋](https://kakahikari.github.io/2025-tre-helper/)([Github Repo](https://github.com/kakahikari/2025-tre-helper))
+於是就做了這個出來:[2025 TRE 攤位搜尋](https://kakahikari.me/2025-tre-helper/)([Github Repo](https://github.com/kakahikari/2025-tre-helper))
 
 做的時候也想了一下，要是我是入場的觀眾，我還需要什麼呢？想到可以加入舞台時刻表，就簡單地把它放進去。
 

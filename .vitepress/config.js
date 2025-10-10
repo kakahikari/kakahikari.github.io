@@ -28,7 +28,7 @@ export default defineConfig({
     },
   },
   sitemap: {
-    hostname: 'https://kakahikari.github.io/',
+    hostname: 'https://kakahikari.me/',
   },
 
   head: [
@@ -54,7 +54,7 @@ export default defineConfig({
   transformPageData(pageData) {
     const head = []
     // TODO: 應該作為參數
-    const defaultOGImage = 'https://kakahikari.github.io/logo.png'
+    const defaultOGImage = 'https://kakahikari.me/logo.png'
 
     if (pageData.frontmatter.meta) {
       pageData.frontmatter.meta.forEach(item => {
@@ -85,7 +85,7 @@ export default defineConfig({
   themeConfig: {
     posts: await getPosts(pageSize),
     // copyright url
-    siteUrl: 'https://kakahikari.github.io',
+    siteUrl: 'https://kakahikari.me',
     // copyright logo
     // footerLogo: 'logo.webp',
     // https://vitepress.dev/zh/reference/default-theme-nav
