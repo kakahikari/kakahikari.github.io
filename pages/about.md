@@ -12,7 +12,7 @@ comment: false
 
 `CODE_NAME: kakahikari`
 
-做網頁的那種
+做網站的那種
 
 找個地方紀錄工作上的筆記、生活上的分享、買過的東西
 

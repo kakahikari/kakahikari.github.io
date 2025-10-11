@@ -14,7 +14,7 @@ export default defineConfig({
   outDir: 'dist',
   cacheDir: './node_modules/vitepress_cache',
   description:
-    '我是kakahikari，我會在這裡紀錄工作上的筆記、生活上的分享、買過的東西',
+    '我是kakahikari，做網站的那種。在這裡記錄工作上的筆記、生活上的分享、買過的東西等等。',
   // https://vitepress.dev/zh/reference/default-theme-config#lastupdated
   lastUpdated: true,
   ignoreDeadLinks: true,
