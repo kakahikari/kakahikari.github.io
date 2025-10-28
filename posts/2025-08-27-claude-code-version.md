@@ -4,7 +4,7 @@ title: 解決claude code版本卡在舊版
 category: 除錯
 description: 分享解決 Claude Code 版本更新問題，包括處理「Another instance is currently performing an update」錯誤，以及 pnpm 套件管理的注意事項。
 tags:
-  - claude code
+  - Claude Code
 ---
 
 ## 問題敘述
