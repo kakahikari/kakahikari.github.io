@@ -1,3 +1,11 @@
+@font-face {
+  font-style: normal;
+  font-weight: normal;
+  src: url('/fonts/Cubic_11.woff2') format('woff2');
+  font-family: 'Cubic 11';
+  font-display: swap;
+}
+
 :root {
   --vp-c-brand-1: #e7a637ff !important;
   --vp-c-brand-2: color-mix(in srgb, var(--vp-c-brand-1), white) !important;
@@ -116,7 +124,7 @@
   color: var(--vp-c-text-1);
   font-weight: 600 !important;
   font-size: 1.5rem !important;
-  font-family: var(--date-font-family);
+  font-family: 'Cubic 11';
   letter-spacing: 1px;
 }
 

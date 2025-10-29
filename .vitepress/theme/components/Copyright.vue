@@ -9,7 +9,7 @@
         class="logo"
       />
       <img v-else src="../assets/logo.webp" alt="logo" class="logo" />
-      <a class="link" :href="theme.siteUrl">{{ site.title }}</a>
+      <a class="link footer-title" :href="theme.siteUrl">{{ site.title }}</a>
     </div>
     <div>
       Powered by&nbsp;
@@ -54,5 +54,8 @@ const currentYear = new Date().getFullYear()
   width: 24px;
   height: 24px;
   margin-right: 4px;
+}
+.footer-title {
+  font-family: 'Cubic 11';
 }
 </style>
