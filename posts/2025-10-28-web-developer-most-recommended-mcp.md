@@ -1,18 +1,18 @@
 ---
 date: 2025-10-28
-title: Claude Code 網頁開發 MCP server 三件套
+title: 網頁開發MCP工具 三件套： Context7、Chrome DevTools MCP、GitHub MCP
 category: 技術
 tags:
   - MCP
   - Claude Code
-description: 使用AI助手時，如果沒特別指定版本，有時會遇到生成了錯誤或過時的語法、API。提供Claude Code加入context7官方的MCP server的方法。
+description: MCP 是統一 AI 助理與外部工具的新協議。本文介紹三款網頁開發者必裝的 MCP server：Context7、Chrome DevTools MCP、GitHub MCP，讓你的 AI 助理能查文件、除錯、看 Git 差異，全方位升級開發體驗。
 ---
 
 ## 什麼是MCP
 
 原本AI只能透過使用者給資料、網路爬取之類方法，來拿到真實且即時的資料
 
-Model Context Protocol，是Anthropic推出的協議，目的是為了統一AI助理與其他工具的接口
+Model Context Protocol，是Anthropic推出的協議，目的是為了統一AI助理與其他工具的接口，它是為了讓模型安全、結構化地取得外部上下文／工具能力的通用協議
 
 從這個協議出現以後，各家工具、服務便開始打造以MCP為接口的server，讓你的AI助理能即時使用這些服務
 
@@ -26,7 +26,7 @@ Model Context Protocol，是Anthropic推出的協議，目的是為了統一AI�
 
 遇到這類問題，我們可以通常會讓AI直接去爬原始的網頁文件，可是各個文件都要找到各自的官網，能不能再簡單一點呢？
 
-Context7就是為了這種情境誕生的，支援的文件列表可以參照[context7官網](https://context7.com/)，甚至還有排名可以看
+Context7 主要解決版本文件查詢與快速對照問題，能讓助理在產生程式碼前先參考指定版本的官方文件。支援的文件列表可以參照[context7官網](https://context7.com/)，甚至還有排名可以看
 
 <ModalImage
   src="/2025-10-28-web-developer-most-recommended-mcp/img01.png"
@@ -56,6 +56,8 @@ claude mcp add --scope user --transport http context7 https://mcp.context7.com/m
 
 那AI要怎麼知道程式跑起來是怎樣呢？
 
+Chrome DevTools MCP 直接與 Chrome DevTools Protocol 結合，能讓助理取得更細緻的瀏覽器資料（網路請求、Performance profiler、Coverage 等），非常適合做效能追蹤或複雜 UI 偵錯
+
 過去有兩個方法:
 
 1. [browsermcp](https://docs.browsermcp.io/):
@@ -66,9 +68,9 @@ claude mcp add --scope user --transport http context7 https://mcp.context7.com/m
 
 2. [PlayWright](https://github.com/microsoft/playwright-mcp):
 
-模擬瀏覽器，並且回應結構化的資料
+能以程式化方式操作瀏覽器並回傳結構化結果
 
-很棒，功能完整，比起接下來要安裝的chrome-devtools-mcp，少了性能分析功能
+很棒，功能完整，但比起chrome-devtools-mcp，少了性能分析功能
 
 ### 安裝
 
@@ -91,7 +93,9 @@ claude mcp add --scope user chrome-devtools npx chrome-devtools-mcp@latest
 
 過去做code review時，你可能讓AI代理用git指令去爬commit，diff之類的操作
 
-現在你可以透過MCP讓他更強大(讓自己更懶): 原本你可能要用指令整理多個commit的內容，現在直接叫他爬兩個分支的差即可
+現在你可以透過GitHub MCP/GitKraken MCP讓他更強大(讓自己更懶): 原本你可能要用指令整理多個commit的內容，現在直接叫他爬兩個分支的差即可
+
+透過這些MCP，助理可以查 commit、分支 diff、PR 資訊，省去手動整理多個 commit 的麻煩
 
 在處理一些跨專案的問題，也可爬取其他專案的內容
 
@@ -101,7 +105,7 @@ claude mcp add --scope user chrome-devtools npx chrome-devtools-mcp@latest
 
 ```bash
 # --scope user這樣會以用戶級別加入 就不需要每個專案都寫
-# YOUR_GITHUB_TOKEN 要到後台去生成
+# $YOUR_GITHUB_TOKEN 要到github後台去生成
 claude mcp add --scope user --transport http github -s user https://api.githubcopilot.com/mcp -H "Authorization: Bearer YOUR_GITHUB_TOKEN"
 ```
 

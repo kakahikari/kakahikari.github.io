@@ -121,10 +121,10 @@
 }
 
 .VPDoc h1 {
-  line-height: normal;
   margin: var(--block-margin) 0 calc(var(--block-margin) * 2) !important;
   font-weight: 500 !important;
   font-size: 2rem !important;
+  line-height: normal;
 }
 
 .VPDoc h2 {
