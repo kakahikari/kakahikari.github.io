@@ -1,7 +1,7 @@
 ---
 date: 2025-12-09
 title: iOS如何解除DNS屏蔽 小紅書網頁版
-category: 生活
+category: 技術
 tags:
   - iOS
 description: 台灣近年利用 DNS 封鎖打擊詐騙網站，但也多次發生誤鎖事件，凸顯 DNS RPZ 的侷限性。由於 DNS 封鎖可輕易繞過，文中整理四種常用方式：更換 DNS、啟用 iCloud+ 私密傳送、使用 Cloudflare WARP、或透過可信賴的 VPN。讀者可依自身需求選擇更安全、隱私的上網方式。

@@ -4,6 +4,15 @@
 
 主題啟發自: [vitepress-blog-pure](https://github.com/airene/vitepress-blog-pure)
 
+## Category 文章分類
+
+文章使用以下分類：
+
+- **技術** - 程式開發、軟體工具、技術筆記等相關文章
+- **智慧家庭** - Home Assistant、智慧裝置整合等相關文章
+- **除錯** - 問題排查、錯誤修復等技術除錯文章
+- **生活** - 日常生活、心得分享等文章
+
 ## 專案結構
 
 ```

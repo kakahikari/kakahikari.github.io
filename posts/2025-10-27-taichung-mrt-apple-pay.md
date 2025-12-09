@@ -1,7 +1,7 @@
 ---
 date: 2025-10-27
 title: iPhone、Apple Watch 如何設定Apple Pay 快速交通卡？
-category: 生活
+category: 技術
 tags:
   - iOS
   - Apple Watch
