@@ -2,7 +2,7 @@
 date: 2025-08-27
 title: 解決claude code版本卡在舊版
 category: 除錯
-description: 分享解決 Claude Code 版本更新問題，包括處理「Another instance is currently performing an update」錯誤，以及 pnpm 套件管理的注意事項。
+description: 分享解決 Claude Code 版本更新問題，包括處理「Another instance is currently performing an update」錯誤，以及使用 npm 或 pnpm 套件管理的移除指令。
 tags:
   - Claude Code
 ---
@@ -13,7 +13,7 @@ tags:
 
 使用指令`claude --version`，發現退回了一個很早期的版本
 
-執行 `claude update` 則出現以下錯誤
+執行`claude update`則出現以下錯誤
 
 ```
 Current version: 1.0.35
@@ -31,4 +31,37 @@ Please wait and try again later
 
 我是安裝在pnpm上，完整移除再重新安裝後，就解決了
 
+```
+pnpm -g uninstall @anthropic-ai/claude-code
+```
+
+或者是安裝在全域的npm
+
+```
+npm -g uninstall @anthropic-ai/claude-code
+```
+
+不知道安裝在哪的話，執行以下指令來確認路徑
+
+```
+which claude
+```
+
 安裝時發現npm上套件的路徑有變，推測pnpm沒辦法抓到套件的最新版本，而使用了本地的快取版本
+
+---
+
+更新：後來的版本執行`claude update`指令已經會提示重複安裝的問題了，並且也會自動解決
+
+```
+Current version: 2.0.61
+Checking for updates...
+
+Warning: Multiple installations found
+- npm-global at /Users/user_name/.nvm/versions/node/v18.20.4/bin/claude
+- native at /Users/user_name/.local/bin/claude (currently running)
+
+Warning: Leftover npm global installation at /Users/user_name/.nvm/versions/node/v18.20.4/bin/claude
+Fix: Run: npm -g uninstall @anthropic-ai/claude-code
+Successfully updated from 2.0.61 to version 2.0.65
+```
