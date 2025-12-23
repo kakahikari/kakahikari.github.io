@@ -8,6 +8,7 @@ import Comment from './components/Comment.vue'
 import ModalImage from './components/ModalImage.vue'
 import Page from './components/Page.vue'
 import Pagination from './components/Pagination.vue'
+import PostCard from './components/PostCard.vue'
 import PostCategory from './components/PostCategory.vue'
 import PostDate from './components/PostDate.vue'
 import PostList from './components/PostList.vue'
@@ -26,6 +27,7 @@ export default {
     app.component('Archives', Archives)
     app.component('Page', Page)
     app.component('Pagination', Pagination)
+    app.component('PostCard', PostCard)
     app.component('PostDate', PostDate)
     app.component('PostList', PostList)
     app.component('PostCategory', PostCategory)
