@@ -26,6 +26,9 @@
     <template #doc-bottom>
       <Comment v-if="shouldShowComment" />
     </template>
+    <template #not-found>
+      <NotFound />
+    </template>
   </Layout>
   <Copyright />
 </template>
@@ -36,6 +39,7 @@ import DefaultTheme from 'vitepress/theme'
 import { computed } from 'vue'
 
 import Copyright from './Copyright.vue'
+import NotFound from './NotFound.vue'
 
 const { Layout } = DefaultTheme
 const { frontmatter } = useData()
