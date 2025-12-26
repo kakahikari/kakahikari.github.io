@@ -72,10 +72,12 @@ export default defineConfig({
     if (pageData.frontmatter.meta) {
       pageData.frontmatter.meta.forEach(item => {
         if (item.property && item.content) {
-          head.push([
-            'meta',
-            { property: item.property, content: item.content },
-          ])
+          let content = item.content
+          // Add hostname to og:image if it's a relative path
+          if (item.property === 'og:image' && content.startsWith('/')) {
+            content = `${HOSTNAME.replace(/\/$/, '')}${content}`
+          }
+          head.push(['meta', { property: item.property, content }])
         } else if (item.name && item.content) {
           head.push(['meta', { name: item.name, content: item.content }])
         }
