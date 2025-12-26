@@ -1,9 +1,7 @@
 ---
 page: true
-description: About Me
-lastUpdated: false
+title: About Me
 aside: false
-comment: false
 ---
 
 ## About Me
