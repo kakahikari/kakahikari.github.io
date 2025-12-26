@@ -69,9 +69,12 @@ export default defineConfig({
     const pageDescription =
       pageData.frontmatter.description || siteConfig.site.description
 
+    const userDefinedProperties = new Set()
+
     if (pageData.frontmatter.meta) {
       pageData.frontmatter.meta.forEach(item => {
         if (item.property && item.content) {
+          userDefinedProperties.add(item.property)
           let content = item.content
           // Add hostname to og:image if it's a relative path
           if (item.property === 'og:image' && content.startsWith('/')) {
@@ -82,42 +85,25 @@ export default defineConfig({
           head.push(['meta', { name: item.name, content: item.content }])
         }
       })
-    } else {
+    }
+
+    if (!userDefinedProperties.has('og:title')) {
+      head.push(['meta', { property: 'og:title', content: pageTitle }])
+    }
+    if (!userDefinedProperties.has('og:description')) {
       head.push([
         'meta',
-        {
-          property: 'og:title',
-          content: pageTitle,
-        },
+        { property: 'og:description', content: pageDescription },
       ])
-      head.push([
-        'meta',
-        {
-          property: 'og:description',
-          content: pageDescription,
-        },
-      ])
-      head.push([
-        'meta',
-        {
-          property: 'og:type',
-          content: 'website',
-        },
-      ])
-      head.push([
-        'meta',
-        {
-          property: 'og:url',
-          content: pageUrl,
-        },
-      ])
-      head.push([
-        'meta',
-        {
-          property: 'og:image',
-          content: defaultOGImage,
-        },
-      ])
+    }
+    if (!userDefinedProperties.has('og:type')) {
+      head.push(['meta', { property: 'og:type', content: 'website' }])
+    }
+    if (!userDefinedProperties.has('og:url')) {
+      head.push(['meta', { property: 'og:url', content: pageUrl }])
+    }
+    if (!userDefinedProperties.has('og:image')) {
+      head.push(['meta', { property: 'og:image', content: defaultOGImage }])
     }
 
     if (head.length > 0) {
