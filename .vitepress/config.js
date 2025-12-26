@@ -2,8 +2,10 @@ import { defineConfig } from 'vitepress'
 
 import { getPosts } from './theme/serverUtils'
 
+const HOSTNAME = 'https://kakahikari.me/'
+
 // 每頁的文章數量
-const pageSize = 10
+const PAGE_SIZE = 10
 
 // Google Analytics ID from environment variable
 const googleAnalyticsId = process.env.GOOGLE_ANALYTICS_ID || ''
@@ -28,7 +30,7 @@ export default defineConfig({
     },
   },
   sitemap: {
-    hostname: 'https://kakahikari.me/',
+    hostname: HOSTNAME,
   },
 
   head: [
@@ -51,10 +53,21 @@ export default defineConfig({
     ],
   ],
 
-  transformPageData(pageData) {
+  transformPageData(pageData, { siteConfig }) {
     const head = []
     // TODO: 應該作為參數
-    const defaultOGImage = 'https://kakahikari.me/logo.png'
+    const defaultOGImage = `${HOSTNAME}logo.png`
+
+    const pageUrl = `${HOSTNAME}${pageData.relativePath}`
+      .replace(/index\.md$/, '')
+      .replace(/\.md$/, '.html')
+
+    const siteTitle = siteConfig.site.title
+    const rawTitle = pageData.frontmatter.title || pageData.title
+    const pageTitle = rawTitle ? `${rawTitle} | ${siteTitle}` : siteTitle
+
+    const pageDescription =
+      pageData.frontmatter.description || siteConfig.site.description
 
     if (pageData.frontmatter.meta) {
       pageData.frontmatter.meta.forEach(item => {
@@ -71,6 +84,34 @@ export default defineConfig({
       head.push([
         'meta',
         {
+          property: 'og:title',
+          content: pageTitle,
+        },
+      ])
+      head.push([
+        'meta',
+        {
+          property: 'og:description',
+          content: pageDescription,
+        },
+      ])
+      head.push([
+        'meta',
+        {
+          property: 'og:type',
+          content: 'website',
+        },
+      ])
+      head.push([
+        'meta',
+        {
+          property: 'og:url',
+          content: pageUrl,
+        },
+      ])
+      head.push([
+        'meta',
+        {
           property: 'og:image',
           content: defaultOGImage,
         },
@@ -83,9 +124,9 @@ export default defineConfig({
   },
 
   themeConfig: {
-    posts: await getPosts(pageSize),
+    posts: await getPosts(PAGE_SIZE),
     // copyright url
-    siteUrl: 'https://kakahikari.me',
+    siteUrl: HOSTNAME,
     // copyright logo
     // footerLogo: 'logo.webp',
     // https://vitepress.dev/zh/reference/default-theme-nav
