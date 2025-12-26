@@ -8,7 +8,7 @@ tags:
 description: 台中捷運多元支付的閘門，新增了Apple Pay快速交通卡的功能，可以直接感應就可以扣款，那麼要如何設定台中捷運Apple Pay 快速交通卡呢？
 meta:
   - property: og:image
-    content: https://kakahikari.me/2025-10-27-taichung-mrt-apple-pay/cover.jpg
+    content: /2025-10-27-taichung-mrt-apple-pay/cover.jpg
 ---
 
 ## 問題敘述

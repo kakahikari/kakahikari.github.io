@@ -7,7 +7,7 @@ tags:
 description: 教你在 macOS 中分析「系統資料」異常變大的原因，透過 Finder 顯示所有資料夾大小，找出佔空間的來源。
 meta:
   - property: og:image
-    content: https://kakahikari.me/2025-11-19-macos-system-data-storage-too-large-fix/cover.jpg
+    content: /2025-11-19-macos-system-data-storage-too-large-fix/cover.jpg
 ---
 
 ## 問題敘述

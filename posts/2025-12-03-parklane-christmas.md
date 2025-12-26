@@ -5,7 +5,7 @@ category: 生活
 description: 2025勤美誠品綠園道，飄雪聖誕樹的介紹與側拍紀錄。
 meta:
   - property: og:image
-    content: https://kakahikari.me/2025-12-03-parklane-christmas/cover.jpg
+    content: /2025-12-03-parklane-christmas/cover.jpg
 ---
 
 <ModalImage

@@ -5,7 +5,7 @@ category: 生活
 description: 2025年釜山廣安里無人機M燈光秀的介紹+影片紀錄。
 meta:
   - property: og:image
-    content: https://kakahikari.me/2025-10-21-busan-gwangalli-drone-light-show/cover.jpg
+    content: /2025-10-21-busan-gwangalli-drone-light-show/cover.jpg
 ---
 
 ![Cover](/2025-10-21-busan-gwangalli-drone-light-show/cover.jpg)

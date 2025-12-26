@@ -5,7 +5,7 @@ category: 生活
 description: 2025年神戶須磨海洋世界遊記，觀賞精彩海豚表演的影片紀錄。
 meta:
   - property: og:image
-    content: https://kakahikari.me/2025-08-29-kobe-suma-seaworld/cover.jpg
+    content: /2025-08-29-kobe-suma-seaworld/cover.jpg
 ---
 
 ![Cover](/2025-08-29-kobe-suma-seaworld/cover.jpg)

@@ -11,7 +11,7 @@ description: 使用 Claude Code 開發的 2025 TRE
   輔助程式設計的實際應用。
 meta:
   - property: og:image
-    content: https://kakahikari.me/2025-08-13-tre-helper/cover.jpg
+    content: /2025-08-13-tre-helper/cover.jpg
 ---
 
 因為工作的關係，有接觸到TRE現場狀況，目前活動官方網站[JKFace](https://jkface.net/)只有提供部分攤位資訊，並沒有個攤位總覽圖。

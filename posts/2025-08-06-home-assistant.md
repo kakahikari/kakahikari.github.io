@@ -7,7 +7,7 @@ tags:
 description: 隨著科技的進步，智慧家庭這個名詞越來越常出現在我們的生活中。不少人已經開始用手機操控燈光、掃地機器人，甚至窗簾也能自動開關。但對許多剛接觸的人來說，「智慧家庭」到底是什麼？我們真的有需要嗎？今天就來聊聊什麼是智慧家庭，以及為什麼 Home Assistant 會是打造智慧家庭的一大關鍵。
 meta:
   - property: og:image
-    content: https://kakahikari.me/2025-08-06-home-assistant/cover.jpg
+    content: /2025-08-06-home-assistant/cover.jpg
 ---
 
 隨著科技的進步，智慧家庭這個名詞越來越常出現在我們的生活中。
