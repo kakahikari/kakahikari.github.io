@@ -37,10 +37,16 @@
   --pagination-hover-bg: var(--vp-c-brand-soft);
   --pagination-hover-text: var(--vp-c-brand-1);
 
+  /* category colors */
+  --category-bg: var(--vp-c-brand-soft);
+  --category-text: var(--vp-c-brand-1);
+  --category-border: var(--vp-c-brand-1);
+  --category-bg-hover: var(--vp-c-brand-1);
+  --category-text-hover: var(--vp-c-white);
+
   /* tag colors */
   --tag-bg: #e5e7eb;
   --tag-text: #374151;
-  --tag-border: #d1d5db;
   --tag-bg-hover: #d1d5db;
   --tag-text-hover: #1f2937;
   --tag-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
@@ -63,10 +69,16 @@
   --pagination-hover-bg: var(--vp-c-brand-soft);
   --pagination-hover-text: var(--vp-c-brand-1);
 
+  /* category colors - dark mode */
+  --category-bg: var(--vp-c-brand-soft);
+  --category-text: var(--vp-c-brand-1);
+  --category-border: var(--vp-c-brand-1);
+  --category-bg-hover: var(--vp-c-brand-1);
+  --category-text-hover: #000000;
+
   /* tag colors - dark mode */
   --tag-bg: #374151;
   --tag-text: #d1d5db;
-  --tag-border: #4b5563;
   --tag-bg-hover: #4b5563;
   --tag-text-hover: #f3f4f6;
   --tag-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3), 0 1px 2px 0 rgba(0, 0, 0, 0.2);

@@ -65,7 +65,8 @@ const toggleTag = (tag: string | number) => {
 }
 
 .tags :deep(.post-tag.active) {
-  border-color: var(--vp-c-brand-1);
+  background-color: var(--vp-c-brand-1);
+  color: var(--vp-c-white);
 }
 
 .tag-title {

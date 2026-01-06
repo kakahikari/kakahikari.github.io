@@ -27,17 +27,24 @@ const handleClick = (event: Event) => {
 <style scoped>
 .post-tag {
   display: inline-flex;
+  position: relative;
   align-items: center;
   margin: 0 !important;
   padding: var(--tag-padding-y) var(--tag-padding-x);
-  border: 1px solid var(--tag-border);
-  border-radius: 9999px;
+  padding-right: calc(var(--tag-padding-x) * 1.5);
   background-color: var(--tag-bg);
   color: var(--tag-text);
   font-weight: 500;
   font-size: 12px;
   line-height: 1.25;
   text-decoration: none;
+  clip-path: polygon(
+    0 0,
+    calc(100% - 10px) 0,
+    100% 50%,
+    calc(100% - 10px) 100%,
+    0 100%
+  );
   cursor: pointer;
   transition: all 0.15s ease-in-out;
 }
