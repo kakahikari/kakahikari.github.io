@@ -121,11 +121,14 @@ export default defineConfig({
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Category', link: '/pages/category' },
-      { text: 'Archives', link: '/pages/archives' },
       { text: 'Tags', link: '/pages/tags' },
+      { text: 'Archives', link: '/pages/archives' },
       { text: 'About', link: '/pages/about' },
     ],
-    socialLinks: [{ icon: 'github', link: 'https://github.com/kakahikari' }],
+    socialLinks: [
+      { icon: 'github', link: 'https://github.com/kakahikari' },
+      { icon: 'threads', link: 'https://www.threads.com/@kakahikari_tw' },
+    ],
     search: {
       provider: 'local',
     },
