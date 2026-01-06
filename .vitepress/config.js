@@ -2,7 +2,7 @@ import { defineConfig } from 'vitepress'
 
 import { getPosts } from './theme/serverUtils'
 
-const HOSTNAME = 'https://kakahikari.me/'
+const HOSTNAME = 'https://kakahikari.me'
 
 // 每頁的文章數量
 const PAGE_SIZE = 10
@@ -55,10 +55,9 @@ export default defineConfig({
 
   transformPageData(pageData, { siteConfig }) {
     const head = []
-    // TODO: 應該作為參數
-    const defaultOGImage = `${HOSTNAME}og.jpg`
+    const defaultOGImage = `${HOSTNAME}/${siteConfig.site.themeConfig.defaultOGImage}`
 
-    const pageUrl = `${HOSTNAME}${pageData.relativePath}`
+    const pageUrl = `${HOSTNAME}/${pageData.relativePath}`
       .replace(/index\.md$/, '')
       .replace(/\.md$/, '.html')
 
@@ -78,7 +77,7 @@ export default defineConfig({
           let content = item.content
           // Add hostname to og:image if it's a relative path
           if (item.property === 'og:image' && content.startsWith('/')) {
-            content = `${HOSTNAME.replace(/\/$/, '')}${content}`
+            content = `${HOSTNAME}${content}`
           }
           head.push(['meta', { property: item.property, content }])
         } else if (item.name && item.content) {
@@ -115,8 +114,10 @@ export default defineConfig({
     posts: await getPosts(PAGE_SIZE),
     // copyright url
     siteUrl: HOSTNAME,
-    // copyright logo
-    // footerLogo: 'logo.webp',
+    // footer logo
+    footerLogo: 'logo.png',
+    // default og image
+    defaultOGImage: 'og.jpg',
     // https://vitepress.dev/zh/reference/default-theme-nav
     nav: [
       { text: 'Home', link: '/' },

@@ -4,7 +4,7 @@
       Copyright © {{ currentYear }}&nbsp;
       <img
         v-if="theme.footerLogo"
-        :src="theme.footerLogo"
+        :src="`/${theme.footerLogo}`"
         alt="logo"
         class="logo"
       />
