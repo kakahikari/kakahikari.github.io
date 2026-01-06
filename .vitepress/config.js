@@ -56,7 +56,7 @@ export default defineConfig({
   transformPageData(pageData, { siteConfig }) {
     const head = []
     // TODO: 應該作為參數
-    const defaultOGImage = `${HOSTNAME}logo.png`
+    const defaultOGImage = `${HOSTNAME}og.jpg`
 
     const pageUrl = `${HOSTNAME}${pageData.relativePath}`
       .replace(/index\.md$/, '')
