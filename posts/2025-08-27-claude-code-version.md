@@ -65,3 +65,15 @@ Warning: Leftover npm global installation at /Users/user_name/.nvm/versions/node
 Fix: Run: npm -g uninstall @anthropic-ai/claude-code
 Successfully updated from 2.0.61 to version 2.0.65
 ```
+
+若是執行`claude update`也遇到
+
+```
+Current version: 2.0.76
+Checking for updates...
+Another Claude process is currently running. Please try again in a moment.
+```
+
+因為系統檢查到有進程被中斷了，所以就嘗試移除了所有鎖住的文件`rm -rf ~/.local/state/claude/locks/`
+
+再執行`claude update`就可以更新了
