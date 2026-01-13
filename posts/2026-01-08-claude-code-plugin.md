@@ -4,6 +4,7 @@ title: Claude Code Plugins 是什麼？用插件化方式統一 AI 開發流程�
 category: 技術
 tags:
   - Claude Code
+  - AI
 description: Claude Code Plugins 是一套可擴充的插件系統，能將 Slash Commands、子代理、MCP Servers、Hooks 等配置打包成插件，支援官方與自訂市集，讓個人與團隊用不到 10 秒複製完整工作流程，解決配置分散與協作標準化的痛點。
 ---
 

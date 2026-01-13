@@ -5,6 +5,7 @@ category: 除錯
 description: 分享解決 Claude Code 版本更新問題，包括處理「Another instance is currently performing an update」錯誤，以及使用 npm 或 pnpm 套件管理的移除指令。
 tags:
   - Claude Code
+  - AI
 ---
 
 ## 問題敘述
