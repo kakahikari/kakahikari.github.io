@@ -122,7 +122,12 @@
 
 .VPDoc .vp-doc ol,
 .VPDoc .vp-doc ul {
-  color: var(--vp-c-text-2);
+  color: var(--vp-c-text-1);
+}
+
+.VPDoc .vp-doc ol p:first-child,
+.VPDoc .vp-doc ul p:first-child {
+  color: var(--vp-c-text-1);
 }
 
 .custom-block.info p,
