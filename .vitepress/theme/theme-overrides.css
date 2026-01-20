@@ -130,6 +130,56 @@
   color: var(--vp-c-text-1);
 }
 
+.VPDoc .vp-doc blockquote {
+  position: relative;
+  margin: var(--block-margin) 0;
+  padding: 16px 16px;
+  border-left: 4px solid var(--vp-c-brand-1);
+  border-radius: 4px;
+  background-color: var(--tag-bg);
+}
+
+.VPDoc .vp-doc blockquote::before {
+  position: absolute;
+  top: 0px;
+  left: 8px;
+  content: '“';
+  color: var(--vp-c-brand-1);
+  font-style: italic;
+  font-size: 3rem;
+  line-height: 1;
+  font-family: var(--date-font-family);
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.VPDoc .vp-doc blockquote::after {
+  position: absolute;
+  right: 8px;
+  bottom: -20px;
+  content: '”';
+  color: var(--vp-c-brand-1);
+  font-style: italic;
+  font-size: 3rem;
+  line-height: 1;
+  font-family: var(--date-font-family);
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.VPDoc .vp-doc blockquote p,
+.VPDoc .vp-doc ol blockquote p,
+.VPDoc .vp-doc ul blockquote p,
+.VPDoc .vp-doc ol blockquote p:first-child,
+.VPDoc .vp-doc ul blockquote p:first-child {
+  z-index: 1;
+  position: relative;
+  color: var(--vp-c-text-1);
+  font-style: italic;
+  font-weight: 600;
+  font-family: var(--date-font-family);
+}
+
 .custom-block.info p,
 .custom-block.tip p,
 .custom-block.warning p,
