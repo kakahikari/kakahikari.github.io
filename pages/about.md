@@ -1,6 +1,6 @@
 ---
 page: true
-title: About Me
+title: 關於 kakahikari
 aside: false
 ---
 
@@ -8,17 +8,13 @@ aside: false
 
 `CODE_NAME: kakahikari`
 
-👉 前端工程師
+喜歡分享的前端工程師，從jQuery到Vue 3、SCSS到Tailwind CSS，一路邊走邊學，專注在實務開發與問題解決。
 
-👉 做網站的那種
+從Web App、Hybrid App到Kiosk裡的Windows App，持續探索如何把熟悉的Web技術應用到更多實際場景與產品中。
 
-找個地方紀錄工作上的筆記、生活上的分享、買過的東西
+隨著走過的路越來越長，漸漸地無法回想起過往的種種，於是決定在世界上留點什麼。
 
-不太擅長畫畫
-
-漸漸地無法回想起過往的種種
-
-於是決定在世界上留點什麼
+在這裡紀錄工作上的筆記、開發筆記、踩過的坑與生活上的點滴分享。
 
 ---
 
