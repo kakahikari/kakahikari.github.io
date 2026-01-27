@@ -112,13 +112,32 @@ NativeScript不是WebView，Web開發者習慣的 HTML標籤完全不存在。�
 <GridLayout backgroundColor="#0f172a" />
 ```
 
+### 深色模式 (Dark Mode) 繼承問題
+
+NativeScript 的 CSS 選擇器（如 `.ns-dark .some-class`）在複雜的巢狀自定義元件結構中，有時無法正確穿透或套用樣式
+
+**解決方案：**
+建立集中的顏色管理模組 (`colors.ts`)，定義語義化的顏色變數（如 `primary.light`, `primary.dark`），並透過 Computed 屬性判斷當前主題，直接利用 Props (`:color`, `:backgroundColor`) 綁定到元件上，而非完全依賴 CSS class
+
+```typescript
+// colors.ts
+export const themeColors = {
+  primary: { light: '#16a34a', dark: '#064e3b' },
+}
+
+// Component.vue
+const bg = computed(() =>
+  isDark.value ? themeColors.primary.dark : themeColors.primary.light,
+)
+```
+
 ## 本次小結
 
 雖然build出的App速度飛快
 
 一大堆跟Web不一樣的東西要記，那我怎不直接學Flutter呢 😎
 
-並且Vue相關的知識只能用在樣式裡面，待我下回繼續分享
+並且Vue相關的知識只能用在樣式裡面，待我下回繼續分享：[從 Web 到 NativeScript-Vue：開發經驗與踩坑紀錄 (2)](./2026-01-27-nativescript-vue-2.md)
 
 ---
 
