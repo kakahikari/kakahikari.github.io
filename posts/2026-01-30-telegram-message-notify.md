@@ -5,7 +5,7 @@ category: 技術
 tags:
   - Github
   - Telegram
-description: 分享我如何將 GitHub Actions 的部署結果整合進 Telegram，讓多個 side project 的狀態一眼就能掌握。
+description: 分享我如何將 GitHub Actions 的部署結果整合進 Telegram，讓多個 side project 的狀態一眼就能掌握。並分享多專案共用 workflow的做法。
 meta:
   - property: og:image
     content: /2026-01-30-telegram-message-notify/cover.jpg
@@ -74,7 +74,7 @@ api會回覆最近幾則Bot收到的訊息，格式會像是
 
 ## 在Github Action中使用appleboy/telegram-action
 
-```yaml
+```yml
 jobs:
   deploy:
   # ...
@@ -117,7 +117,26 @@ jobs:
   caption="收到通知像是這樣"
 />
 
-也可以直接參考這個部落格的[deploy檔](https://github.com/kakahikari/kakahikari.github.io/blob/main/.github/workflows/deploy.yml)
+## 多專案共用的workflow
+
+照剛剛的做法，很快的每個專案在自己的ci都有一份notify，要是我想要統一改格式不就要每個專案改了嗎 🫠
+
+這時可以開一個共用的專案，專門放共用的workflows
+
+直接參考我個人共用的[shared-workflows](https://github.com/kakahikari/shared-workflows)
+
+這樣在每個專案下只要寫使用共用workflows就行了，要記得繼承`SECRET`
+
+```yml
+notify:
+  needs: deploy
+  if: always()
+  uses: kakahikari/shared-workflows/.github/workflows/notify.yml@main
+  with:
+    deploy_result: ${{ needs.deploy.result }}
+  # 必須要繼承SECRET
+  secrets: inherit
+```
 
 ---
 
