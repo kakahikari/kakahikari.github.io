@@ -48,8 +48,56 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     needs: build
     runs-on: ubuntu-latest
-    name: Deploy
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  notify:
+    runs-on: ubuntu-latest
+    needs: deploy
+    if: always()
+    steps:
+      - name: Get commit message
+        id: commit
+        env:
+          COMMIT_MSG: ${{ github.event.head_commit.message }}
+        run: |
+          MSG=$(echo "$COMMIT_MSG" | head -n 1)
+          # Escape HTML special chars
+          MSG=$(echo "$MSG" | sed 's/&/\&amp;/g; s/</\&lt;/g; s/>/\&gt;/g')
+          echo "message=$MSG" >> $GITHUB_OUTPUT
+      - name: Notify Telegram (Success)
+        if: needs.deploy.result == 'success'
+        uses: appleboy/telegram-action@v1.0.1
+        with:
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          to: ${{ secrets.TELEGRAM_CHAT_ID }}
+          format: html
+          disable_web_page_preview: true
+          message: |
+            <b> ✅ 部署成功</b>
+
+            📦 <b>專案: </b> <code>${{ github.repository }}</code>
+            🌿 <b>分支: </b> <code>${{ github.ref_name }}</code>
+            👤 <b>觸發: </b> <code>${{ github.actor }}</code>
+            📝 ${{ steps.commit.outputs.message }}
+
+            👉 <a href="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}">詳細</a>
+      - name: Notify Telegram (Failure)
+        if: needs.deploy.result == 'failure'
+        uses: appleboy/telegram-action@v1.0.1
+        with:
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          to: ${{ secrets.TELEGRAM_CHAT_ID }}
+          format: html
+          disable_web_page_preview: true
+          message: |
+            <b> ❌ 部署失敗</b>
+
+            📦 <b>專案: </b> <code>${{ github.repository }}</code>
+            🌿 <b>分支: </b> <code>${{ github.ref_name }}</code>
+            👤 <b>觸發: </b> <code>${{ github.actor }}</code>
+            📝 ${{ steps.commit.outputs.message }}
+
+            👉 <a href="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}">詳細</a>
