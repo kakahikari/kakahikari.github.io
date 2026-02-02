@@ -7,6 +7,9 @@ const HOSTNAME = 'https://kakahikari.me'
 // 每頁的文章數量
 const PAGE_SIZE = 10
 
+// PV API URL
+const PV_API_URL = 'https://api.logicat.tw/pv/'
+
 // Google Analytics ID from environment variable
 const googleAnalyticsId = process.env.GOOGLE_ANALYTICS_ID || ''
 
@@ -114,6 +117,8 @@ export default defineConfig({
     posts: await getPosts(PAGE_SIZE),
     // copyright url
     siteUrl: HOSTNAME,
+    // PV API URL
+    pvApiUrl: PV_API_URL,
     // footer logo
     footerLogo: 'logo.png',
     // default og image

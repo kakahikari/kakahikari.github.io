@@ -6,6 +6,7 @@
       </h1>
       <div v-if="!frontmatter.page" class="post-info">
         <PostDate :date="frontmatter.date" />
+        <PostPageView />
         <PostCategory
           v-if="frontmatter.category"
           :href="

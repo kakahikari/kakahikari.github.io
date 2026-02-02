@@ -12,6 +12,7 @@ import PostCard from './components/PostCard.vue'
 import PostCategory from './components/PostCategory.vue'
 import PostDate from './components/PostDate.vue'
 import PostList from './components/PostList.vue'
+import PostPageView from './components/PostPageView.vue'
 import PostTag from './components/PostTag.vue'
 import Tags from './components/Tags.vue'
 import ThemeLayout from './components/ThemeLayout.vue'
@@ -30,6 +31,7 @@ export default {
     app.component('PostCard', PostCard)
     app.component('PostDate', PostDate)
     app.component('PostList', PostList)
+    app.component('PostPageView', PostPageView)
     app.component('PostCategory', PostCategory)
     app.component('PostTag', PostTag)
     app.component('Comment', Comment)

@@ -84,3 +84,45 @@
   align="left"
 />
 ```
+
+### PostPageView 文章瀏覽數
+
+在文章詳情頁自動顯示瀏覽數（Page View）統計
+
+**啟用方式：**
+
+1. 在 `.vitepress/config.js` 的 `themeConfig` 中設定 `pvApiUrl`：
+
+```javascript
+themeConfig: {
+  pvApiUrl: 'https://your-api-domain.com/pv/',
+  // ...其他設定
+}
+```
+
+2. 若未設定 `pvApiUrl`，此功能不會啟用，組件不會顯示也不會發送請求
+
+**重要說明：**
+- PV API 需要**自行架設**，本專案不提供 API 服務
+- 本地開發時，若 API 驗證來源失敗會顯示 `0` 而非隱藏組件
+
+**API 規格：**
+
+端點：GET /pv
+功能：取得當前頁面的瀏覽數並自動 +1
+
+請求：
+- Method: GET
+- Headers:
+  - Referer: 必填，完整 URL（含 domain + path）
+  - Origin: 選填，用於 CORS 驗證
+
+回應格式：
+{
+  "count": 42
+}
+
+**API 實作注意事項：**
+- 使用 `Referer` header 中的完整 URL 作為頁面識別
+- 每次 GET 請求應將該頁面的計數 +1
+- 回應需包含 CORS headers 以允許跨域請求
