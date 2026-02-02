@@ -125,7 +125,7 @@ jobs:
 
 直接參考我個人共用的[shared-workflows](https://github.com/kakahikari/shared-workflows)
 
-這樣在每個專案下只要寫使用共用workflows就行了，要記得繼承`SECRET`
+這樣在每個專案下只要寫使用共用workflows就行了，要記得繼承`SECRET`，若workflows來源不是同個帳號無法繼承，就用帶入的
 
 ```yml
 notify:
@@ -135,7 +135,11 @@ notify:
   with:
     deploy_result: ${{ needs.deploy.result }}
   # 必須要繼承SECRET
-  secrets: inherit
+  secrets:
+    inherit
+    # 若不是同個帳號的無法繼承 就直接帶入
+    # TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+    # TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
 ```
 
 ---
