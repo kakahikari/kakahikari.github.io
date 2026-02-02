@@ -18,11 +18,16 @@ import { onMounted, ref } from 'vue'
 
 const count = ref<number | null>(null)
 
+const emit = defineEmits<{
+  ready: []
+}>()
+
 const { theme } = useData()
 
 onMounted(async () => {
   const apiUrl = theme.value.pvApiUrl
   if (!apiUrl) {
+    emit('ready')
     return
   }
 
@@ -42,6 +47,8 @@ onMounted(async () => {
   } catch {
     count.value = 0
   }
+
+  emit('ready')
 })
 </script>
 
