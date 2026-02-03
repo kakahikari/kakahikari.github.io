@@ -16,6 +16,8 @@ aside: false
 
 在這裡紀錄工作上的筆記、開發筆記、踩過的坑與生活上的點滴分享。
 
+如果你喜歡我的分享，歡迎[請我喝杯咖啡](https://buymeacoffee.com/kakahikari) ☕
+
 ---
 
 ## 追番紀錄
