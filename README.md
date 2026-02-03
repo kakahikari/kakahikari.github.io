@@ -95,7 +95,7 @@
 
 ```javascript
 themeConfig: {
-  pvApiUrl: 'https://your-api-domain.com/pv/',
+  pvApiUrl: 'https://your-api-domain.com/pv/track',
   // ...其他設定
 }
 ```
