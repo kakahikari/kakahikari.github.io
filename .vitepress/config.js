@@ -134,6 +134,7 @@ export default defineConfig({
     socialLinks: [
       { icon: 'github', link: 'https://github.com/kakahikari' },
       { icon: 'threads', link: 'https://www.threads.com/@kakahikari_tw' },
+      { icon: 'buymeacoffee', link: 'https://buymeacoffee.com/kakahikari' },
     ],
     search: {
       provider: 'local',
