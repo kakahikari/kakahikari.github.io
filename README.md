@@ -22,15 +22,51 @@
 │       ├── index.js                       # 自定義主題入口
 │       ├── theme-overrides.css            # 主題樣式覆寫
 │       ├── serverUtils.js                 # 服務端工具（文章解析、分頁生成）
-│       └── components/                    # 各種元件
-│           └── ThemeLayout.vue            # 主題佈局元件
+│       └── components/                    # 各種組件
+│           └── ThemeLayout.vue            # 主題佈局組件
 ├── posts/                                 # 文章目錄
 ├── pages/                                 # 其他頁面
 ├── public/                                # 靜態資源
 └── package.json                           # 項目依賴配置
 ```
 
-## 元件說明
+## themeConfig 主題配置
+
+在 `.vitepress/config.js` 中設定自訂主題參數：
+
+```javascript
+// 每頁的文章數量
+const PAGE_SIZE = 10
+
+export default defineConfig({
+  themeConfig: {
+    posts: await getPosts(PAGE_SIZE),
+    siteUrl: 'https://your-domain.com',
+    pvApiUrl: 'https://your-api-domain.com/pv/track',
+    footerLogo: 'logo.png',
+    defaultOGImage: 'og.jpg',
+    // ...其他 VitePress 預設主題配置（nav, socialLinks, search 等）
+  },
+})
+```
+
+### 自訂參數
+
+| 參數 | 類型 | 必填 | 說明 |
+|------|------|------|------|
+| `posts` | `Post[]` | 是 | 文章列表，由 `getPosts(PAGE_SIZE)` 自動生成，供標籤、歸檔、分類、分頁等組件使用 |
+| `siteUrl` | `string` | 是 | 網站完整 URL，用於 Footer 版權連結 |
+| `pvApiUrl` | `string` | 否 | PV 統計 API 地址，未設定則不啟用（詳見 [PostPageView 文章瀏覽數](#postpageview-文章瀏覽數)） |
+| `footerLogo` | `string` | 否 | Footer Logo 檔名（放置於 `public/`），未設定則使用預設 Logo |
+| `defaultOGImage` | `string` | 是 | 預設 Open Graph 圖片檔名（放置於 `public/`），用於社交分享預覽 |
+
+### 建構常數
+
+| 常數 | 預設值 | 說明 |
+|------|--------|------|
+| `PAGE_SIZE` | `10` | 每頁顯示的文章數量，傳入 `getPosts()` 以自動生成分頁檔案 |
+
+## 組件說明
 
 ### YouTube 影片嵌入
 
@@ -91,15 +127,7 @@
 
 **啟用方式：**
 
-1. 在 `.vitepress/config.js` 的 `themeConfig` 中設定 `pvApiUrl`：
-
-```javascript
-themeConfig: {
-  pvApiUrl: 'https://your-api-domain.com/pv/track',
-  // ...其他設定
-}
-```
-
+1. 在 `themeConfig` 中設定 `pvApiUrl`（參見 [themeConfig 主題配置](#themeconfig-主題配置)）
 2. 若未設定 `pvApiUrl`，此功能不會啟用，組件不會顯示也不會發送請求
 
 **重要說明：**
