@@ -225,6 +225,8 @@ export function useTheme() {
 
 下一個side project，應該會想試試Tauri 2.0
 
+如果你想快速體驗NativeScript-Vue + vite開發，可以直接參考或者fork我改官方的demo [kakahikari/ns-vue-vite-demo](https://github.com/kakahikari/ns-vue-vite-demo)
+
 ---
 
 參考資料：

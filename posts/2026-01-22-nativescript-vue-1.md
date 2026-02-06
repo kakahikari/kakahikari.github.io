@@ -137,7 +137,9 @@ const bg = computed(() =>
 
 一大堆跟Web不一樣的東西要記，那我怎不直接學Flutter呢 😎
 
-並且Vue相關的知識只能用在樣式裡面，待我下回繼續分享：[從 Web 到 NativeScript-Vue：開發經驗與踩坑紀錄 (2)](./2026-01-27-nativescript-vue-2.md)
+並且Vue相關的知識也有些差異，待我下回繼續分享：[從 Web 到 NativeScript-Vue：開發經驗與踩坑紀錄 (2)](./2026-01-27-nativescript-vue-2.md)
+
+如果你想快速體驗NativeScript-Vue + vite開發，可以直接參考或者fork我改官方的demo [kakahikari/ns-vue-vite-demo](https://github.com/kakahikari/ns-vue-vite-demo)
 
 ---
 
