@@ -19,24 +19,26 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
       - uses: pnpm/action-setup@v3
-      - name: Setup Node
-        uses: actions/setup-node@v4
+
+      - uses: actions/setup-node@v4
         with:
           node-version-file: '.nvmrc'
           cache: pnpm
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
-      - name: Install dependencies
-        run: pnpm install
-      - name: Build with VitePress
-        run: pnpm build
+
+      - run: pnpm install --frozen-lockfile
+
+      - run: pnpm build
         env:
           GOOGLE_ANALYTICS_ID: ${{ secrets.GOOGLE_ANALYTICS_ID }}
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
@@ -54,9 +56,9 @@ jobs:
         uses: actions/deploy-pages@v4
 
   notify:
-    needs: deploy
+    needs: [build, deploy]
     if: always()
     uses: kakahikari/shared-workflows/.github/workflows/notify.yml@main
     with:
-      deploy_result: ${{ needs.deploy.result }}
+      deploy_result: ${{ needs.build.result == 'failure' && 'failure' || needs.deploy.result }}
     secrets: inherit
