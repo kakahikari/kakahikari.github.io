@@ -38,7 +38,9 @@ watchEffect(() => {
   document.title = title
 
   // 嘗試更新 og:title，保持與頁面標題一致
-  document.querySelector('meta[property="og:title"]')?.setAttribute('content', title)
+  document
+    .querySelector('meta[property="og:title"]')
+    ?.setAttribute('content', title)
 })
 
 const toggleTag = (tag: string | number) => {
