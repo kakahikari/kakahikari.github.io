@@ -9,15 +9,15 @@ tags:
   - MCP
 description: 不只用手機控制智慧家電，這篇帶你實際透過 Home Assistant 的 REST API 操作設備，並接入 MCP Server 讓 AI 直接控制家中的智慧裝置。從產生 Token、呼叫 API，到 Claude MCP 整合一次實作。
 meta:
-  # - property: og:image
-  #   content: /2026-03-13-home-assistant-api-mcp/cover.jpg
+  - property: og:image
+    content: /2026-03-13-home-assistant-api-mcp/cover.jpg
 ---
 
 看完了[最簡單的智慧家電 - 把飛利浦WiZ智慧燈泡串進Home Assistant吧](./2025-09-08-wiz-smart-lights.md)，你是不是已經開始把幾樣智慧家電接進 Home Assistant 了呢？
 
 除了用手機App按按鈕來控制智慧家電之外，接下來我們來試試看：透過網路指令控制智慧家電。
 
-<!-- ![Cover](/2026-03-13-home-assistant-api-mcp/cover.jpg) -->
+![Cover](/2026-03-13-home-assistant-api-mcp/cover.jpg)
 
 ## 什麼是API？怎麼使用？
 
