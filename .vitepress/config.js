@@ -14,6 +14,7 @@ const PV_API_URL = 'https://api.logicat.tw/pv/track'
 const googleAnalyticsId = process.env.GOOGLE_ANALYTICS_ID || ''
 
 export default defineConfig({
+  lang: 'zh-Hant',
   title: '光Lab.',
   base: '/',
   outDir: 'dist',
