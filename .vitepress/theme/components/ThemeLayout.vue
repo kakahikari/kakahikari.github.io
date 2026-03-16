@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <template #doc-before>
-      <h1 :class="{ 'post-title': !frontmatter.page }">
+      <h1 v-if="frontmatter.title" :class="{ 'post-title': !frontmatter.page }">
         {{ frontmatter.title }}
       </h1>
       <div

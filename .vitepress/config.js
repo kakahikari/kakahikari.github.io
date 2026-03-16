@@ -19,7 +19,7 @@ export default defineConfig({
   outDir: 'dist',
   cacheDir: './node_modules/vitepress_cache',
   description:
-    '我是 kakahikari，一名前端工程師，專注 Web 與 App 的實戰開發與跨平台應用。光Lab. 紀錄工作上的筆記、開發筆記、踩過的坑與生活上的點滴分享。',
+    '我是kakahikari，一名前端工程師，專注 Web 與 App 的實戰開發與跨平台應用。 光Lab. 用來紀錄工作上的筆記、開發筆記、踩過的坑與生活上的點滴分享。',
   // https://vitepress.dev/zh/reference/default-theme-config#lastupdated
   lastUpdated: true,
   ignoreDeadLinks: true,
