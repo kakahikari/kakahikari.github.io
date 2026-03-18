@@ -4,9 +4,9 @@
     :key="yearIndex"
     class="archives-group"
   >
-    <div class="archives-title">
+    <h2 class="archives-title">
       {{ yearList[0].frontMatter.date.split('-')[0] }}
-    </div>
+    </h2>
     <PostList :posts="yearList" date-format="short" />
   </div>
 </template>
@@ -27,9 +27,8 @@ const data = computed<Post[][]>(() => useYearSort(theme.value.posts))
   margin-bottom: var(--block-margin);
 }
 .archives-title {
-  margin: 1rem 0 0.5rem;
-  font-weight: 800;
-  font-size: 1.5rem;
+  margin: 1rem 0 0.5rem !important;
+  font-weight: 800 !important;
   font-family: var(--date-font-family);
 }
 </style>
