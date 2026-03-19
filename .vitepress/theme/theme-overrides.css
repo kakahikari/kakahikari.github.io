@@ -227,6 +227,18 @@
   font-size: 1.25rem !important;
 }
 
+.VPDocFooter .edit-info {
+  justify-content: center !important;
+}
+.VPLastUpdated {
+  text-align: center;
+}
+
+/* 隱藏首頁/分頁的空白 footer */
+.index-pages .VPDocFooter {
+  display: none;
+}
+
 /* TODO: aside 待重新檢視 */
 /* for aside start */
 .aside {
@@ -290,6 +302,7 @@
 }
 
 /* for aside end */
+
 /* theme reset end */
 
 /*tags and archives page style*/

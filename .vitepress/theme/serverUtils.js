@@ -34,6 +34,7 @@ async function generatePaginationPages(total, pageSize) {
 ---
 page: true
 aside: false
+pageClass: index-pages
 ---
 <script setup>
 import Page from "./.vitepress/theme/components/Page.vue";
