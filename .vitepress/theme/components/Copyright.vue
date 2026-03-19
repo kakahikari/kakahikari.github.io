@@ -1,5 +1,5 @@
 <template>
-  <div class="site-footer">
+  <footer class="site-footer">
     <div>
       Copyright © {{ currentYear }}&nbsp;
       <img
@@ -17,7 +17,7 @@
         VitePress - {{ vitepressVersion }}
       </a>
     </div>
-  </div>
+  </footer>
 </template>
 
 <script lang="ts" setup>
