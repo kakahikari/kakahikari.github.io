@@ -104,7 +104,11 @@ done
 echo "✓ .claude/$SKILLS_DIR/ symlinks created"
 ```
 
-目前使用下來，其他AGENT也都能吃到`.claude/skills`所以還沒什麼問題
+:::info
+此腳本是給有bash環境用的，需要依照自己的環境修改成node版或windows版
+:::
+
+目前使用下來，其他AGENT也都能吃到`.claude/skills`，只有Codex不行，有用的話就補個`codex/skills`目錄吧
 
 ## 總結
 
