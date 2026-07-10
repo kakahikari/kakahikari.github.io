@@ -100,6 +100,23 @@ export default defineConfig({
 
     const isPost = pageData.relativePath.startsWith('posts/')
 
+    // 文章頁注入上一篇/下一篇連結（posts 依日期新到舊排序，上一篇為較新文章）
+    if (isPost) {
+      const posts = siteConfig.site.themeConfig.posts
+      const currentPath = `/${pageData.relativePath.replace(/\.md$/, '.html')}`
+      const index = posts.findIndex(post => post.regularPath === currentPath)
+      if (index !== -1) {
+        const newer = posts[index - 1]
+        const older = posts[index + 1]
+        pageData.frontmatter.prev = newer
+          ? { text: newer.frontMatter.title, link: newer.regularPath }
+          : false
+        pageData.frontmatter.next = older
+          ? { text: older.frontMatter.title, link: older.regularPath }
+          : false
+      }
+    }
+
     head.push(['link', { rel: 'canonical', href: pageUrl }])
 
     const userDefinedProperties = new Set()
@@ -269,6 +286,11 @@ export default defineConfig({
     ],
     search: {
       provider: 'local',
+    },
+    // 文章頁底部的上一篇/下一篇文字
+    docFooter: {
+      prev: '上一篇',
+      next: '下一篇',
     },
     // https://vitepress.dev/zh/reference/default-theme-config#outline
     outline: [1, 3],
