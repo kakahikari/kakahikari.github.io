@@ -1,2 +1,14 @@
 /* 全站共用的斷點定義（由 postcss-global-data 注入到每個樣式檔） */
 @custom-media --mobile screen and (max-width: 768px);
+
+/* VitePress 預設主題的桌面斷點（menu / outline dropdown 切換點） */
+@custom-media --desktop (min-width: 960px);
+
+/* VitePress 預設主題隱藏 local nav、預期 aside 接手的斷點 */
+@custom-media --wide (min-width: 1280px);
+
+/* aside 為 fixed 定位（--aside-width: 256px、--aside-gap: 24px，見 theme-overrides.css），
+   內容 60rem 置中，需要 60rem + 2 * (256px + 24px) = 1520px 以上才不會壓到內容。
+   媒體查詢無法使用 CSS 變數，此處只能寫字面值；改 aside 尺寸時需同步更新 */
+@custom-media --with-aside (min-width: 1520px);
+@custom-media --without-aside (max-width: 1519px);

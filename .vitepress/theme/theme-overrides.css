@@ -28,6 +28,11 @@
   --tag-padding-y: 3px;
   --tag-padding-x: 8px;
 
+  /* aside（寬度對應 VPDoc.vue 寫死的 max-width: 256px；
+     修改時需同步更新 custom-media.css 的 --with-aside / --without-aside 斷點） */
+  --aside-width: 256px;
+  --aside-gap: 24px;
+
   /* pagination colors */
   --pagination-bg: var(--vp-c-bg);
   --pagination-text: var(--vp-c-text-2);
@@ -229,11 +234,11 @@
   display: none;
 }
 
-/* TODO: aside 待重新檢視 */
 /* for aside start */
 .aside {
   position: fixed !important;
-  right: 24px;
+  right: var(--aside-gap);
+  width: var(--aside-width);
 }
 .VPDoc {
   padding-top: 10px !important;
@@ -252,7 +257,7 @@
   max-width: 60rem !important;
 }
 
-@media (min-width: 960px) {
+@media (--desktop) {
   .VPDoc:not(.has-sidebar) .content {
     max-width: inherit !important;
   }
@@ -264,16 +269,44 @@
   }
 }
 
-/* when width less 1440 hide the aside */
-@media (min-width: 1280px) {
+/* aside 需要足夠寬度才不會壓到內容（斷點推導見 custom-media.css） */
+@media (--wide) {
   .VPDoc .aside {
     display: none !important;
   }
 }
 
-@media (min-width: 1440px) {
+@media (--with-aside) {
   .VPDoc .aside {
     display: block !important;
+  }
+}
+
+/* aside 延後顯示，local nav（outline dropdown）需跟著補位，
+   否則中間區段會沒有任何大綱導覽 */
+@media (--wide) and (--without-aside) {
+  .VPLocalNav:not(.empty) {
+    display: block !important;
+  }
+}
+
+/* local nav 內容對齊下方置中的內文：
+   複製 .VPDoc 的置中結構（水平 padding 32px + 60rem 容器置中），
+   dropdown items 改以按鈕所在容器為定位基準，跟著一起對齊 */
+@media (--desktop) {
+  .VPLocalNav {
+    padding-right: 32px;
+    padding-left: 32px;
+  }
+  .VPLocalNav .container {
+    margin: 0 auto;
+  }
+  .VPLocalNav .VPLocalNavOutlineDropdown {
+    position: relative;
+    padding: 12px 0 11px !important;
+  }
+  .VPLocalNavOutlineDropdown .items {
+    left: 0 !important;
   }
 }
 
