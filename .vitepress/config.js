@@ -3,6 +3,7 @@ import { writeFileSync } from 'fs'
 import { resolve } from 'path'
 import { defineConfig } from 'vitepress'
 
+import { devDependencies } from '../package.json'
 import { getPosts } from './theme/serverUtils'
 
 const HOSTNAME = 'https://kakahikari.me'
@@ -240,6 +241,8 @@ export default defineConfig({
     },
     // footer logo
     footerLogo: 'logo.png',
+    // footer 顯示的 VitePress 版本（build 時解析，避免 client bundle 打包整份 package.json）
+    vitepressVersion: devDependencies.vitepress.replace('^', ''),
     // default og image
     defaultOGImage: 'og.jpg',
     // https://vitepress.dev/zh/reference/default-theme-nav

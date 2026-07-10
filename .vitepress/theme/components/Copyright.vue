@@ -23,10 +23,8 @@
 <script lang="ts" setup>
 import { useData } from 'vitepress'
 
-import packageJson from '../../../package.json'
-
 const { site, theme } = useData()
-const vitepressVersion = packageJson.devDependencies.vitepress.replace('^', '')
+const vitepressVersion = theme.value.vitepressVersion
 const currentYear = new Date().getFullYear()
 </script>
 
