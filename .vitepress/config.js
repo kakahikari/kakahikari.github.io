@@ -174,6 +174,10 @@ export default defineConfig({
           headline: rawTitle,
           description: pageDescription,
           datePublished: pageData.frontmatter.date,
+          // git 最後提交時間（與 sitemap lastmod 同源），無提交紀錄時省略
+          dateModified: pageData.lastUpdated
+            ? new Date(pageData.lastUpdated).toISOString()
+            : undefined,
           url: pageUrl,
           image: ogImage,
           author: {
