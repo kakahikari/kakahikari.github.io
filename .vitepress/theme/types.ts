@@ -5,6 +5,7 @@ export type Post = {
     category: string
     tags: string[]
     description: string
+    author?: string
     meta?: Array<{
       property: string
       content: string

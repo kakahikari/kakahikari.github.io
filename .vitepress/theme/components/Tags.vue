@@ -18,29 +18,23 @@
 
 <script lang="ts" setup>
 import { useData } from 'vitepress'
-import { computed, ref, watchEffect } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 
-import { initTags } from '../functions'
+import { getUrlParam, initTags, useDynamicTitle } from '../functions'
 import type { Post } from '../types'
 
-const url = location.href.split('?')[1]
-const params = new URLSearchParams(url)
 const { theme, site } = useData()
 const data = computed<Record<string, Post[]>>(() => initTags(theme.value.posts))
-const selectTag = ref(params.get('tag') || '')
+const selectTag = ref('')
 
-// 動態更新頁面 title 與 meta 標籤
-watchEffect(() => {
-  const title = selectTag.value
+useDynamicTitle(() =>
+  selectTag.value
     ? `${selectTag.value} | ${site.value.title}`
-    : `Tags | ${site.value.title}`
+    : `Tags | ${site.value.title}`,
+)
 
-  document.title = title
-
-  // 嘗試更新 og:title，保持與頁面標題一致
-  document
-    .querySelector('meta[property="og:title"]')
-    ?.setAttribute('content', title)
+onMounted(() => {
+  selectTag.value = getUrlParam('tag')
 })
 
 const toggleTag = (tag: string | number) => {

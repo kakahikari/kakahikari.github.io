@@ -7,6 +7,4 @@ aside: false
 comment: false
 ---
 
-<ClientOnly>
 <Tags/>
-</ClientOnly>

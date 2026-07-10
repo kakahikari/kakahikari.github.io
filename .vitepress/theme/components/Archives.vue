@@ -15,11 +15,11 @@
 import { useData } from 'vitepress'
 import { computed } from 'vue'
 
-import { useYearSort } from '../functions'
+import { groupPostsByYear } from '../functions'
 import type { Post } from '../types'
 
 const { theme } = useData()
-const data = computed<Post[][]>(() => useYearSort(theme.value.posts))
+const data = computed<Post[][]>(() => groupPostsByYear(theme.value.posts))
 </script>
 
 <style scoped>

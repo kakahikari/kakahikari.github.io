@@ -9,36 +9,29 @@
 
 <script lang="ts" setup>
 import { useData } from 'vitepress'
-import { computed, nextTick, onMounted, watchEffect } from 'vue'
+import { computed, nextTick, onMounted, ref } from 'vue'
 
-import { initCategory } from '../functions'
+import { getUrlParam, initCategory, useDynamicTitle } from '../functions'
 import type { Post } from '../types'
 
 const { theme, site } = useData()
 const data = computed<Record<string, Post[]>>(() =>
   initCategory(theme.value.posts),
 )
+const selectedCategory = ref('')
 
-const params = new URLSearchParams(location.href.split('?')[1])
-const selectedCategory = params.get('category') || ''
-
-// 動態更新頁面 title 與 meta 標籤
-watchEffect(() => {
-  const title = selectedCategory
-    ? `${selectedCategory} | ${site.value.title}`
-    : `Category | ${site.value.title}`
-
-  document.title = title
-  document
-    .querySelector('meta[property="og:title"]')
-    ?.setAttribute('content', title)
-})
+useDynamicTitle(() =>
+  selectedCategory.value
+    ? `${selectedCategory.value} | ${site.value.title}`
+    : `Category | ${site.value.title}`,
+)
 
 // 滾動到指定分類段落 等待 DOM 渲染完成
 onMounted(async () => {
-  if (selectedCategory) {
+  selectedCategory.value = getUrlParam('category')
+  if (selectedCategory.value) {
     await nextTick()
-    const el = document.getElementById(selectedCategory)
+    const el = document.getElementById(selectedCategory.value)
     el?.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
 })

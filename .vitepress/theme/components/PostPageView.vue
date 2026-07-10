@@ -1,6 +1,6 @@
 <template>
-  <span v-if="count !== null" class="post-pv">
-    <svg class="pv-icon" viewBox="0 0 20 20" fill="currentColor">
+  <PostMetaItem v-if="count !== null" class="post-pv">
+    <svg viewBox="0 0 20 20" fill="currentColor">
       <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
       <path
         fill-rule="evenodd"
@@ -9,12 +9,14 @@
       />
     </svg>
     {{ count }}
-  </span>
+  </PostMetaItem>
 </template>
 
 <script lang="ts" setup>
 import { useData } from 'vitepress'
 import { onMounted, ref } from 'vue'
+
+import PostMetaItem from './PostMetaItem.vue'
 
 const count = ref<number | null>(null)
 
@@ -51,21 +53,3 @@ onMounted(async () => {
   emit('ready')
 })
 </script>
-
-<style scoped>
-.post-pv {
-  display: inline-flex;
-  align-items: center;
-  padding: 0;
-  gap: calc(var(--inline-gap) / 2);
-  border-radius: 4px;
-  font-weight: 500;
-  font-size: 0.75rem;
-}
-
-.pv-icon {
-  flex-shrink: 0;
-  width: 14px;
-  height: 14px;
-}
-</style>
