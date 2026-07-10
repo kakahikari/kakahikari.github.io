@@ -1,6 +1,7 @@
 ---
 page: true
 title: 關於 kakahikari
+description: 認識 kakahikari——喜歡分享的前端工程師。這裡記錄工作筆記、開發踩坑與生活點滴，也有追番與遊戲心得。
 aside: false
 ---
 
