@@ -4,6 +4,9 @@ import { getPosts } from './theme/serverUtils'
 
 const HOSTNAME = 'https://kakahikari.me'
 
+// 全站預設作者
+const AUTHOR = 'kakahikari'
+
 // 每頁的文章數量
 const PAGE_SIZE = 10
 
@@ -109,6 +112,40 @@ export default defineConfig({
       head.push(['meta', { property: 'og:image', content: defaultOGImage }])
     }
 
+    // 文章頁注入作者 meta 與 JSON-LD 結構化資料（SEO 作者訊號）
+    if (pageData.relativePath.startsWith('posts/')) {
+      const author = pageData.frontmatter.author || AUTHOR
+      head.push(['meta', { name: 'author', content: author }])
+
+      const postOGImage = pageData.frontmatter.meta?.find(
+        item => item.property === 'og:image',
+      )?.content
+      const jsonLdImage = postOGImage
+        ? postOGImage.startsWith('/')
+          ? `${HOSTNAME}${postOGImage}`
+          : postOGImage
+        : defaultOGImage
+
+      head.push([
+        'script',
+        { type: 'application/ld+json' },
+        JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'BlogPosting',
+          headline: rawTitle,
+          description: pageDescription,
+          datePublished: pageData.frontmatter.date,
+          url: pageUrl,
+          image: jsonLdImage,
+          author: {
+            '@type': 'Person',
+            name: author,
+            url: `${HOSTNAME}/pages/about.html`,
+          },
+        }),
+      ])
+    }
+
     if (head.length > 0) {
       pageData.frontmatter.head = (pageData.frontmatter.head || []).concat(head)
     }
@@ -116,6 +153,8 @@ export default defineConfig({
 
   themeConfig: {
     posts: await getPosts(PAGE_SIZE),
+    // 全站預設作者
+    author: AUTHOR,
     // copyright url
     siteUrl: HOSTNAME,
     // PV API URL

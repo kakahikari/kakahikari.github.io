@@ -9,6 +9,7 @@
         class="post-info"
         :class="{ 'post-info-hidden': !postInfoReady }"
       >
+        <PostAuthor v-if="postAuthor" :name="postAuthor" />
         <PostDate :date="frontmatter.date" />
         <PostPageView @ready="postInfoReady = true" />
         <PostCategory
@@ -47,9 +48,13 @@ import Copyright from './Copyright.vue'
 import NotFound from './NotFound.vue'
 
 const { Layout } = DefaultTheme
-const { frontmatter } = useData()
+const { frontmatter, theme } = useData()
 const postInfoReady = ref(false)
 const route = useRoute()
+
+const postAuthor = computed(
+  () => frontmatter.value.author || theme.value.author,
+)
 
 // 路由切換時重置 避免顯示舊的 PV 數字
 watch(
