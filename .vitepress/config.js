@@ -1,3 +1,6 @@
+import { Feed } from 'feed'
+import { writeFileSync } from 'fs'
+import { resolve } from 'path'
 import { defineConfig } from 'vitepress'
 
 import { getPosts } from './theme/serverUtils'
@@ -41,6 +44,16 @@ export default defineConfig({
   },
 
   head: [
+    // RSS 自動探索
+    [
+      'link',
+      {
+        rel: 'alternate',
+        type: 'application/rss+xml',
+        title: '光Lab.',
+        href: `${HOSTNAME}/feed.xml`,
+      },
+    ],
     [
       'script',
       {
@@ -175,6 +188,35 @@ export default defineConfig({
     if (head.length > 0) {
       pageData.frontmatter.head = (pageData.frontmatter.head || []).concat(head)
     }
+  },
+
+  // 產生 RSS feed（feed.xml）
+  buildEnd(siteConfig) {
+    const { title, description, themeConfig } = siteConfig.site
+    const feed = new Feed({
+      title,
+      description,
+      id: `${HOSTNAME}/`,
+      link: `${HOSTNAME}/`,
+      language: 'zh-Hant',
+      image: `${HOSTNAME}/${themeConfig.defaultOGImage}`,
+      favicon: `${HOSTNAME}/favicon.ico`,
+      copyright: `Copyright © ${new Date().getFullYear()} ${AUTHOR}`,
+    })
+
+    themeConfig.posts.forEach(post => {
+      const url = `${HOSTNAME}${post.regularPath}`
+      feed.addItem({
+        title: post.frontMatter.title,
+        id: url,
+        link: url,
+        description: post.frontMatter.description,
+        date: new Date(post.frontMatter.date),
+        author: [{ name: post.frontMatter.author || AUTHOR }],
+      })
+    })
+
+    writeFileSync(resolve(siteConfig.outDir, 'feed.xml'), feed.rss2())
   },
 
   themeConfig: {
