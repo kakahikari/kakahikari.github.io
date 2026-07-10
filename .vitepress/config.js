@@ -231,6 +231,13 @@ export default defineConfig({
     siteUrl: HOSTNAME,
     // PV API URL
     pvApiUrl: PV_API_URL,
+    // giscus 評論系統（基於 GitHub Discussions）
+    giscus: {
+      repo: 'kakahikari/kakahikari.github.io',
+      repoId: 'R_kgDOIfJpug',
+      category: 'Announcements',
+      categoryId: 'DIC_kwDOIfJpus4Ctk3i',
+    },
     // footer logo
     footerLogo: 'logo.png',
     // default og image

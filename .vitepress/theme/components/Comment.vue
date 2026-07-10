@@ -7,19 +7,16 @@ import { useData, useRoute } from 'vitepress'
 import giscusTalk from 'vitepress-plugin-comment-with-giscus'
 import { computed, onUnmounted, watch } from 'vue'
 
-const { frontmatter, isDark } = useData()
+const { frontmatter, isDark, theme } = useData()
 const route = useRoute()
 
 const giscusTheme = computed(() => {
   return isDark.value ? 'dark' : 'light'
 })
 
-// TODO: repo等資訊 應該要由config傳入
+// repo 等站點資訊由 themeConfig 提供，這裡只放顯示行為設定
 const giscusConfig = {
-  repo: 'kakahikari/kakahikari.github.io',
-  repoId: 'R_kgDOIfJpug',
-  category: 'Announcements',
-  categoryId: 'DIC_kwDOIfJpus4Ctk3i',
+  ...theme.value.giscus,
   mapping: 'pathname',
   lang: 'en',
   strict: '0',
