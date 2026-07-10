@@ -75,6 +75,8 @@ export default defineConfig({
     const pageDescription =
       pageData.frontmatter.description || siteConfig.site.description
 
+    const isPost = pageData.relativePath.startsWith('posts/')
+
     head.push(['link', { rel: 'canonical', href: pageUrl }])
 
     const userDefinedProperties = new Set()
@@ -105,7 +107,10 @@ export default defineConfig({
       ])
     }
     if (!userDefinedProperties.has('og:type')) {
-      head.push(['meta', { property: 'og:type', content: 'website' }])
+      head.push([
+        'meta',
+        { property: 'og:type', content: isPost ? 'article' : 'website' },
+      ])
     }
     if (!userDefinedProperties.has('og:url')) {
       head.push(['meta', { property: 'og:url', content: pageUrl }])
@@ -115,9 +120,19 @@ export default defineConfig({
     }
 
     // 文章頁注入作者 meta 與 JSON-LD 結構化資料（SEO 作者訊號）
-    if (pageData.relativePath.startsWith('posts/')) {
+    if (isPost) {
       const author = pageData.frontmatter.author || AUTHOR
       head.push(['meta', { name: 'author', content: author }])
+      head.push(['meta', { property: 'article:author', content: author }])
+      if (pageData.frontmatter.date) {
+        head.push([
+          'meta',
+          {
+            property: 'article:published_time',
+            content: new Date(pageData.frontmatter.date).toISOString(),
+          },
+        ])
+      }
 
       const postOGImage = pageData.frontmatter.meta?.find(
         item => item.property === 'og:image',
