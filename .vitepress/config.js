@@ -81,14 +81,20 @@ export default defineConfig({
 
     const userDefinedProperties = new Set()
 
+    // 頁面實際使用的 og 圖片（文章自訂優先，否則用預設圖）
+    let ogImage = defaultOGImage
+
     if (pageData.frontmatter.meta) {
       pageData.frontmatter.meta.forEach(item => {
         if (item.property && item.content) {
           userDefinedProperties.add(item.property)
           let content = item.content
           // Add hostname to og:image if it's a relative path
-          if (item.property === 'og:image' && content.startsWith('/')) {
-            content = `${HOSTNAME}${content}`
+          if (item.property === 'og:image') {
+            if (content.startsWith('/')) {
+              content = `${HOSTNAME}${content}`
+            }
+            ogImage = content
           }
           head.push(['meta', { property: item.property, content }])
         } else if (item.name && item.content) {
@@ -119,6 +125,18 @@ export default defineConfig({
       head.push(['meta', { property: 'og:image', content: defaultOGImage }])
     }
 
+    // Twitter Card（X、Discord、Telegram 等平台的分享預覽）
+    head.push([
+      'meta',
+      { name: 'twitter:card', content: 'summary_large_image' },
+    ])
+    head.push(['meta', { name: 'twitter:title', content: pageTitle }])
+    head.push([
+      'meta',
+      { name: 'twitter:description', content: pageDescription },
+    ])
+    head.push(['meta', { name: 'twitter:image', content: ogImage }])
+
     // 文章頁注入作者 meta 與 JSON-LD 結構化資料（SEO 作者訊號）
     if (isPost) {
       const author = pageData.frontmatter.author || AUTHOR
@@ -134,15 +152,6 @@ export default defineConfig({
         ])
       }
 
-      const postOGImage = pageData.frontmatter.meta?.find(
-        item => item.property === 'og:image',
-      )?.content
-      const jsonLdImage = postOGImage
-        ? postOGImage.startsWith('/')
-          ? `${HOSTNAME}${postOGImage}`
-          : postOGImage
-        : defaultOGImage
-
       head.push([
         'script',
         { type: 'application/ld+json' },
@@ -153,7 +162,7 @@ export default defineConfig({
           description: pageDescription,
           datePublished: pageData.frontmatter.date,
           url: pageUrl,
-          image: jsonLdImage,
+          image: ogImage,
           author: {
             '@type': 'Person',
             name: author,
