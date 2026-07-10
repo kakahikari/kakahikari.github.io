@@ -2,11 +2,11 @@
   <div class="post-content">
     <div class="post-text">
       <div class="post-header">
-        <div class="post-title">
+        <h2 class="post-title">
           <a :href="withBase(post.regularPath)">
             {{ post.frontMatter.title }}
           </a>
-        </div>
+        </h2>
       </div>
       <div v-if="getOgImage(post)" class="post-cover-mobile">
         <a :href="withBase(post.regularPath)">
@@ -88,10 +88,16 @@ const getOgImage = (post: Post): string | undefined => {
   justify-content: space-between;
 }
 
+/* 重置 heading 樣式，維持原本 div 的外觀（theme-overrides 的 .VPDoc h2 帶 !important，需同等權重覆寫） */
 .post-title {
   width: 100%;
+  margin: 0 !important;
+  padding-top: 0;
+  border-top: none;
   font-weight: 500;
-  font-size: 1.125rem;
+  font-size: 1.125rem !important;
+  line-height: inherit;
+  letter-spacing: normal;
 }
 
 .post-title a {
