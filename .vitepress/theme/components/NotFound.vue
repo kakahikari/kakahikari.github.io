@@ -26,14 +26,14 @@ import type { Post } from '../types'
 
 const { theme } = useData()
 
-// 隨機抽取文章
+// Fisher-Yates 洗牌後隨機抽取文章
 const randomPosts = computed<Post[]>(() => {
-  const posts = theme.value.posts || []
-  if (posts.length === 0) return []
-
-  // 使用 Fisher-Yates 洗牌算法隨機抽取
-  const shuffled = [...posts].sort(() => Math.random() - 0.5)
-  return shuffled.slice(0, Math.min(3, posts.length))
+  const shuffled = [...(theme.value.posts || [])]
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
+  }
+  return shuffled.slice(0, 3)
 })
 </script>
 
