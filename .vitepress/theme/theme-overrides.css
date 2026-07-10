@@ -64,16 +64,9 @@
   --post-title-color: white;
 
   /* pagination colors - dark mode */
-  --pagination-active-bg: var(--vp-c-brand-1);
   --pagination-active-text: #000000;
-  --pagination-hover-bg: var(--vp-c-brand-soft);
-  --pagination-hover-text: var(--vp-c-brand-1);
 
   /* category colors - dark mode */
-  --category-bg: var(--vp-c-brand-soft);
-  --category-text: var(--vp-c-brand-1);
-  --category-border: var(--vp-c-brand-1);
-  --category-bg-hover: var(--vp-c-brand-1);
   --category-text-hover: #000000;
 
   /* tag colors - dark mode */
@@ -187,7 +180,7 @@
   color: var(--vp-custom-block-info-text);
 }
 
-.title {
+.VPNavBar .title {
   color: var(--vp-c-text-1);
   font-weight: 600 !important;
   font-size: 1.5rem !important;
@@ -212,6 +205,8 @@
 
 .VPDoc h3 {
   margin: calc(var(--block-margin) * 2) 0 !important;
+  font-weight: 500 !important;
+  font-size: 1.25rem !important;
 }
 
 .VPDoc h1 .header-anchor,
@@ -220,11 +215,6 @@
   top: 0px !important;
   margin-right: 0px !important;
   margin-left: -0.87em !important;
-}
-
-.VPDoc h3 {
-  font-weight: 500 !important;
-  font-size: 1.25rem !important;
 }
 
 .VPDocFooter .edit-info {
