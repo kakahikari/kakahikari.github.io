@@ -83,6 +83,15 @@ export default defineConfig({
       .replace(/\.md$/, '.html')
 
     const siteTitle = siteConfig.site.title
+
+    // 分頁頁（page_2 起）注入獨立 title/description，避免所有分頁共用首頁 meta
+    const paginationMatch = pageData.relativePath.match(/^page_(\d+)\.md$/)
+    if (paginationMatch) {
+      pageData.title = `第 ${paginationMatch[1]} 頁`
+      pageData.description = `${siteTitle} 文章列表第 ${paginationMatch[1]} 頁`
+      pageData.frontmatter.description = pageData.description
+    }
+
     const rawTitle = pageData.frontmatter.title || pageData.title
     const pageTitle = rawTitle ? `${rawTitle} | ${siteTitle}` : siteTitle
 
