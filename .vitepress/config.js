@@ -286,6 +286,17 @@ export default defineConfig({
     ],
     search: {
       provider: 'local',
+      options: {
+        // 文章 h1 由 ThemeLayout 注入而不在 markdown 內文，
+        // 建索引時前置 frontmatter 標題，讓標題可被搜尋
+        _render(src, env, md) {
+          const html = md.render(src, env)
+          if (env.frontmatter?.title) {
+            return md.render(`# ${env.frontmatter.title}\n`) + html
+          }
+          return html
+        },
+      },
     },
     // 文章頁底部的上一篇/下一篇文字
     docFooter: {
