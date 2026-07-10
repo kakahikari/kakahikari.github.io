@@ -192,7 +192,7 @@ onUnmounted(() => {
   text-align: center;
 }
 
-@media (max-width: 768px) {
+@media (--mobile) {
   .modal-image-overlay {
     padding: 4px;
   }

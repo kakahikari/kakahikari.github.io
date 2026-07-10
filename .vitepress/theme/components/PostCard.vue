@@ -141,8 +141,7 @@ const getOgImage = (post: Post): string | undefined => {
   line-height: 1.5rem;
 }
 
-/* TODO: 媒體查詢無法使用變數的替代方案 */
-@media screen and (max-width: 768px) {
+@media (--mobile) {
   .post-content {
     flex-direction: column;
     gap: 0;

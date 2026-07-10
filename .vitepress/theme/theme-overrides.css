@@ -278,8 +278,7 @@
 }
 
 /* mobile */
-/* TODO: 媒體查詢無法使用變數的替代方案 */
-@media screen and (max-width: 768px) {
+@media (--mobile) {
   .VPDoc h1 {
     font-size: 1.25rem !important;
   }

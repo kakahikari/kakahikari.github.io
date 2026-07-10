@@ -73,8 +73,7 @@ const formatDate = (date: string): string => {
   white-space: nowrap;
 }
 
-/* TODO: 媒體查詢無法使用變數的替代方案 */
-@media screen and (max-width: 768px) {
+@media (--mobile) {
   .post-list {
     margin-left: calc(var(--inline-gap) / 2);
   }

@@ -75,8 +75,7 @@ const randomPosts = computed<Post[]>(() => {
   margin: calc(var(--block-margin) * 1.5) 0;
 }
 
-/* TODO: 媒體查詢無法使用變數的替代方案 */
-@media screen and (max-width: 768px) {
+@media (--mobile) {
   .post {
     margin: var(--block-margin) 0;
   }

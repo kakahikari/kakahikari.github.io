@@ -1,0 +1,2 @@
+/* 全站共用的斷點定義（由 postcss-global-data 注入到每個樣式檔） */
+@custom-media --mobile screen and (max-width: 768px);
