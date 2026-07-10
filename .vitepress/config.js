@@ -75,6 +75,8 @@ export default defineConfig({
     const pageDescription =
       pageData.frontmatter.description || siteConfig.site.description
 
+    head.push(['link', { rel: 'canonical', href: pageUrl }])
+
     const userDefinedProperties = new Set()
 
     if (pageData.frontmatter.meta) {
