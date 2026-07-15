@@ -3,6 +3,7 @@ date: 2026-05-06
 title: 多 AI Agent 共存指南：AGENTS.md、CLAUDE.md 與 Skills 配置
 category: 技術
 tags:
+  - 工作流
   - AI
   - Claude Code
   - Codex

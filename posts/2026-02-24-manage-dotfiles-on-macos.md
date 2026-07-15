@@ -3,6 +3,7 @@ date: 2026-02-24
 title: 用 Git + GNU Stow 管理 dotfiles：快速重建開發環境
 category: 技術
 tags:
+  - 工作流
   - macOS
   - Git
 description: 過去都靠 Migration Assistant 轉移 Mac 設定？是時候整理 dotfiles 了！本文教你用 Git 與 GNU Stow 管理 .zshrc、.config、.claude 等設定檔，透過 symlink 建立可版本控管、可跨裝置同步的開發環境，打造真正可重建的 Mac 開發配置。

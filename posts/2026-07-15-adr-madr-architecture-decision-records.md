@@ -3,9 +3,8 @@ date: 2026-07-15
 title: 用 MADR 記錄架構決策：半年後還記得當初為什麼這樣選
 category: 技術
 tags:
-  - 開發流程
+  - 工作流
   - AI
-  - 文件
 description: 介紹 ADR（Architecture Decision Record）與 MADR 的用途，並整合 AGENTS.md 與 AI Coding Agent，讓團隊與未來的自己都能理解當初為什麼這樣設計。
 meta:
   - property: og:image

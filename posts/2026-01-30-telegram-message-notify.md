@@ -3,6 +3,7 @@ date: 2026-01-30
 title: 把 GitHub Actions 的部署結果丟進 Telegram集中接收
 category: 技術
 tags:
+  - 工作流
   - Github
   - Telegram
 description: 分享我如何將 GitHub Actions 的部署結果整合進 Telegram，讓多個 side project 的狀態一眼就能掌握。並分享多專案共用 workflow的做法。
