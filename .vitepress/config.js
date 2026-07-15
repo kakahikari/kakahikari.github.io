@@ -177,6 +177,21 @@ export default defineConfig({
     ])
     head.push(['meta', { name: 'twitter:image', content: ogImage }])
 
+    // 首頁注入 WebSite 結構化資料，協助 Google 辨識網站名稱
+    // https://developers.google.com/search/docs/appearance/site-names
+    if (pageData.relativePath === 'index.md') {
+      head.push([
+        'script',
+        { type: 'application/ld+json' },
+        JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'WebSite',
+          name: siteTitle,
+          url: `${HOSTNAME}/`,
+        }),
+      ])
+    }
+
     // 文章頁注入作者 meta 與 JSON-LD 結構化資料（SEO 作者訊號）
     if (isPost) {
       const author = pageData.frontmatter.author || AUTHOR
