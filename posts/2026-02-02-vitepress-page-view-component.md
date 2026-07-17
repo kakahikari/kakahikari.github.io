@@ -76,6 +76,10 @@ GET /pv
 
 API 透過 `Referer` header 識別不同頁面，每次 GET 都會自動計數 +1
 
+::: warning 2026-07 更新
+這個「靠 Referer 識別頁面」的設計後來踩坑了：Safari 會把跨站 Referer 裁到只剩 origin，導致手機拿到錯誤的數字。詳見[2026-07 更新：Referer 的坑](#referer-pitfall)
+:::
+
 ## 實作步驟
 
 ### 1. 在 config.js 加入 API URL 設定
@@ -263,6 +267,54 @@ CSS 調整：
 - 載入體驗用 `opacity` + `transition` 處理
 
 完整內容可以看[部落格的commit](https://github.com/kakahikari/kakahikari.github.io/commit/02026546276221533ca08823cd035d1c13b83066)
+
+## 2026-07 更新：Referer 的坑 {#referer-pitfall}
+
+上線半年後發現一個奇怪的現象：**同一篇文章，手機看到的 PV 跟電腦不一樣**，而且手機上每篇文章的數字都長一樣
+
+### 原因：Safari 會把跨站 Referer 裁到只剩 origin
+
+原本的設計靠 `Referer` header 識別頁面，並用 `referrerPolicy: 'unsafe-url'` 要求瀏覽器帶完整 URL。問題是這個設定不是每個瀏覽器都買單：
+
+- 桌面 Chrome / Edge：尊重 `unsafe-url`，跨站請求送出完整網址
+- iOS Safari（以及 iOS 上所有瀏覽器，核心都是 WebKit）：基於隱私保護，跨站請求的 Referer **一律裁成只剩 origin**，`unsafe-url` 直接被忽略，網頁無法覆蓋
+- Firefox 嚴格追蹤保護模式、Brave 也有類似行為
+
+於是手機每篇文章打 API 時，後端看到的 Referer 都是 `https://kakahikari.github.io/`，全部計進根路徑的計數器——手機拿到的永遠是那個混在一起的數字
+
+### 修法：改用 query 參數，別依賴 Referer
+
+頁面資訊改由前端明確帶 `path` 參數，不再依賴 Referer：
+
+```javascript
+// 正規化路徑作為計數 key，避免 /index.html 與 /、有無 .html 被拆成不同計數
+const path = location.pathname
+  .replace(/\/index\.html$/, '/')
+  .replace(/\.html$/, '')
+
+const response = await fetch(`${apiUrl}?path=${encodeURIComponent(path)}`)
+```
+
+`referrerPolicy: 'unsafe-url'` 也一併移除，瀏覽器預設政策就會帶 origin-only 的 Referer 和 `Origin` header，足夠後端做來源驗證
+
+後端對應調整：
+
+1. 改用 query 的 `path` 作為計數 key
+2. 來源驗證改看 `Origin` header——Origin 在所有瀏覽器都不會被隱私機制裁掉，跨站 fetch 一定會帶
+3. `path` 參數要驗證與正規化（`/` 開頭、限制長度、套用和前端相同的正規化規則），畢竟任何人都能亂帶參數
+4. 舊資料要把「完整 URL」的 key 轉成新的 path 格式，才能保留歷史計數
+
+### 順帶修掉的另一個坑：SPA 切頁不會重新請求
+
+修的時候發現 `PostPageView` 放在 layout 的 slot 裡沒有 key，SPA 切頁（例如用上一篇/下一篇連結）時組件實例會被重用，`onMounted` 不會再觸發——PV 停在舊數字，`ready` 也不會重新 emit。加上 `:key` 讓它每次切頁都重新掛載：
+
+```vue
+<PostPageView :key="route.path" @ready="postInfoReady = true" />
+```
+
+### 教訓
+
+**Referer 是給後端做來源驗證用的，不要拿它攜帶業務資料**——各家瀏覽器基於隱私會裁掉多少內容你控制不了，只有 origin 部分是大家都保證會留下的。要傳頁面資訊，自己放進 query 或 body 最可靠
 
 ---
 
