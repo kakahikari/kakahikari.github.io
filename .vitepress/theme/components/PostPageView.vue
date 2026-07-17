@@ -33,12 +33,14 @@ onMounted(async () => {
     return
   }
 
+  // 正規化路徑作為計數 key
+  const path = location.pathname
+    .replace(/\/index\.html$/, '/')
+    .replace(/\.html$/, '')
+
   try {
     // eslint-disable-next-line no-undef
-    const response = await fetch(apiUrl, {
-      method: 'GET',
-      referrerPolicy: 'unsafe-url',
-    })
+    const response = await fetch(`${apiUrl}?path=${encodeURIComponent(path)}`)
 
     if (response.ok) {
       const data = await response.json()

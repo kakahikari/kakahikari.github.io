@@ -11,7 +11,7 @@
       >
         <PostAuthor v-if="postAuthor" :name="postAuthor" />
         <PostDate :date="frontmatter.date" />
-        <PostPageView @ready="postInfoReady = true" />
+        <PostPageView :key="route.path" @ready="postInfoReady = true" />
         <PostCategory
           v-if="frontmatter.category"
           :href="
