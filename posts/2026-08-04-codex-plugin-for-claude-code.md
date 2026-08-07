@@ -150,7 +150,13 @@ codex -c model="你要的模型 id"
 /codex:rescue --model 你要的模型 id --effort high 修這個 bug
 ```
 
-至於目前有哪些模型可選，直接跑 `codex --help` 或看 Codex 官方文件最準，模型迭代很快，寫死在這篇裡很快就過時了
+至於目前有哪些模型可選，直接跑 `codex --help` 或看 Codex 官方文件最準，模型迭代很快，寫在這篇裡很快就過時了
+
+## 延伸
+
+反過來呢？Codex 能不能呼叫 Claude Code？
+
+有興趣可以看這篇網誌[使用 claude -p 在 Codex 呼叫 Claude Code](./2026-08-07-codex-call-claude-code-with-claude-p.md)
 
 ---
 
