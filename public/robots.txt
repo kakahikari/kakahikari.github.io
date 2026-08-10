@@ -1,3 +1,11 @@
 User-agent: *
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: PerplexityBot
+User-agent: Google-Extended
 Allow: /
+
+# Content Signals (https://contentsignals.org)
+Content-Signal: search=yes, ai-input=yes, ai-train=no
+
 Sitemap: https://kakahikari.me/sitemap.xml
