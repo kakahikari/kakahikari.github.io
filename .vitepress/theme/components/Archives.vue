@@ -12,14 +12,16 @@
 </template>
 
 <script lang="ts" setup>
-import { useData } from 'vitepress'
 import { computed } from 'vue'
 
 import { groupPostsByYear } from '../functions'
 import type { Post } from '../types'
 
-const { theme } = useData()
-const data = computed<Post[][]>(() => groupPostsByYear(theme.value.posts))
+const props = defineProps<{
+  posts: Post[]
+}>()
+
+const data = computed<Post[][]>(() => groupPostsByYear(props.posts))
 </script>
 
 <style scoped>

@@ -4,7 +4,7 @@ import { resolve } from 'path'
 import { defineConfig } from 'vitepress'
 
 import { devDependencies } from '../package.json'
-import { getPosts } from './theme/serverUtils'
+import { generatePaginationPages, getPosts } from './theme/serverUtils'
 
 const HOSTNAME = 'https://kakahikari.me'
 
@@ -19,6 +19,10 @@ const PV_API_URL = 'https://api.logicat.tw/pv/track'
 
 // Google Analytics ID from environment variable
 const googleAnalyticsId = process.env.GOOGLE_ANALYTICS_ID || ''
+
+// 建置期用途(分頁生成、上/下篇、RSS) 勿放進 themeConfig
+const posts = await getPosts()
+await generatePaginationPages(posts.length, PAGE_SIZE)
 
 export default defineConfig({
   lang: 'zh-Hant',
@@ -102,7 +106,6 @@ export default defineConfig({
 
     // 文章頁注入上一篇/下一篇連結（posts 依日期新到舊排序，上一篇為較新文章）
     if (isPost) {
-      const posts = siteConfig.site.themeConfig.posts
       const currentPath = `/${pageData.relativePath.replace(/\.md$/, '.html')}`
       const index = posts.findIndex(post => post.regularPath === currentPath)
       if (index !== -1) {
@@ -250,7 +253,7 @@ export default defineConfig({
       copyright: `Copyright © ${new Date().getFullYear()} ${AUTHOR}`,
     })
 
-    themeConfig.posts.forEach(post => {
+    posts.forEach(post => {
       const url = `${HOSTNAME}${post.regularPath}`
       feed.addItem({
         title: post.frontMatter.title,
@@ -266,7 +269,6 @@ export default defineConfig({
   },
 
   themeConfig: {
-    posts: await getPosts(PAGE_SIZE),
     // 全站預設作者
     author: AUTHOR,
     // copyright url

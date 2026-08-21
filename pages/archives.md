@@ -7,4 +7,8 @@ aside: false
 comment: false
 ---
 
-<Archives/>
+<script setup>
+import { data as posts } from '../.vitepress/theme/posts.data'
+</script>
+
+<Archives :posts="posts" />

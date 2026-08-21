@@ -23,8 +23,12 @@ import { computed, onMounted, ref } from 'vue'
 import { getUrlParam, initTags, useDynamicTitle } from '../functions'
 import type { Post } from '../types'
 
-const { theme, site } = useData()
-const data = computed<Record<string, Post[]>>(() => initTags(theme.value.posts))
+const props = defineProps<{
+  posts: Post[]
+}>()
+
+const { site } = useData()
+const data = computed<Record<string, Post[]>>(() => initTags(props.posts))
 const selectTag = ref('')
 
 useDynamicTitle(() =>

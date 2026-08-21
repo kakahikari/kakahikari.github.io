@@ -7,4 +7,8 @@ aside: false
 comment: false
 ---
 
-<Category/>
+<script setup>
+import { data as posts } from '../.vitepress/theme/posts.data'
+</script>
+
+<Category :posts="posts" />

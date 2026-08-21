@@ -7,4 +7,8 @@ aside: false
 comment: false
 ---
 
-<Tags/>
+<script setup>
+import { data as posts } from '../.vitepress/theme/posts.data'
+</script>
+
+<Tags :posts="posts" />

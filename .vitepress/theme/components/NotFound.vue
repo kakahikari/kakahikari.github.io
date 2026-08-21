@@ -19,21 +19,23 @@
 </template>
 
 <script lang="ts" setup>
-import { useData } from 'vitepress'
-import { computed } from 'vue'
+import { onMounted, ref } from 'vue'
 
 import type { Post } from '../types'
 
-const { theme } = useData()
+const randomPosts = ref<Post[]>([])
 
-// Fisher-Yates 洗牌後隨機抽取文章
-const randomPosts = computed<Post[]>(() => {
-  const shuffled = [...(theme.value.posts || [])]
+// 本組件被全站 Layout 靜態引用，此處必須維持動態 import
+onMounted(async () => {
+  const { data: posts } = await import('../posts.data')
+
+  // Fisher-Yates 洗牌後隨機抽取文章
+  const shuffled = [...posts]
   for (let i = shuffled.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1))
     ;[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
   }
-  return shuffled.slice(0, 3)
+  randomPosts.value = shuffled.slice(0, 3)
 })
 </script>
 

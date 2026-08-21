@@ -98,6 +98,7 @@ export default tseslint.config(
             'typescript-eslint',
             '^@theme/',
             '../functions',
+            '../posts.data',
             // 僅以 exports 欄位宣告入口，預設 resolver 無法解析
             '@csstools/postcss-global-data',
             'postcss-custom-media',
