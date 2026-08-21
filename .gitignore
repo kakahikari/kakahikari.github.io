@@ -20,3 +20,8 @@ pnpm-debug.log*
 # vitepress build output & temp files
 dist/
 /*.md
+
+.vitepress/cache/
+
+# 建置期產生的 WebP 衍生圖（由 imageOptimizer.js 生成）
+public/**/*.opt.webp

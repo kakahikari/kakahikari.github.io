@@ -12,4 +12,12 @@ export type Post = {
     }>
   }
   regularPath: string
+  cover: Cover | null
+}
+
+export type Cover = {
+  src: string
+  width: number | null
+  height: number | null
+  variants: Array<{ width: number; url: string }>
 }

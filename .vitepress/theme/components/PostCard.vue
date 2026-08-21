@@ -8,11 +8,15 @@
           </a>
         </h2>
       </div>
-      <div v-if="getOgImage(post)" class="post-cover-mobile">
+      <div v-if="cover" class="post-cover-mobile">
         <a :href="withBase(post.regularPath)">
           <img
-            :src="getOgImage(post)"
+            :src="cover.src"
+            :srcset="srcset"
+            :sizes="SIZES"
             :alt="post.frontMatter.title"
+            :width="cover.width ?? undefined"
+            :height="cover.height ?? undefined"
             loading="lazy"
           />
         </a>
@@ -39,11 +43,15 @@
       </div>
       <p class="post-describe">{{ post.frontMatter.description }}</p>
     </div>
-    <div v-if="getOgImage(post)" class="post-cover-desktop">
+    <div v-if="cover" class="post-cover-desktop">
       <a :href="withBase(post.regularPath)">
         <img
-          :src="getOgImage(post)"
+          :src="cover.src"
+          :srcset="srcset"
+          :sizes="SIZES"
           :alt="post.frontMatter.title"
+          :width="cover.width ?? undefined"
+          :height="cover.height ?? undefined"
           loading="lazy"
         />
       </a>
@@ -53,22 +61,27 @@
 
 <script lang="ts" setup>
 import { withBase } from 'vitepress'
+import { computed } from 'vue'
 
 import type { Post } from '../types'
 
-defineProps<{
+const props = defineProps<{
   post: Post
 }>()
 
-const getOgImage = (post: Post): string | undefined => {
-  if (!post.frontMatter.meta) return undefined
+// 手機為滿版扣掉內容左右 padding，桌機固定 240px
+const SIZES = '(max-width: 768px) calc(100vw - 48px), 240px'
 
-  const ogImageMeta = post.frontMatter.meta.find(
-    meta => meta.property === 'og:image',
-  )
+const cover = computed(() => props.post.cover)
 
-  return ogImageMeta?.content || undefined
-}
+// 沒有 WebP 衍生檔時留空，瀏覽器直接用 src 的原圖
+const srcset = computed(() => {
+  const variants = cover.value?.variants ?? []
+  if (!variants.length) {
+    return undefined
+  }
+  return variants.map(v => `${withBase(v.url)} ${v.width}w`).join(', ')
+})
 </script>
 
 <style scoped>

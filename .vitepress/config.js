@@ -4,6 +4,7 @@ import { resolve } from 'path'
 import { defineConfig } from 'vitepress'
 
 import { devDependencies } from '../package.json'
+import { optimizeImages } from './theme/imageOptimizer'
 import { generatePaginationPages, getPosts } from './theme/serverUtils'
 
 const HOSTNAME = 'https://kakahikari.me'
@@ -19,6 +20,9 @@ const PV_API_URL = 'https://api.logicat.tw/pv/track'
 
 // Google Analytics ID from environment variable
 const googleAnalyticsId = process.env.GOOGLE_ANALYTICS_ID || ''
+
+// 產生 WebP 衍生圖與尺寸 manifest，供內文 img 與 PostCard 的 srcset 使用
+const imageManifest = await optimizeImages()
 
 // 建置期用途(分頁生成、上/下篇、RSS) 勿放進 themeConfig
 const posts = await getPosts()
@@ -42,6 +46,41 @@ export default defineConfig({
   markdown: {
     image: {
       lazyLoading: true,
+    },
+    config(md) {
+      // ModalImage 是 Vue 組件，不經 image rule，於 parse 前改寫其 src 與尺寸
+      md.core.ruler.before('normalize', 'modal-image-webp', state => {
+        state.src = state.src.replace(/<ModalImage\b[^>]*\/>/g, tag => {
+          const src = tag.match(/\bsrc="([^"]+)"/)?.[1]
+          const entry = src && imageManifest[src]
+          if (!entry) {
+            return tag
+          }
+          const largest = entry.variants[entry.variants.length - 1]
+          return tag
+            .replace(/\bsrc="[^"]+"/, `src="${largest ? largest.url : src}"`)
+            .replace(
+              /\s*\/>$/,
+              `\n  :natural-width="${entry.width}"\n  :natural-height="${entry.height}"\n/>`,
+            )
+        })
+      })
+
+      // 內文圖改指向 WebP，並補上原圖尺寸供瀏覽器預留版位（避免 CLS）
+      const renderImage = md.renderer.rules.image
+      md.renderer.rules.image = (tokens, idx, options, env, self) => {
+        const token = tokens[idx]
+        const entry = imageManifest[token.attrGet('src')]
+        if (entry) {
+          const largest = entry.variants[entry.variants.length - 1]
+          if (largest) {
+            token.attrSet('src', largest.url)
+          }
+          token.attrSet('width', String(entry.width))
+          token.attrSet('height', String(entry.height))
+        }
+        return renderImage(tokens, idx, options, env, self)
+      }
     },
   },
   sitemap: {
@@ -282,8 +321,10 @@ export default defineConfig({
       category: 'Announcements',
       categoryId: 'DIC_kwDOIfJpus4Ctk3i',
     },
-    // footer logo
-    footerLogo: 'logo.png',
+    // footer logo（優先用 WebP 衍生檔，Copyright.vue 會自行補前導斜線）
+    footerLogo: (
+      imageManifest['/logo.png']?.variants[0]?.url ?? '/logo.png'
+    ).replace(/^\//, ''),
     // footer 顯示的 VitePress 版本（build 時解析，避免 client bundle 打包整份 package.json）
     vitepressVersion: devDependencies.vitepress.replace('^', ''),
     // default og image

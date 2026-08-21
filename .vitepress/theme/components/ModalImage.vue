@@ -2,8 +2,10 @@
   <div :class="`modal-image-container align-${align}`">
     <img
       :src="src"
-      :alt="alt"
+      :alt="caption"
       :style="inlineStyle"
+      :width="naturalWidth ?? undefined"
+      :height="naturalHeight ?? undefined"
       class="modal-image-inline"
       @click="openModal"
     />
@@ -41,6 +43,15 @@ const props = defineProps({
     default: null,
   },
   height: {
+    type: Number,
+    default: null,
+  },
+  // 原圖尺寸，只用於 img 的原生 width/height 屬性（避免 CLS），不影響顯示大小
+  naturalWidth: {
+    type: Number,
+    default: null,
+  },
+  naturalHeight: {
     type: Number,
     default: null,
   },
