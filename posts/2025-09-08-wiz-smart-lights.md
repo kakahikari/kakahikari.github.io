@@ -142,7 +142,7 @@ Home Assistant也是有房間的，但我先介紹比較容易懂的群組化：
 會跳出彈窗，選項實在太多了，搜尋`群組`。
 
 <ModalImage
-  src="/2025-09-08-wiz-smart-lights/img09.jpg"
+  src="/2025-09-08-wiz-smart-lights/img09.png"
   caption="HA群組"
 />
 
