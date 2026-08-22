@@ -25,3 +25,6 @@ dist/
 
 # 建置期產生的 WebP 衍生圖（由 imageOptimizer.js 生成）
 public/**/*.opt.webp
+
+# 文章圖片的來源在 posts/<slug>/，這裡只放建置期產生的可部署版本
+public/generated/posts/

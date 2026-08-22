@@ -21,7 +21,7 @@ const PV_API_URL = 'https://api.logicat.tw/pv/track'
 // Google Analytics ID from environment variable
 const googleAnalyticsId = process.env.GOOGLE_ANALYTICS_ID || ''
 
-// 產生 WebP 衍生圖與尺寸 manifest，供內文 img 與 PostCard 的 srcset 使用
+// 從 posts/<slug>/ 產生 WebP 與尺寸 manifest
 const imageManifest = await optimizeImages()
 
 // 建置期用途(分頁生成、上/下篇、RSS) 勿放進 themeConfig
@@ -174,6 +174,11 @@ export default defineConfig({
           // Add hostname to og:image if it's a relative path
           if (item.property === 'og:image') {
             if (content.startsWith('/')) {
+              const entry = imageManifest[content]
+              const largest = entry?.variants[entry.variants.length - 1]
+              if (largest) {
+                content = largest.url
+              }
               content = `${HOSTNAME}${content}`
             }
             ogImage = content
@@ -321,10 +326,8 @@ export default defineConfig({
       category: 'Announcements',
       categoryId: 'DIC_kwDOIfJpus4Ctk3i',
     },
-    // footer logo（優先用 WebP 衍生檔，Copyright.vue 會自行補前導斜線）
-    footerLogo: (
-      imageManifest['/logo.png']?.variants[0]?.url ?? '/logo.png'
-    ).replace(/^\//, ''),
+    // footer logo
+    footerLogo: 'logo.png',
     // footer 顯示的 VitePress 版本（build 時解析，避免 client bundle 打包整份 package.json）
     vitepressVersion: devDependencies.vitepress.replace('^', ''),
     // default og image

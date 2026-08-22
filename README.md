@@ -20,15 +20,81 @@
 │   ├── config.js                          # VitePress 主配置文件
 │   └── theme/
 │       ├── index.js                       # 自定義主題入口
+│       ├── imageOptimizer.js              # 圖片轉檔、快取與 manifest
 │       ├── theme-overrides.css            # 主題樣式覆寫
 │       ├── serverUtils.js                 # 服務端工具（文章解析、分頁生成）
 │       └── components/                    # 各種組件
 │           └── ThemeLayout.vue            # 主題佈局組件
-├── posts/                                 # 文章目錄
+├── posts/                                 # 文章與文章圖片來源
+│   ├── <slug>.md                          # 文章
+│   └── <slug>/                            # 對應文章的 JPG/PNG 原圖
 ├── pages/                                 # 其他頁面
-├── public/                                # 靜態資源
+├── public/                                # 全站靜態資源與圖片建置產物
+│   └── generated/posts/                   # 文章 WebP（建置期產生，不進版控）
 └── package.json                           # 項目依賴配置
 ```
+
+## 圖片處理
+
+### 文章圖片的放置與引用
+
+文章的 JPG/PNG 原圖放在與 Markdown 同名的目錄，讓文章與資產容易一起管理：
+
+```text
+posts/
+├── 2026-08-21-example.md
+└── 2026-08-21-example/
+    ├── cover.jpg
+    └── img01.png
+```
+
+Markdown 和 frontmatter 使用網站根目錄起算的邏輯路徑，不需要填入 `generated`：
+
+```markdown
+---
+meta:
+  - property: og:image
+    content: /2026-08-21-example/cover.jpg
+---
+
+![圖片說明](/2026-08-21-example/img01.png)
+
+<ModalImage
+  src="/2026-08-21-example/img01.png"
+  caption="圖片說明"
+/>
+```
+
+目前文章來源圖片只處理 `.jpg`、`.jpeg` 與 `.png`。其他不需轉檔的靜態資源應放在 `public/`，並直接使用公開路徑引用
+
+### 建置流程
+
+`.vitepress/theme/imageOptimizer.js` 會在 VitePress 載入設定時執行：
+
+1. 掃描 `posts/<slug>/` 的文章原圖；`public/` 不經過圖片轉換
+2. 從文章 frontmatter 的 `og:image` 判斷封面圖
+3. 使用 Sharp 以品質 78 產生 WebP；圖片不會放大：
+   - 封面圖：最大寬度 480、720、1080px
+   - 內文圖：最大寬度 1376px
+4. 文章圖片輸出至 `public/generated/posts/<slug>/`，檔名包含實際寬度與內容 hash，例如：
+
+   ```text
+   cover-1080-faae662e30d0f007.opt.webp
+   ```
+
+5. 產生 `.vitepress/cache/image-manifest.json`，供 Markdown 圖片、`ModalImage`、`PostCard`、Open Graph 與 Twitter Card 改寫成實際 WebP URL
+
+文章原始 JPG/PNG 不會複製到 `public/`，因此也不會進入 `dist/` 或部署內容。每張文章圖片都會產生至少一個 WebP 版本，不比較轉檔前後的檔案大小
+
+`public/` 視為已準備好部署的最終靜態資產，例如 `logo.png`、`og.jpg`，建置時會直接複製，不產生 WebP 或 fallback
+
+### 快取與清理
+
+- 圖片內容、品質或目標尺寸沒有改變，且衍生檔仍存在時，後續建置會沿用 manifest 快取
+- hash 檔名可避免圖片更新後仍命中瀏覽器舊快取
+- 每次建置會刪除 manifest 不再引用的文章衍生檔
+- 建置也會清除舊流程曾留在 `public/` 的文章原圖目錄與全站圖片衍生檔
+- `public/generated/posts/`、`public/**/*.opt.webp` 與 manifest 均已加入 `.gitignore`，不應手動加入版控
 
 ## themeConfig 主題配置
 

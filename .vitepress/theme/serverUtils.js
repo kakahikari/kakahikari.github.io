@@ -24,7 +24,7 @@ async function getPosts() {
   return posts
 }
 
-// imageOptimizer 產出的尺寸表；不存在時回傳空表，PostCard 會退回原圖
+// imageOptimizer 產出的尺寸表；不存在時回傳空表
 async function _loadImageManifest() {
   try {
     return JSON.parse(
@@ -45,8 +45,9 @@ function _resolveCover(frontMatter, manifest) {
   if (!entry) {
     return { src, width: null, height: null, variants: [] }
   }
+  const largest = entry.variants[entry.variants.length - 1]
   return {
-    src,
+    src: largest?.url ?? src,
     width: entry.width,
     height: entry.height,
     variants: entry.variants.map(v => ({ width: v.width, url: v.url })),

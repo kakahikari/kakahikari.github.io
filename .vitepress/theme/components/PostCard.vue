@@ -74,7 +74,7 @@ const SIZES = '(max-width: 768px) calc(100vw - 48px), 240px'
 
 const cover = computed(() => props.post.cover)
 
-// 沒有 WebP 衍生檔時留空，瀏覽器直接用 src 的原圖
+// 沒有 WebP 多尺寸資訊時留空，瀏覽器直接使用 src
 const srcset = computed(() => {
   const variants = cover.value?.variants ?? []
   if (!variants.length) {
