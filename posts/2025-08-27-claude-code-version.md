@@ -6,7 +6,12 @@ description: 分享解決 Claude Code 版本更新問題，包括處理「Anothe
 tags:
   - Claude Code
   - AI
+meta:
+  - property: og:image
+    content: /2025-08-27-claude-code-version/cover.jpg
 ---
+
+![Cover](/2025-08-27-claude-code-version/cover.jpg)
 
 ## 問題敘述
 

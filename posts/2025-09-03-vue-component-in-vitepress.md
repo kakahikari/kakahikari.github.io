@@ -6,7 +6,12 @@ description: 如何在 VitePress 的 Markdown 文章中插入 Vue 組件？以 Y
 tags:
   - Vue
   - VitePress
+meta:
+  - property: og:image
+    content: /2025-09-03-vue-component-in-vitepress/cover.jpg
 ---
+
+![Cover](/2025-09-03-vue-component-in-vitepress/cover.jpg)
 
 ## 問題敘述
 

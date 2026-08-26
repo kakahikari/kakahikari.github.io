@@ -7,7 +7,12 @@ tags:
   - Github
   - SEO
 description: 教你如何讓 GitHub Pages 被 Google 搜尋到，從 sitemap、meta 標籤到 robots.txt 的設定，搭配 Google Search Console 提高網站能見度與 SEO 成效。
+meta:
+  - property: og:image
+    content: /2025-07-30-make-github-pages-searchable/cover.jpg
 ---
+
+![Cover](/2025-07-30-make-github-pages-searchable/cover.jpg)
 
 ## 問題敘述
 

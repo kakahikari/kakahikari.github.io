@@ -7,7 +7,12 @@ tags:
   - Claude Code
   - AI
 description: MCP 是統一 AI 助理與外部工具的新協議。本文介紹三款網頁開發者必裝的 MCP server：Context7、Chrome DevTools MCP、GitHub MCP，讓你的 AI 助理能查文件、除錯、看 Git 差異，全方位升級開發體驗。
+meta:
+  - property: og:image
+    content: /2025-10-28-web-developer-most-recommended-mcp/cover.jpg
 ---
+
+![Cover](/2025-10-28-web-developer-most-recommended-mcp/cover.jpg)
 
 ## 什麼是MCP
 
