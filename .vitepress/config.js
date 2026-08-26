@@ -39,7 +39,8 @@ export default defineConfig({
   // https://vitepress.dev/zh/reference/default-theme-config#lastupdated
   lastUpdated: true,
   ignoreDeadLinks: true,
-  srcExclude: ['README.md'],
+  // repository 內部文件與本機草稿不應成為網站頁面
+  srcExclude: ['README.md', 'AGENTS.md', 'CLAUDE.md', 'docs/**', 'drafts/**'],
   vite: {
     server: { port: 5000 },
   },

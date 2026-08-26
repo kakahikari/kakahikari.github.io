@@ -101,12 +101,8 @@ meta:
 在 `.vitepress/config.js` 中設定自訂主題參數：
 
 ```javascript
-// 每頁的文章數量
-const PAGE_SIZE = 10
-
 export default defineConfig({
   themeConfig: {
-    posts: await getPosts(PAGE_SIZE),
     siteUrl: 'https://your-domain.com',
     pvApiUrl: 'https://your-api-domain.com/pv/track',
     footerLogo: 'logo.png',
@@ -120,7 +116,6 @@ export default defineConfig({
 
 | 參數 | 類型 | 必填 | 說明 |
 |------|------|------|------|
-| `posts` | `Post[]` | 是 | 文章列表，由 `getPosts(PAGE_SIZE)` 自動生成，供標籤、歸檔、分類、分頁等組件使用 |
 | `siteUrl` | `string` | 是 | 網站完整 URL，用於 Footer 版權連結 |
 | `pvApiUrl` | `string` | 否 | PV 統計 API 地址，未設定則不啟用（詳見 [PostPageView 文章瀏覽數](#postpageview-文章瀏覽數)） |
 | `footerLogo` | `string` | 否 | Footer Logo 檔名（放置於 `public/`），未設定則使用預設 Logo |
@@ -130,7 +125,7 @@ export default defineConfig({
 
 | 常數 | 預設值 | 說明 |
 |------|--------|------|
-| `PAGE_SIZE` | `10` | 每頁顯示的文章數量，傳入 `getPosts()` 以自動生成分頁檔案 |
+| `PAGE_SIZE` | `10` | 每頁顯示的文章數量，供建置期分頁生成使用 |
 
 ## 組件說明
 

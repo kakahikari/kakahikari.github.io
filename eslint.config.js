@@ -12,6 +12,7 @@ export default tseslint.config(
       '**/node_modules/**',
       '**/.vitepress/cache/**',
       '**/.vitepress/dist/**',
+      '**/.vitepress/.temp/**',
       '**/public/**',
       '**/temp/**',
       '**/*.min.js',

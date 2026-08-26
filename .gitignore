@@ -20,8 +20,15 @@ pnpm-debug.log*
 # vitepress build output & temp files
 dist/
 /*.md
+!AGENTS.md
 
 .vitepress/cache/
+.vitepress/.temp/
+
+# 本機文章草稿；只提交目錄說明與範本
+drafts/*
+!drafts/README.md
+!drafts/_template.md
 
 # 建置期產生的 WebP 衍生圖（由 imageOptimizer.js 生成）
 public/**/*.opt.webp
