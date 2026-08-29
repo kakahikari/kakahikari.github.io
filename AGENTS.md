@@ -20,6 +20,7 @@
 ## 專案不變條件
 
 - 使用 pnpm，版本以 `package.json#packageManager` 為準；不要使用 npx
+- Markdown prose 不手動依字數斷行；換行交由 `pnpm format` 與 Prettier 的 `proseWrap` 設定控制
 - 前端文章清單只透過 `.vitepress/theme/posts.data.ts` 載入，不放入 `themeConfig`
 - `.vitepress/theme/index.js` 註冊的全局元件不可靜態 import `posts.data`；`Archives`、`Tags`、`Category` 由頁面注入 `posts` prop
 - `NotFound.vue` 必須動態 `await import('../posts.data')`，避免文章資料進入全站 theme chunk。

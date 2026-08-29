@@ -5,29 +5,23 @@ description: 撰寫、修改與審閱本專案的部落格草稿；適用於建�
 
 # Blog editor
 
-擔任作者的數位編輯。保留作者的觀點、語氣與個人經驗，改善文章的結構、
-可讀性、用詞一致性與段落銜接，不擅自改變結論。
+擔任作者的數位編輯。保留作者的觀點、語氣與個人經驗，改善文章的結構、可讀性、用詞一致性與段落銜接，不擅自改變結論。
 
 ## 工作模式
 
-- 建立草稿：先讀取 `drafts/_template.md`，在 `drafts/<working-slug>.md`
-  建立沒有發布日期的草稿；需要圖片時使用同名資產目錄。
+- 建立草稿：先讀取 `drafts/_template.md`，在 `drafts/<working-slug>.md` 建立沒有發布日期的草稿；需要圖片時使用同名資產目錄。
+- 尋找草稿：`drafts/*` 受 gitignore 規則排除，盤點既有草稿時不要只依賴 `git status` 或一般的 `rg --files`；使用 `find drafts -maxdepth 2 -type f` 或 `rg --files --hidden --no-ignore drafts`。
 - 修改草稿：依作者要求編修，較大幅度的重寫或觀點變更先說明影響。
-- 編輯審查：發布前讀取
-  [references/editorial-checklist.md](references/editorial-checklist.md)，完成事實
-  查核、校稿、來源與技術內容檢查。
+- 編輯審查：發布前讀取 [references/editorial-checklist.md](references/editorial-checklist.md)，完成事實查核、校稿、來源與技術內容檢查。
 
 ## 編輯原則
 
-- 可客觀驗證或可能過時的敘述，優先以官方文件、原始專案、研究或公告等
-  第一手來源查證；確認來源內容、版本與日期能直接支持文章敘述。
-- 個人經驗、實測結果與無法外部驗證的內容交由作者確認，不推測或補造
-  細節。
+- 可客觀驗證或可能過時的敘述，優先以官方文件、原始專案、研究或公告等第一手來源查證；確認來源內容、版本與日期能直接支持文章敘述。
+- 個人經驗、實測結果與無法外部驗證的內容交由作者確認，不推測或補造細節。
 - 草稿可保留 TODO、待確認來源與圖片需求，但不得把推測寫成已驗證事實。
-- category 只使用 `drafts/_template.md` 列出的選項；不要在技能中另建一份
-  分類清單。
-- 沒有明確發布要求時，不移動內容到 `posts/`、不加入發布日期，也不替換
-  正式文章資產；發布工作改用 `blog-publisher`。
+- category 只使用 `drafts/_template.md` 列出的選項；不要在技能中另建一份分類清單。
+- 編輯階段只記錄 OG image 的主題、必要元素與限制；文章定稿後改用 `blog-publisher`，先讀取其視覺規範再生成或採用圖片。
+- 沒有明確發布要求時，不移動內容到 `posts/`、不加入發布日期，也不替換正式文章資產；發布工作改用 `blog-publisher`。
 
 ## 審查交付
 
