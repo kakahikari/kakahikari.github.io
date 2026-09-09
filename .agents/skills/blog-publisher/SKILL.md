@@ -54,3 +54,8 @@ description: 將已定稿的本專案部落格草稿正式發布；適用於確�
 ## 版本控制與部署
 
 發布完成代表正式文章與素材已放入 `posts/` 並通過驗證。commit、push 與部署是分開的外部動作，各自都需要使用者明確要求，不從「發布」自動推定授權
+
+使用者明確要求 commit 時，文章相關 commit message 固定使用：
+
+- 發布新文章：`chore: new post`
+- 修改既有文章：`chore: update post`
