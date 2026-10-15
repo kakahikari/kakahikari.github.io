@@ -18,7 +18,7 @@ description: 將已定稿的本專案部落格草稿正式發布；適用於確�
 
 只在文章定稿後製作。生成或修改圖片時：
 
-1. 讀取 [references/og-image-style.md](references/og-image-style.md)
+1. 讀取 [文章圖片共同視覺規範](../references/article-image-style.md) 與 [OG image 規格](references/og-image-style.md)，檢視同篇既有內文生成圖，讓封面與內文維持一致風格
 2. 依視覺規範先從文章主題辨識必要與禁止的 Logo、品牌名稱或指令名稱，再提煉核心物件、情緒與 prompt
 3. 使用 `imagegen` skill 生成圖片
 4. 依視覺規範驗收必要識別是否存在、正確且在縮圖中清楚；不符合的輸出不是候選圖，直接刪除並針對問題重做
