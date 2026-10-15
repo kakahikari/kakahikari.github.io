@@ -1,6 +1,6 @@
 ---
 date: 2026-10-15
-title: 讓 AI 幫忙管理智慧家庭 - 用 ha-mcp 連接 Home Assistant
+title: 讓 AI 幫忙管理智慧家庭：用 ha-mcp 連接 Home Assistant
 category: 智慧家庭
 tags:
   - Home Assistant

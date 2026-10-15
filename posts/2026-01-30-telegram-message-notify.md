@@ -28,11 +28,13 @@ meta:
 
 2. 在聊天視窗輸入`/newbot` → 輸入顯示名稱 → 輸入user name(必須是bot結尾) → 拿到`BOT_TOKEN`
 
-3. 把Bot加進你的Telegram群組
+3. 把Bot加進你的Telegram群組；如果是頻道，要把Bot設為頻道管理員
 
-4. 在群組發一則訊息，然後開新分頁輸入以下網址，帶入在步驟2.取得的`<BOT_TOKEN>`
+4. 在群組發一則提到Bot的訊息，例如`/start@你的bot名稱`（頻道則直接發一則貼文），然後開新分頁輸入以下網址，帶入在步驟2.取得的`<BOT_TOKEN>`
 
 `https://api.telegram.org/bot<BOT_TOKEN>/getUpdates`
+
+Bot預設開啟[隱私模式](https://core.telegram.org/bots/features#privacy-mode)，在群組裡只收得到指令或提到它的訊息，一般聊天內容收不到，`getUpdates`就會查不到
 
 api會回覆最近幾則Bot收到的訊息，格式會像是
 
@@ -62,7 +64,7 @@ api會回覆最近幾則Bot收到的訊息，格式會像是
 }
 ```
 
-在你要讓機器人發佈訊息的群組，找到群組的`chat.id`
+在你要讓機器人發佈訊息的群組或頻道，找到對應的`chat.id`
 
 ## 在Github專案設定Secrets
 
