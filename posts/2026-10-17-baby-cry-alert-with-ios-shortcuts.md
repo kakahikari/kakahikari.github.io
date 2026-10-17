@@ -1,5 +1,5 @@
 ---
-date: 2026-10-16
+date: 2026-10-17
 title: 用閒置的 iOS 設備 設置寶寶哭哭警報器
 category: 智慧家庭
 tags:
@@ -8,7 +8,7 @@ tags:
 description: 把閒置的 iPhone 或 iPad 放在嬰兒房，用 iOS「聲音辨識」偵測嬰兒哭聲，再透過捷徑自動化直接呼叫 Telegram Bot，把通知傳到家人群組。
 meta:
   - property: og:image
-    content: /2026-10-16-baby-cry-alert-with-ios-shortcuts/cover.jpg
+    content: /2026-10-17-baby-cry-alert-with-ios-shortcuts/cover.jpg
 ---
 
 家裡是否有嫩嬰，必須要 24h 在他旁邊，只因為擔心他哭哭？
@@ -19,7 +19,7 @@ meta:
 
 但又也不想一直盯著監視器畫面，如果靠手機通知，比較能即時發現寶寶哭了！
 
-![寶寶哭哭警報器的運作流程示意：iPad 聲音辨識到嬰兒哭聲，觸發捷徑自動化取得 URL 內容，由 Telegram Bot 發送群組通知](/2026-10-16-baby-cry-alert-with-ios-shortcuts/alert-flow.png)
+![寶寶哭哭警報器的運作流程示意：iPad 聲音辨識到嬰兒哭聲，觸發捷徑自動化取得 URL 內容，由 Telegram Bot 發送群組通知](/2026-10-17-baby-cry-alert-with-ios-shortcuts/alert-flow.png)
 
 整個流程分成三段：
 
@@ -53,11 +53,11 @@ iOS 的「聲音辨識」可以持續聆聽周遭的特定聲音，例如門鈴�
 
 1. 開啟「聲音辨識」，第一次開啟時可能要等設備下載聲音模型
 
-   ![聲音辨識設定頁，已開啟聲音辨識，下方「聲音」可選擇要辨識的聲音](/2026-10-16-baby-cry-alert-with-ios-shortcuts/settings-sound-recognition.png)
+   ![聲音辨識設定頁，已開啟聲音辨識，下方「聲音」可選擇要辨識的聲音](/2026-10-17-baby-cry-alert-with-ios-shortcuts/settings-sound-recognition.png)
 
 2. 點「聲音」，在「人物」分類開啟「嬰兒哭聲」
 
-   ![聲音清單的人物分類，嬰兒哭聲為開啟，咳嗽與大喊聲為關閉](/2026-10-16-baby-cry-alert-with-ios-shortcuts/settings-sounds-baby-crying.png)
+   ![聲音清單的人物分類，嬰兒哭聲為開啟，咳嗽與大喊聲為關閉](/2026-10-17-baby-cry-alert-with-ios-shortcuts/settings-sounds-baby-crying.png)
 
 ### 捷徑 -> 自動化
 
@@ -66,13 +66,13 @@ iOS 的「聲音辨識」可以持續聆聽周遭的特定聲音，例如門鈴�
 1. 打開「捷徑」App，切到「自動化」，新增自動化操作
 2. 觸發條件往下找到「聲音辨識」
 
-   ![捷徑新增自動化的觸發條件清單，最下方有「聲音辨識」](/2026-10-16-baby-cry-alert-with-ios-shortcuts/shortcuts-trigger-sound-recognition.png)
+   ![捷徑新增自動化的觸發條件清單，最下方有「聲音辨識」](/2026-10-17-baby-cry-alert-with-ios-shortcuts/shortcuts-trigger-sound-recognition.png)
 
 3. 「聲音」選擇「嬰兒哭聲」，並選「立即執行」，按「下一步」
 
    如果還沒在「設定」開啟聲音辨識，這裡會像下圖一樣無法選擇聲音，要先回到上一段完成設定。
 
-   ![尚未啟用聲音辨識時，捷徑的聲音辨識觸發條件提示要先到「設定」App 啟用](/2026-10-16-baby-cry-alert-with-ios-shortcuts/shortcuts-sound-recognition-disabled.png)
+   ![尚未啟用聲音辨識時，捷徑的聲音辨識觸發條件提示要先到「設定」App 啟用](/2026-10-17-baby-cry-alert-with-ios-shortcuts/shortcuts-sound-recognition-disabled.png)
 
 4. 動作選擇「取得 URL 內容」，依下面設定：
    - 網址：`https://api.telegram.org/bot<TOKEN>/sendMessage`，`<TOKEN>` 換成 BotFather 給的 Token
@@ -81,7 +81,7 @@ iOS 的「聲音辨識」可以持續聆聽周遭的特定聲音，例如門鈴�
      - `chat_id`：群組的 Chat ID
      - `text`：要發送的訊息，例如「👶 寶寶哭哭警報」
 
-   ![捷徑的「取得 URL 內容」動作，網址為 Telegram Bot API 的 sendMessage，方式 POST，JSON 內文有 chat_id 與 text 兩個欄位](/2026-10-16-baby-cry-alert-with-ios-shortcuts/shortcuts-get-contents-of-url.png)
+   ![捷徑的「取得 URL 內容」動作，網址為 Telegram Bot API 的 sendMessage，方式 POST，JSON 內文有 chat_id 與 text 兩個欄位](/2026-10-17-baby-cry-alert-with-ios-shortcuts/shortcuts-get-contents-of-url.png)
 
 [Telegram Bot API](https://core.telegram.org/bots/api#making-requests) 也接受 GET 和網址參數，不過訊息有中文和表情符號，用 JSON 內文就不用處理網址編碼，設定起來比較直覺。
 
